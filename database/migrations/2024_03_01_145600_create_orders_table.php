@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email');
             $table->string('delivery_address');
-            $table->decimal('total_amount', 5,2);
+            $table->decimal('total_amount', 5, 2)->unsigned();
             $table->timestamps();
         });
     }
