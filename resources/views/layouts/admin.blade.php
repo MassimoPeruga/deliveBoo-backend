@@ -10,7 +10,12 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('storage/' . $restaurants->image) }}">
+    <!-- Imposta l'icona in base alla presenza dell'immagine del ristorante associato all'utente loggato -->
+    @if (Auth::check() && Auth::user()->restaurant && Auth::user()->restaurant->image)
+        <link rel="icon" type="image/x-icon" href="{{ asset('storage/' . Auth::user()->restaurant->image) }}">
+    @else
+        <link rel="icon" type="image/x-icon" href="{{ asset('img/logo.jpeg') }}">
+    @endif
 
     <!-- Fontawesome 6 cdn -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'
@@ -61,9 +66,16 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
-                                    href="{{ route('restaurant.index') }}">
-                                    <img class="logo" src="{{asset('storage/' . $restaurants->image)}}" alt="{{$restaurants["name"]}}">
-                                    {{$restaurants["name"]}}
+                                    href="{{ route('admin.restaurants.index') }}">
+                                    <!-- Visualizza l'immagine del ristorante associato all'utente loggato o il logo -->
+                                    @if (Auth::check() && Auth::user()->restaurant && Auth::user()->restaurant->image)
+                                        <img class="logo"
+                                            src="{{ asset('storage/' . Auth::user()->restaurant->image) }}"
+                                            alt="{{ Auth::user()->restaurant->name }}">
+                                    @else
+                                        <img class="logo" src="{{ asset('img/logo.jpeg') }}" alt="Logo predefinito">
+                                    @endif
+                                    {{ Auth::user()->restaurant->name ?? 'Nome del Ristorante' }}
                                 </a>
                             </li>
                         </ul>
