@@ -26,8 +26,8 @@
                 <label for="availability" class="form-label" name="availability">Disponibilità:</label>
                 <select class="form-select" aria-label="Default select example">
                     <option selected value=null>Seleziona</option>
-                    <option value="0" {{ old('availability', $dish->availability) == '0' ? 'selected' : '' }}>No</option>
-                    <option value="1" {{ old('availability', $dish->availability) == '1' ? 'selected' : '' }}>Si</option>
+                    <option value="0" {{ old('availability') == '0' ? 'selected' : '' }}>No</option>
+                    <option value="1" {{ old('availability') == '1' ? 'selected' : '' }}>Si</option>
                 </select>
                 @error('image')
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
