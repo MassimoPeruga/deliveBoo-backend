@@ -29,7 +29,7 @@
                     <option value="0" {{ old('availability') == '0' ? 'selected' : '' }}>No</option>
                     <option value="1" {{ old('availability') == '1' ? 'selected' : '' }}>Si</option>
                 </select>
-                @error('image')
+                @error('availability')
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
