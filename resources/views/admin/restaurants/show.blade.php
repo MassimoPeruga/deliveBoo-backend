@@ -18,5 +18,6 @@
             @endforeach
         </ul>
         <a href="{{ route('admin.dishes.create', $restaurant->id) }}" class="btn btn-primary">Aggiungi piatto</a>
+        <a href="{{ route('admin.dashboard', $restaurant->id) }}" class="btn btn-primary">Indietro</a>
     </div>
 @endsection
