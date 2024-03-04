@@ -22,17 +22,17 @@ class StoreRestuarantRequest extends FormRequest
     public function rules(): array
     {
         return [
-           'name'=>['required','string'],
-           'address'=>['required','string'],
-           'phone'=>['required','string'],
-           'vat'=>['required','min:11','max:11','string'],
-           'description'=>['string','max:500','nullable'],
-           'image'=>['nullable','image', 'max:4096'],
-           'user_id'=>['unique:restaurant,user_id']
+            'name' => ['required', 'string'],
+            'address' => ['required', 'string'],
+            'phone' => ['required', 'string'],
+            'vat' => ['required', 'min:11', 'max:11', 'string'],
+            'description' => ['string', 'max:500', 'nullable'],
+            'image' => ['nullable', 'image', 'max:4096'],
         ];
     }
 
-    public function messages(): array {
+    public function messages(): array
+    {
         return [
             'name.required' => 'Il campo nome è obbligatorio.',
             'name.string' => 'Il campo nome non è valido',
