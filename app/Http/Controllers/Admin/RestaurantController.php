@@ -16,10 +16,10 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurant = Restaurant::all();
+        // $restaurant = Restaurant::where();
 
 
-        return view("dashboard",compact("restaurant"));
+        // return view("dashboard", compact("restaurant"));
     }
 
     /**
@@ -27,7 +27,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.restaurants.create');
     }
 
     /**
@@ -39,18 +39,23 @@ class RestaurantController extends Controller
 
         $restaurant = new Restaurant();
         $restaurant->fill($data);
-        $restaurant->image = Storage::put('uploads',$data['image']);
+        $restaurant->image = Storage::put('uploads', $data['image']);
+
         $restaurant->user_id = auth()->user()->id;
         $restaurant->save();
-         return redirect()->route("restaurant.index");
+
+        return redirect()->route('admin.restaurants.show', $restaurant);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Restaurant $restaurant)
     {
-        //
+        $userId = auth()->id();
+        $restaurant = Restaurant::where('user_id', $userId)->first();
+
+        return view('admin.restaurants.show', compact('restaurant'));
     }
 
     /**
@@ -59,7 +64,7 @@ class RestaurantController extends Controller
     public function edit(Restaurant $restaurant)
     {
         $restaurants = Restaurant::all();
-        return view('admin.restaurants.edit', compact('restaurant')); 
+        return view('admin.restaurants.edit', compact('restaurant'));
     }
 
     /**

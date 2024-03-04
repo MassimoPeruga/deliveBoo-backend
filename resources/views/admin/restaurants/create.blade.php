@@ -5,7 +5,7 @@
         <h1>
             Crea il tuo ristorante
         </h1>
-        <form action="{{ route('restaurant.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label" name="name">Nome*:</label>
@@ -56,6 +56,5 @@
             </div>
             <button>Crea il tuo ristorante</button>
         </form>
-    </div>
     </div>
 @endsection
