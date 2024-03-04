@@ -19,24 +19,21 @@ td img {
     animation: animazionebottone 5s infinite linear;
 }
 
-body {
-    //    background-image: url(https://wallpapers.com/images/hd/food-delivery-grey-poster-3tfjgxqha3o38h3t.jpg);
-    //    background-position: center;
-    //    background-size: cover;
-
-}
-
 .accordion {
     background: #000000;
     opacity: 0.9;
 }
 
 .containermain {
-    background-image: url(https://wallpapers.com/images/hd/food-delivery-grey-poster-3tfjgxqha3o38h3t.jpg);
-    background-position: center;
+    background-image: url('../../public/img/dashboard.jpg');
     background-size: cover;
     padding-bottom: 35px;
     margin-bottom: 10px;
+
+    p {
+        background-color: #00000069;
+        font-size: 1.25rem;
+    }
 }
 
 
