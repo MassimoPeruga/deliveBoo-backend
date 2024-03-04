@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Dish;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +25,7 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.dishes.create');
     }
 
     /**
@@ -32,38 +33,60 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validated();
+        $new_dish = new Dish();
+        $new_dish->fill($data);
+        $new_dish->save();
+
+        $userId = auth()->id();
+        $restaurant = Restaurant::where('user_id', $userId)
+            ->with(['dishes' => function ($query) {
+                $query->whereNull('deleted_at');
+            }])
+            ->first();
+        return redirect()->route('admin.restaurants.show', compact('restaurant'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Dish $dish)
     {
-        //
+        return view('admin.dishes.show', compact('dish'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Dish $dish)
     {
-        //
+        return view('admin.dishes.edit', compact('dish'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Dish $dish)
     {
-        //
+        $data = $request->validated();
+        $dish->update($data);
+
+        return redirect()->route('admin.dishes.show', compact('dish'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Dish $dish)
     {
-        //
+        $dish->delete();
+
+        $userId = auth()->id();
+        $restaurant = Restaurant::where('user_id', $userId)
+            ->with(['dishes' => function ($query) {
+                $query->whereNull('deleted_at');
+            }])
+            ->first();
+        return redirect()->route('admin.restaurants.show', compact('restaurant'));
     }
 }

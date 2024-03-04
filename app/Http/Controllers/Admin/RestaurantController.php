@@ -39,7 +39,9 @@ class RestaurantController extends Controller
 
         $restaurant = new Restaurant();
         $restaurant->fill($data);
-        $restaurant->image = Storage::put('uploads', $data['image']);
+        if (isset($data['image'])) {
+            $restaurant->image = Storage::put('uploads', $data['image']);
+        }
 
         $restaurant->user_id = auth()->user()->id;
         $restaurant->save();
@@ -53,7 +55,11 @@ class RestaurantController extends Controller
     public function show(Restaurant $restaurant)
     {
         $userId = auth()->id();
-        $restaurant = Restaurant::where('user_id', $userId)->with('dishes')->first();
+        $restaurant = Restaurant::where('user_id', $userId)
+            ->with(['dishes' => function ($query) {
+                $query->whereNull('deleted_at');
+            }])
+            ->first();
         // dd(compact('restaurant'));
 
         return view('admin.restaurants.show', compact('restaurant'));
