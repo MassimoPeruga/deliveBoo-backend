@@ -10,6 +10,8 @@ class Dish extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $guarded = ['restaurant_id'];
+
     public function restaurant()
     {
         return $this->belongsTo(Restaurant::class);
