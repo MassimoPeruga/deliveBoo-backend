@@ -11,7 +11,7 @@ class UpdateDishRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,25 @@ class UpdateDishRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'string'],
+            'price' => ['nullable', 'decimal:5,2'],
+            'description' => ['nullable', 'string', 'max:500'],
+            'avaibility' => ['nullable', 'boolean'],
+            'image' => ['nullable', 'string', 'max:4096'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Il campo nome è obbligatorio.',
+            'name.string' => 'Il campo nome non è valido',
+            'price.decimal' => 'Il prezzo inserito non è valido.',
+            'description.string' => 'Il campo descrizione non è valido.',
+            'description.max' => 'Il campo descrizione non può superare i :max caratteri.',
+            'avaibility.boolean' => 'Il valore del campo Disponibilità non è corretto.',
+            'image.image' => 'Il file inserito non è un immagine.',
+            'image.max' => 'Il file inserito non può superare i 4MB.',
         ];
     }
 }
