@@ -1,0 +1,64 @@
+body {
+    background-color: #e7e3df;
+}
+
+//font paragrafi
+p {
+    font-size: 1.125rem;
+}
+
+
+.logo {
+    object-fit: cover;
+    width: 3.125rem;
+
+    img {
+        width: 100%;
+        border-radius: 6.25rem;
+    }
+}
+
+//jumbotron
+.jumbotron {
+    background-image: url('../../public/img/jumbo.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    h1 {
+        color: rgba(0, 0, 0, 0.767);
+    }
+
+    p {
+        background-color: rgba(0, 0, 0, 0.356);
+        padding: .625rem;
+        color: white;
+        border-radius: .9375rem;
+    }
+
+    .jumbo {
+        object-fit: cover;
+        width: 6.25rem;
+
+        img {
+            width: 100%;
+            border-radius: 6.25rem;
+        }
+    }
+}
+
+//card pagina home
+.home-card {
+    width: calc(100% / 2 - 1.25rem);
+    background-color: white;
+    border: .125rem solid #FFA500;
+
+    p {
+        margin: 0;
+    }
+}
+
+//footer
+footer {
+    background-color: #1D1D1DFF;
+    color: $info;
+}
