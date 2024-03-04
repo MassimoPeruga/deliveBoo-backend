@@ -1,41 +1,67 @@
 @import "~bootstrap/scss/bootstrap";
-td img{
+@import "utils.scss";
+@import "reset.scss";
+@import "style.scss";
+
+td img {
     width: 30px;
- }
- .logo{
-     width: 50px;
- }
- .container-table{
-     margin-top: 30px;
- }
- 
- .btnanimation{
-     animation:animazionebottone 5s infinite linear;
- }
- body{
- //    background-image: url(https://wallpapers.com/images/hd/food-delivery-grey-poster-3tfjgxqha3o38h3t.jpg);
- //    background-position: center;
- //    background-size: cover;
-     
- }
- .accordion{
-     background: #000000;
-     opacity: 0.9;
- }
- .containermain{
-     background-image: url(https://wallpapers.com/images/hd/food-delivery-grey-poster-3tfjgxqha3o38h3t.jpg);
-     background-position: center;
-     background-size: cover;
-     padding-bottom: 35px;
-     margin-bottom: 10px;
- }
- 
- 
- 
- @keyframes animazionebottone {
-     0%{transform: rotate(0deg);}
-     20%{transform: rotate(5deg); box-shadow: 2px 2px 2px 2px black;}
-     40%{transform: rotate(0deg); box-shadow: 1px 1px 1px 1px #aaff00}
-     60%{transform: rotate(-5deg);box-shadow: 2px 2px 2px 2px black;}
-     100%{transform: rotate(0deg);}
- }
+}
+
+.logo {
+    width: 50px;
+}
+
+.container-table {
+    margin-top: 30px;
+}
+
+.btnanimation {
+    animation: animazionebottone 5s infinite linear;
+}
+
+body {
+    //    background-image: url(https://wallpapers.com/images/hd/food-delivery-grey-poster-3tfjgxqha3o38h3t.jpg);
+    //    background-position: center;
+    //    background-size: cover;
+
+}
+
+.accordion {
+    background: #000000;
+    opacity: 0.9;
+}
+
+.containermain {
+    background-image: url(https://wallpapers.com/images/hd/food-delivery-grey-poster-3tfjgxqha3o38h3t.jpg);
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 35px;
+    margin-bottom: 10px;
+}
+
+
+
+@keyframes animazionebottone {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    20% {
+        transform: rotate(5deg);
+        box-shadow: 2px 2px 2px 2px black;
+    }
+
+    40% {
+        transform: rotate(0deg);
+        box-shadow: 1px 1px 1px 1px #aaff00
+    }
+
+    60% {
+        transform: rotate(-5deg);
+        box-shadow: 2px 2px 2px 2px black;
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
