@@ -54,7 +54,7 @@
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
-            <button>Crea il tuo ristorante</button>
+            <button class="btn btn-primary">Crea il tuo ristorante</button>
         </form>
     </div>
 @endsection
