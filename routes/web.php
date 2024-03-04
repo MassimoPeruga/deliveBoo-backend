@@ -38,6 +38,7 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
         Route::resource('restaurants', RestaurantController::class);
+        Route::resource('dishes', DishController::class);
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     });
 
