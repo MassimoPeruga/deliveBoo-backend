@@ -82,7 +82,7 @@ class RestaurantController extends Controller
         $data = $request->validated();
         $restaurant->update($data);
         $restaurant->save();
-        return redirect()->route('restaurant.index');
+        return redirect()->route('admin.restaurants.show', compact('restaurant'));
     }
 
     /**
