@@ -53,7 +53,8 @@ class RestaurantController extends Controller
     public function show(Restaurant $restaurant)
     {
         $userId = auth()->id();
-        $restaurant = Restaurant::where('user_id', $userId)->first();
+        $restaurant = Restaurant::where('user_id', $userId)->with('dishes')->first();
+        // dd(compact('restaurant'));
 
         return view('admin.restaurants.show', compact('restaurant'));
     }
