@@ -22,13 +22,32 @@ class StoreRestuarantRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name"=>["required","string","max:30"],
-            "address"=>["required","string","max:30"],
-            "phone"=>["required","numeric"],
-            "vat"=>["required","max:11","string"],
-            "description"=>["required","string","max:500","nullable"],
-            "image"=>["required","image"],
-            "user_id"=>["unique:restaurant,user_id"]
+           'name'=>['required','string'],
+           'address'=>['required','string'],
+           'phone'=>['required','string'],
+           'vat'=>['required','min:11','max:11','string'],
+           'description'=>['string','max:500','nullable'],
+           'image'=>['nullable','image', 'max:4096'],
+           'user_id'=>['unique:restaurant,user_id']
+        ];
+    }
+
+    public function messages(): array {
+        return [
+            'name.required' => 'Il campo nome è obbligatorio.',
+            'name.string' => 'Il campo nome non è valido',
+            'address.required' => 'Il campo indirizzo è obbligatorio.',
+            'address.string' => 'Il campo indirizzo non è valido.',
+            'phone.required' => 'Il campo numero telefonico è obbligatorio.',
+            'phone.string' => 'Il campo numero telefonico non è valido.',
+            'vat.required' => 'Il campo P.IVA è obbligatorio.',
+            'vat.string' => 'Il campo P.IVA non è valido.',
+            'vat.min' => 'Il campo P.IVA deve essere di :min caratteri.',
+            'vat.max' => 'Il campo P.IVA deve essere di :max caratteri.',
+            'image.image' => 'Il file inserito non è un immagine.',
+            'image.max' => 'Il file inserito non può superare i 4MB.',
+            'description.string' => 'Il campo descrizione non è valido.',
+            'description.max' => 'Il campo descrizione non può superare i :max caratteri.',
         ];
     }
 }
