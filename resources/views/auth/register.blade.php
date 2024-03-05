@@ -21,9 +21,7 @@
                                         value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                     @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -38,9 +36,7 @@
                                         value="{{ old('surname') }}" required autocomplete="surname" autofocus>
 
                                     @error('surname')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -55,9 +51,7 @@
                                         value="{{ old('email') }}" required autocomplete="email">
 
                                     @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -72,9 +66,7 @@
                                         required autocomplete="new-password">
 
                                     @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -95,7 +87,7 @@
                                     Ristorante*:</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                                        name="restaurant_name" value="{{ old('name') }}">
+                                        name="restaurant_name" value="{{ old('restaurant_name') }}">
                                     @error('restaurant_name')
                                         <div class="alert alert-danger mt-3">{{ $message }}</div>
                                     @enderror

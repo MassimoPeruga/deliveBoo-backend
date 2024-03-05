@@ -46,6 +46,7 @@ class RegistrationRequest extends FormRequest
             //user
             'name.required' => 'Il campo nome è obbligatorio.',
             'name.string' => 'Il campo nome non è valido',
+            'password.confirmed' => 'Le password devono coincidere.',
             //user
 
             //ristorante
