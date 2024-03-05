@@ -49,13 +49,7 @@
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
-            <script>
-                function playSound(soundFile) {
-                    const audioElement = new Audio(`{{ asset("") }}${soundFile}`);
-                    audioElement.play();
-                }
-            </script>
-            <button class="btn-org p-2 rounded" onclick="playSound('quack_5.mp3')" class="btn btn-org">Crea il tuo piatto</button>
+            <button class="btn-org p-2 rounded" class="btn btn-org">Crea il tuo piatto</button>
         </form>
     </div>
 @endsection
