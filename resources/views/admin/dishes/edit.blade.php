@@ -38,6 +38,9 @@
                 @enderror
             </div>
             <button class="btn btn-org">Modifica piatto</button>
+            <div class="field-must mt-4">
+                <p class="fst-italic fs-6">Sono contrassegnati con * i campi obbligatori</p>
+            </div>
         </form>
     </div>
 @endsection

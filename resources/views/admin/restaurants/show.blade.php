@@ -1,6 +1,17 @@
 @extends('layouts.layoutnew')
 
 @section('content')
+    @if (session('message'))
+    <div class="toast show position-fixed bottom-0 end-0 p-3" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Alert</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            {{ session('message') }}
+        </div>
+    </div>
+    @endif
     <div class="container">
         <h1 class="mt-3">{{ $restaurant->name }}</h1>
         <h2 class="my-3">I tuoi piatti</h2>
@@ -10,6 +21,7 @@
                     <th scope="col">Piatto</th>
                     <th scope="col">Descrizione/Ingredienti</th>
                     <th scope="col">Prezzo</th>
+                    <th scope="col">Immagine</th>
                     <th scope="col" class="text-end">Modifica/Elimina</th>
                 </tr>
             </thead>
@@ -19,6 +31,13 @@
                         <td>{{ $dish->name }}</td>
                         <td>{{ $dish->description }}</td>
                         <td>{{ $dish->price }} &euro;</td>
+                        <td>
+                            @if ($dish->image) 
+                                <a href="#" class="btn btn-secondary btn-sm">image</a>
+                            @else 
+                                <p>Immagine non disponibile</p> 
+                            @endif
+                        </td>
                         <td>
                             <div class="d-flex justify-content-end">
                                 <a href="{{ route('admin.dishes.edit', $dish) }}"

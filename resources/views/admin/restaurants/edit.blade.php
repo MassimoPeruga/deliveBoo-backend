@@ -58,6 +58,9 @@
                 @enderror
             </div>
             <button type="submit" class="btn btn-primary">Modifica</button>
+            <div class="field-must mt-4">
+                <p class="fst-italic fs-6">Sono contrassegnati con * i campi obbligatori</p>
+            </div>
         </form>
     </div>
 @endsection
