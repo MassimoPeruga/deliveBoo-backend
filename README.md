@@ -4,7 +4,7 @@
 - [ ] Controllo client sulla password login e registrazione
 - [ ] Campi ed errori nel login e  nella registrazione in italiano
 - [x] Specificare che * é obbligatorio
-- [ ] Controllo client sul prezzo del piatto
+- [x] Controllo client sul prezzo del piatto
 - [x] Immagine del piatto
 - [x] Aggiungere il form di delete
 - [x] Tabella del menu
