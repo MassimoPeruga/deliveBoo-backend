@@ -56,7 +56,14 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        return view('admin.dishes.show', compact('dish'));
+        $userId = auth()->id();
+        $restaurant = Restaurant::where('user_id', $userId)
+            ->with(['dishes' => function ($query) {
+                $query->whereNull('deleted_at');
+            }])
+            ->first();
+
+        return view('admin.dishes.show', compact('dish', 'restaurant'));
     }
 
     /**
