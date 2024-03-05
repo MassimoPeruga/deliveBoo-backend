@@ -71,7 +71,7 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
-                                    href="{{ route('admin.restaurants.index') }}">
+                                    href="{{route('admin.restaurants.show', Auth::user()->restaurant->id)}}">
                                     <!-- Visualizza l'immagine del ristorante associato all'utente loggato o il logo -->
                                     @if (Auth::check() && Auth::user()->restaurant && Auth::user()->restaurant->image)
                                         <img class="logo"
