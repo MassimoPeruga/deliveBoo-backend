@@ -25,7 +25,7 @@ class StoreRestuarantRequest extends FormRequest
             'name' => ['required', 'string'],
             'address' => ['required', 'string'],
             'phone' => ['required', 'string'],
-            'vat' => ['required', 'min:11', 'max:11', 'string'],
+            'vat' => ['required', 'min:11', 'max:11', 'string', 'unique:restaurants,vat'],
             'description' => ['string', 'max:500', 'nullable'],
             'image' => ['nullable', 'image', 'max:4096'],
         ];
@@ -42,6 +42,7 @@ class StoreRestuarantRequest extends FormRequest
             'phone.string' => 'Il campo numero telefonico non è valido.',
             'vat.required' => 'Il campo P.IVA è obbligatorio.',
             'vat.string' => 'Il campo P.IVA non è valido.',
+            'vat.unique' => 'la P.IVA è stata già utilizzata',
             'vat.min' => 'Il campo P.IVA deve essere di :min caratteri.',
             'vat.max' => 'Il campo P.IVA deve essere di :max caratteri.',
             'image.image' => 'Il file inserito non è un immagine.',
