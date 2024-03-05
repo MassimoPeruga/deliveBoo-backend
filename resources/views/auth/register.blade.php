@@ -77,9 +77,9 @@
                         <!--ristoranti-->
                         <div class="mb-3">
                             <label for="name" class="form-label">Nome Ristorante*:</label>
-                            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="restaurant_name" required
+                            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="restaurant_name"
                                 value="{{ old('name') }}">
-                            @error('name')
+                            @error('restaurant_name')
                                 <div class="alert alert-danger mt-3">{{ $message }}</div>
                             @enderror
                         </div>
