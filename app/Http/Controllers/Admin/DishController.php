@@ -36,8 +36,6 @@ class DishController extends Controller
     public function store(StoreDishRequest $request)
     {
         $userId = auth()->id();
-        $new_dish->restaurant_id = $userId;
-
         $restaurant = Restaurant::where('user_id', $userId)
             ->with(['dishes' => function ($query) {
                 $query->whereNull('deleted_at');
