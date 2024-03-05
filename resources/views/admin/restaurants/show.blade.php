@@ -18,7 +18,6 @@
                             prezzo: {{ $dish->price }} &euro;
                         </div>
                         <div>
-
                             descrizione: {{ $dish->description }}
                         </div>
                     </div>
