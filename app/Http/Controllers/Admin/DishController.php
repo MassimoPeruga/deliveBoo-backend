@@ -35,17 +35,19 @@ class DishController extends Controller
      */
     public function store(StoreDishRequest $request)
     {
-        $data = $request->validated();
-        $new_dish = new Dish();
-        $new_dish->fill($data);
-        $new_dish->save();
-
         $userId = auth()->id();
         $restaurant = Restaurant::where('user_id', $userId)
             ->with(['dishes' => function ($query) {
                 $query->whereNull('deleted_at');
             }])
             ->first();
+
+        $data = $request->validated();
+        $new_dish = new Dish();
+        $new_dish->fill($data);
+        $new_dish->restaurant_id = $restaurant->id;
+        $new_dish->save();
+
         return redirect()->route('admin.restaurants.show', compact('restaurant'));
     }
 
