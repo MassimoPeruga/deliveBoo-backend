@@ -34,9 +34,10 @@
                                 href="{{ route('admin.restaurants.edit', Auth::user()->restaurant->id) }}">Modifica
                                 ristorante</a>
                         </button>
-                        <button class="btn-org rounded p-2 btndish">
+                        <button class="btn-org rounded p-2">
                             <a class="text-dark"
-                                href="{{ route('admin.restaurants.show', Auth::user()->restaurant->id) }}">Dettagli e menù</a>
+                                href="{{ route('admin.restaurants.show', Auth::user()->restaurant->id) }}">Dettagli e
+                                menù</a>
                         </button>
                     </div>
                 @else
