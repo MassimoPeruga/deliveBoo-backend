@@ -34,16 +34,18 @@
     <div id="app">
 
         <header class="navbar navbar-dark sticky-top bg-nav flex-md-nowrap p-2 shadow">
-            
+
             <div class="row justify-content-between">
                 <div class="d-flex align-items-center">
                     <div class="text-dark title-dashboard fnt-std">Area di amministrazione</div>
-                    <a class="link-home navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/"><div class="text-dark">Home</div></a>
+                    <a class="link-home navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">
+                        <div class="text-dark">Home</div>
+                    </a>
                     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                        data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </div>
 
             </div>
@@ -70,18 +72,21 @@
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
-                                    href="{{route('admin.restaurants.show', Auth::user()->restaurant->id)}}">
-                                    <!-- Visualizza l'immagine del ristorante associato all'utente loggato o il logo -->
-                                    @if (Auth::check() && Auth::user()->restaurant && Auth::user()->restaurant->image)
-                                        <img class="logo"
-                                            src="{{ asset('storage/' . Auth::user()->restaurant->image) }}"
-                                            alt="{{ Auth::user()->restaurant->name }}">
-                                    @else
-                                        <img class="logo" src="{{ asset('img/logo.jpeg') }}" alt="Logo predefinito">
-                                    @endif
-                                    {{ Auth::user()->restaurant->name ?? 'Nome del Ristorante' }}
-                                </a>
+                                @if (isset($restaurant))
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                                        href="{{ route('admin.restaurants.show', Auth::user()->restaurant->id) }}">
+                                        <!-- Visualizza l'immagine del ristorante associato all'utente loggato o il logo -->
+                                        @if (Auth::check() && Auth::user()->restaurant && Auth::user()->restaurant->image)
+                                            <img class="logo"
+                                                src="{{ asset('storage/' . Auth::user()->restaurant->image) }}"
+                                                alt="{{ Auth::user()->restaurant->name }}">
+                                        @else
+                                            <img class="logo" src="{{ asset('img/logo.jpeg') }}"
+                                                alt="Logo predefinito">
+                                        @endif
+                                        {{ Auth::user()->restaurant->name ?? 'Nome del Ristorante' }}
+                                    </a>
+                                @endif
                             </li>
                         </ul>
 
