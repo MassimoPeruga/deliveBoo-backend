@@ -46,6 +46,17 @@ class RegistrationRequest extends FormRequest
             //user
             'name.required' => 'Il campo nome è obbligatorio.',
             'name.string' => 'Il campo nome non è valido',
+            'name.max' => 'Il nome può essere al massimo :max caratteri.',
+            'surname.required' => 'Il campo cognome è obbligatorio.',
+            'surname.string' => 'Il campo cognome non è valido',
+            'surname.max' => 'Il cognome può essere al massimo :max caratteri.',
+            'email.required' => 'Il campo email è obbligatorio.',
+            'email.string' => 'Il campo email non è valido',
+            'email.lowercase' => 'Il campo email non è valido.',
+            'email.email' => 'Il campo email non è valido.',
+            'email.max' => 'La mail può essere al massimo :max caratteri.',
+            'email.unique' => 'La mail è già stata usata.',
+            'password.required' => 'Il campo password è obbligatorio.',
             'password.confirmed' => 'Le password devono coincidere.',
             //user
 
