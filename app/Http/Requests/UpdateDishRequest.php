@@ -24,6 +24,8 @@ class UpdateDishRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'price' => ['nullable', 'min:0.01', 'max:999.99'],
+            'price.min' => 'Il campo prezzo deve essere almeno di 0,01',
+            'price.max' => 'Il campo prezzo deve essere almeno di 999,99',
             'description' => ['nullable', 'string', 'max:500'],
             'avaibility' => ['nullable', 'boolean'],
             'image' => ['nullable', 'image', 'max:4096'],
