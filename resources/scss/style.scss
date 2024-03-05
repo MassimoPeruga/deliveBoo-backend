@@ -94,6 +94,9 @@ footer {
 .dish-img-container img {
     filter: drop-shadow(5px 5px 5px #fff);
 }
+.ciao{
+    animation: ciao 1.5s ease-in-out;
+}
 
 @keyframes animazionedish {
     0%{
@@ -113,6 +116,17 @@ footer {
     100%{
         transform: rotate(0);
         box-shadow: 1px 1px 1px 1px orange;
+    }
+    
+}
+
+@keyframes ciao {
+    0%{
+       width: 0px;
+    }
+  
+    100%{
+     width: 100%;
     }
     
 }
