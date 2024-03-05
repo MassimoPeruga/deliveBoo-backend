@@ -55,7 +55,7 @@
                     audioElement.play();
                 }
             </script>
-            <button onclick="playSound('quack_5.mp3')" class="btn btn-primary">Crea il tuo piatto</button>
+            <button class="btn-org p-2 rounded" onclick="playSound('quack_5.mp3')" class="btn btn-primary">Crea il tuo piatto</button>
         </form>
     </div>
 @endsection
