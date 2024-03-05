@@ -29,8 +29,9 @@
                     <!--/dettagli piatto-->
                 </div>
                 <div class="pt-3 text-center">
-                    <a role="button" href="{{ route('admin.restaurants.index') }}" class="btn btn-org"> Torna al
-                        ristorante</a>
+                    <a role="button" href="{{ route('admin.restaurants.show', $restaurant) }}" class="btn btn-org">
+                        Torna al ristorante
+                    </a>
                 </div>
             </div>
         </div>
