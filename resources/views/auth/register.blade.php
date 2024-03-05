@@ -7,16 +7,9 @@
                 <div class="card">
                     <div class="card-header  bg-nav">{{ __('Register') }}</div>
 
-<<<<<<< HEAD
                     <div class="card-body">
-                        <h4 class="mb-4">Dati Personali</h4>
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
-=======
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
-                        @csrf
->>>>>>> prvoa
 
                             <div class="mb-4 row">
                                 <label for="name"
