@@ -57,7 +57,7 @@ class RestaurantController extends Controller
         $userId = auth()->id();
         $restaurant = Restaurant::where('user_id', $userId)
             ->with(['dishes' => function ($query) {
-                $query->whereNull('deleted_at');
+                $query->whereNull('deleted_at')->orderBy('name');
             }])
             ->first();
         // dd(compact('restaurant'));
