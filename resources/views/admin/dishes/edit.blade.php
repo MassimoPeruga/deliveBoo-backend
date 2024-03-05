@@ -37,7 +37,7 @@
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
-            <button class="btn btn-primary">Modifica piatto</button>
+            <button class="btn btn-org">Modifica piatto</button>
         </form>
     </div>
 @endsection
