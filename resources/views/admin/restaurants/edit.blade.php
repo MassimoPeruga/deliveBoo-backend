@@ -49,6 +49,14 @@
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="mb-3">
+                <label for="image" class="form-label"name="image">Immagine</label>
+                <input type="file" class="form-control" id="image" aria-describedby="emailHelp"name="image"
+                    value="{{ old('image', $restaurant['image']) }}">
+                @error('image')
+                    <div class="alert alert-danger mt-3">{{ $message }}</div>
+                @enderror
+            </div>
             <button type="submit" class="btn btn-primary">Modifica</button>
         </form>
     </div>
