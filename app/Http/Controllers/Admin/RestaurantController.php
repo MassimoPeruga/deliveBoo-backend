@@ -27,26 +27,15 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        return view('admin.restaurants.create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRestuarantRequest $request)
+    public function store($request)
     {
-        $data = $request->validated();
-
-        $restaurant = new Restaurant();
-        $restaurant->fill($data);
-        if (isset($data['image'])) {
-            $restaurant->image = Storage::put('uploads', $data['image']);
-        }
-
-        $restaurant->user_id = auth()->user()->id;
-        $restaurant->save();
-
-        return redirect()->route('admin.restaurants.show', $restaurant);
+        //
     }
 
     /**
