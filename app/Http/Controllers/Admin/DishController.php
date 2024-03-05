@@ -53,7 +53,7 @@ class DishController extends Controller
         $new_dish->restaurant_id = $restaurant->id;
         $new_dish->save();
 
-        return redirect()->route('admin.restaurants.show', compact('restaurant'));
+        return redirect()->route('admin.restaurants.show', compact('restaurant'))->with('message', "Nuovo piatto  \"$new_dish->name\" creato con successo!");
     }
 
     /**
@@ -94,7 +94,7 @@ class DishController extends Controller
             }])
             ->first();
 
-        return redirect()->route('admin.restaurants.show', compact('dish', 'restaurant'));
+        return redirect()->route('admin.restaurants.show', compact('dish', 'restaurant'))->with('message', "Piatto: \"$dish->name\" modificato con successo!");
     }
 
     /**
@@ -110,6 +110,6 @@ class DishController extends Controller
                 $query->whereNull('deleted_at');
             }])
             ->first();
-        return redirect()->route('admin.restaurants.show', compact('restaurant'));
+        return redirect()->route('admin.restaurants.show', compact('restaurant'))->with('message', "Piatto: \"$dish->name\"cancellato con successo!");
     }
 }

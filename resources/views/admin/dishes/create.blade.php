@@ -50,6 +50,9 @@
                 @enderror
             </div>
             <button class="btn-org p-2 rounded" class="btn btn-org">Crea il tuo piatto</button>
+            <div class="field-must mt-4">
+                <p class="fst-italic fs-6">Sono contrassegnati con * i campi obbligatori</p>
+            </div>
         </form>
     </div>
 @endsection

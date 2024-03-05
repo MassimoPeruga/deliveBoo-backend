@@ -24,8 +24,6 @@ class UpdateDishRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'price' => ['nullable', 'min:0.01', 'max:999.99'],
-            'price.min' => 'Il campo prezzo deve essere almeno di 0,01',
-            'price.max' => 'Il campo prezzo deve essere almeno di 999,99',
             'description' => ['nullable', 'string', 'max:500'],
             'avaibility' => ['nullable', 'boolean'],
             'image' => ['nullable', 'image', 'max:4096'],
@@ -38,6 +36,8 @@ class UpdateDishRequest extends FormRequest
             'name.required' => 'Il campo nome è obbligatorio.',
             'name.string' => 'Il campo nome non è valido',
             'price.decimal' => 'Il prezzo inserito non è valido.',
+            'price.min' => 'Il campo prezzo deve essere almeno 0,01',
+            'price.max' => 'Il campo prezzo deve essere al massimo 999,99',
             'description.string' => 'Il campo descrizione non è valido.',
             'description.max' => 'Il campo descrizione non può superare i :max caratteri.',
             'avaibility.boolean' => 'Il valore del campo Disponibilità non è corretto.',
