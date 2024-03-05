@@ -21,6 +21,13 @@
 
                             descrizione: {{ $dish->description }}
                         </div>
+                        <!--img-->
+                        <div class="dish-img-container">
+                            @if ($dish->image)
+                                <img src="{{ asset('storage/' . $dish->image) }}">
+                            @endif
+                        </div>
+                        <!--/img-->
                     </div>
                     <div>
                         <a href="{{ route('admin.dishes.edit', $dish) }}" class="btn btn-org btn-sm">modifica piatto</a>
