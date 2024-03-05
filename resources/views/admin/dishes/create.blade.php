@@ -8,8 +8,8 @@
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label" name="name">Nome*:</label>
-                <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                    name="name"value="{{ old('name') }}">
+                <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name" required
+                    value="{{ old('name') }}">
                 @error('name')
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
@@ -23,7 +23,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="availability" class="form-label" name="availability">Disponibilità:</label>
+                <label for="availability" class="form-label" name="availability">Disponibile:</label>
                 <select class="form-select" aria-label="Default select example">
                     <option selected value=null>Seleziona</option>
                     <option value="0" {{ old('availability') == '0' ? 'selected' : '' }}>No</option>

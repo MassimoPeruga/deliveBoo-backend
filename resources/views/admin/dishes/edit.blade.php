@@ -10,12 +10,12 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="name" class="form-label" name="name">Nome*:</label>
-                <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                    name="name"value="{{ old('name', $dish->name) }}">
+                <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name"
+                    required value="{{ old('name', $dish->name) }}">
             </div>
             <div class="mb-3">
-                <label for="price" class="form-label" name="price">Prezzo*:</label>
-                <input type="text" class="form-control" id="price" aria-describedby="emailHelp"name="price"
+                <label for="price" class="form-label" name="price">Prezzo:</label>
+                <input type="text" class="form-control" id="price" aria-describedby="emailHelp" name="price"
                     value="{{ old('price', $dish->price) }}">
 
             </div>
