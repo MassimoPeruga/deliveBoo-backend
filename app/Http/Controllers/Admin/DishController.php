@@ -36,6 +36,8 @@ class DishController extends Controller
     public function store(StoreDishRequest $request)
     {
         $userId = auth()->id();
+        $new_dish->restaurant_id = $userId;
+
         $restaurant = Restaurant::where('user_id', $userId)
             ->with(['dishes' => function ($query) {
                 $query->whereNull('deleted_at');
@@ -77,12 +79,19 @@ class DishController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateDishRequest $request, Dish $dish)
+    public function update(UpdateDishRequest $request, Dish $dish, Restaurant $restaurant)
     {
         $data = $request->validated();
         $dish->update($data);
 
-        return redirect()->route('admin.dishes.show', compact('dish'));
+        $userId = auth()->id();
+        $restaurant = Restaurant::where('user_id', $userId)
+            ->with(['dishes' => function ($query) {
+                $query->whereNull('deleted_at');
+            }])
+            ->first();
+
+        return redirect()->route('admin.restaurants.show', compact('dish', 'restaurant'));
     }
 
     /**
