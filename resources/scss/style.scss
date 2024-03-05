@@ -23,6 +23,23 @@ p {
     }
 }
 
+.carddish li{
+    border: 2px solid black;
+    width: 300px ;
+    padding: 10px;
+    border-radius: 20px;
+
+}
+.carddish li:hover{
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+}
+
+.btndish{
+    animation: animazionedish 5s infinite linear;
+    margin-right: 10px;
+}
+
 //jumbotron
 .jumbotron {
     background-image: url('../../public/img/jumbo.jpg');
@@ -76,4 +93,26 @@ footer {
 
 .dish-img-container img {
     filter: drop-shadow(5px 5px 5px #fff);
+}
+
+@keyframes animazionedish {
+    0%{
+        transform: rotate(0deg);
+        box-shadow: 2px 2px 2px 2px black;
+    }
+    50%{
+        transform: rotate(-5deg);
+        box-shadow: 1px 1px 1px 1px orange;
+    }
+
+    75%{
+        transform: rotate(5deg);
+        box-shadow: 2px 2px 2px 2px black;
+
+    }
+    100%{
+        transform: rotate(0);
+        box-shadow: 1px 1px 1px 1px orange;
+    }
+    
 }
