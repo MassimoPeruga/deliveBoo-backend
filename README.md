@@ -2,7 +2,7 @@
 
 ### Fix:
 - [ ] Controllo client sulla password login e registrazione
-- [ ] Campi ed errori nel login e  nella registrazione in italiano
+- [x] Campi ed errori nel login e  nella registrazione in italiano
 - [x] Specificare che * é obbligatorio
 - [x] Controllo client sul prezzo del piatto
 - [x] Immagine del piatto
