@@ -7,7 +7,7 @@
     <div class="d-flex justify-content-center">
         <h2>Menù</h2>
     </div>
-    <div class="container">
+    <div class="container ciao">
 
         <ul class="list-unstyled carddish">
             @foreach ($restaurant->dishes as $dish)
