@@ -19,7 +19,7 @@
                     <div>
                         {{ $dish->description }}
                     </div>
-                    <a href="{{ route('admin.dishes.edit', $dish) }}" class="btn btn-primary btn-sm">modifica piatto</a>
+                    <a href="{{ route('admin.dishes.edit', $dish) }}" class="btn btn-org btn-sm">modifica piatto</a>
                 </li>
             @endforeach
         </ul>
