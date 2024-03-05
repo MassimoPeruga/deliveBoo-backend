@@ -9,6 +9,7 @@ use App\Models\Dish;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
 {
@@ -45,6 +46,10 @@ class DishController extends Controller
         $data = $request->validated();
         $new_dish = new Dish();
         $new_dish->fill($data);
+        if (isset($data['image'])) {
+            $new_dish->image = Storage::put('uploads', $data['image']);
+        }
+
         $new_dish->restaurant_id = $restaurant->id;
         $new_dish->save();
 
