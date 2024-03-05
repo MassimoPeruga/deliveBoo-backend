@@ -16,7 +16,7 @@
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label" name="price">Prezzo:</label>
-                <input type="text" class="form-control" id="price" aria-describedby="emailHelp"name="price"
+                <input type="number" step="0.01" class="form-control" id="price" aria-describedby="emailHelp"name="price"
                     value="{{ old('price') }}">
                 @error('price')
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
