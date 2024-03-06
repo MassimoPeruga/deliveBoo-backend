@@ -85,6 +85,16 @@ class DishController extends Controller
     public function update(UpdateDishRequest $request, Dish $dish, Restaurant $restaurant)
     {
         $data = $request->validated();
+
+        if (isset($data['image'])) {
+
+            if ($dish->image) {
+                Storage::delete($dish->image);
+            }
+
+            $dish->image = Storage::put('uploads', $data['image']);
+        }
+
         $dish->update($data);
 
         $userId = auth()->id();
@@ -102,8 +112,10 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
+        if ($dish->image) {
+            Storage::delete($dish->image);
+        }
         $dish->delete();
-
         $userId = auth()->id();
         $restaurant = Restaurant::where('user_id', $userId)
             ->with(['dishes' => function ($query) {
