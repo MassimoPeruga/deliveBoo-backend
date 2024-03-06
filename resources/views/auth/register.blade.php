@@ -65,7 +65,7 @@
 
                             <div class="mb-4 row">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password*') }}</label>
+                                    class="col-md-4 col-form-label text-md-right fw-bold">{{ __('Password*') }}</label>
                                 <div class="col-md-6">
                                     <input type="password" id="password" name="password" class="form-control"
                                         name="password" required autocomplete="new-password" data-bs-toggle="popover"
@@ -102,122 +102,123 @@
                                 @enderror
 
                             </div>
-                    </div>
-                    <div class="mb-4 row">
-                        <label for="password-confirm"
-                            class="col-md-4 col-form-label text-md-right mx-1">{{ __('Conferma Password*') }}</label>
 
-                        <div class="col-md-6">
-                            <input id="password_confirm" type="password" class="form-control" name="password_confirmation"
-                                required autocomplete="new-password">
-                            <div id="password_error">
+                            <div class="mb-4 row">
+                                <label for="password-confirm"
+                                    class="col-md-4 col-form-label text-md-right mx-1 fw-bold">{{ __('Conferma Password*') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="password_confirm" type="password" class="form-control"
+                                        name="password_confirmation" required autocomplete="new-password">
+                                    <div id="password_error">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <!--ristoranti-->
-                    <h4 class="mb-4">Dati Ristorante</h4>
-                    <div class="mb-4 row">
-                        <label for="name" class="col-md-4 col-form-label text-md-right fw-bold">Nome
-                            Ristorante*:</label>
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                                name="restaurant_name" value="{{ old('restaurant_name') }}">
-                            @error('restaurant_name')
-                                <div class="alert alert-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="mb-4 row">
-                        <label for="address" class="col-md-4 col-form-label text-md-right fw-bold"
-                            name="address">Indirizzo*:</label>
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" id="address"
-                                aria-describedby="emailHelp"name="address" required value="{{ old('address') }}">
-                            @error('address')
-                                <div class="alert alert-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                    </div>
-                    <div class="mb-4 row">
-                        <label for="phone" class="col-md-4 col-form-label text-md-right fw-bold">Numero di
-                            Telefono*:</label>
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" id="phone" aria-describedby="emailHelp"
-                                name="phone" required value="{{ old('phone') }}">
-                            @error('phone')
-                                <div class="alert alert-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                    </div>
-                    <div class="mb-4 row">
-                        <label for="vat" class="col-md-4 col-form-label text-md-right fw-bold"
-                            name="vat">P.IVA*:</label>
-                        <div class="col-md-6">
-                            <input type="number" class="form-control" id="vat"
-                                aria-describedby="emailHelp"name="vat" required value="{{ old('vat') }}">
-                            @error('vat')
-                                <div class="alert alert-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="mb-4 px-2 row row-cols-6">
-                        <label class="form-label col-12 px-1 fw-bold">Tipologie*:</label>
-                        @foreach ($types as $type)
-                            <div class="col form-check">
-                                <input class="form-check-input" type="checkbox" value="{{ $type->id }}"
-                                    id="type-{{ $type->id }}" name="types[]"
-                                    {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="type-{{ $type->id }}">
-                                    {{ $type->name }}
-                                </label>
+                            <!--ristoranti-->
+                            <h4 class="mb-4">Dati Ristorante</h4>
+                            <div class="mb-4 row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right fw-bold">Nome
+                                    Ristorante*:</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
+                                        name="restaurant_name" value="{{ old('restaurant_name') }}">
+                                    @error('restaurant_name')
+                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                    @enderror
+                                </div>
                             </div>
-                        @endforeach
-                        @error('type')
-                            <div class="alert alert-danger mt-3">{{ $message }}</div>
-                        @enderror
-                    </div>
+                            <div class="mb-4 row">
+                                <label for="address" class="col-md-4 col-form-label text-md-right fw-bold"
+                                    name="address">Indirizzo*:</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="address"
+                                        aria-describedby="emailHelp"name="address" required value="{{ old('address') }}">
+                                    @error('address')
+                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                    @enderror
+                                </div>
 
-                    <div class="mb-4 row">
-                        <label for="description" class="col-md-4 col-form-label text-md-right fw-bold"
-                            name="description">Descrizione:</label>
-                        <div class="col-md-6">
-                            <textarea class="form-control" id="description" rows="3" name="description">{{ old('description') }}</textarea>
-                            @error('description')
-                                <div class="alert alert-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
+                            </div>
+                            <div class="mb-4 row">
+                                <label for="phone" class="col-md-4 col-form-label text-md-right fw-bold">Numero di
+                                    Telefono*:</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="phone"
+                                        aria-describedby="emailHelp" name="phone" required
+                                        value="{{ old('phone') }}">
+                                    @error('phone')
+                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                    @enderror
+                                </div>
 
-                    </div>
-                    <div class="mb-4 row">
-                        <label for="image" class="col-md-4 col-form-label text-md-right fw-bold"
-                            name="image">Immagine</label>
-                        <div class="col-md-6">
-                            <input type="file" class="form-control" id="image"
-                                aria-describedby="emailHelp"name="image" value="{{ old('image') }}">
-                            @error('image')
-                                <div class="alert alert-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
+                            </div>
+                            <div class="mb-4 row">
+                                <label for="vat" class="col-md-4 col-form-label text-md-right fw-bold"
+                                    name="vat">P.IVA*:</label>
+                                <div class="col-md-6">
+                                    <input type="number" class="form-control" id="vat"
+                                        aria-describedby="emailHelp"name="vat" required value="{{ old('vat') }}">
+                                    @error('vat')
+                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
 
-                    <div class="field-must mt-4">
-                        <p class="fst-italic fs-6">Sono contrassegnati con * i campi obbligatori</p>
-                    </div>
+                            <div class="mb-4 px-2 row row-cols-6">
+                                <label class="form-label col-12 px-1 fw-bold">Tipologie*:</label>
+                                @foreach ($types as $type)
+                                    <div class="col form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{ $type->id }}"
+                                            id="type-{{ $type->id }}" name="types[]"
+                                            {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="type-{{ $type->id }}">
+                                            {{ $type->name }}
+                                        </label>
+                                    </div>
+                                @endforeach
+                                @error('type')
+                                    <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                    <div class="mb-4 row mb-0">
-                        <div class="col-md-6 offset-md-4 text-end">
-                            <button type="submit" class="btn btn-org">
-                                {{ __('Register') }}
-                            </button>
-                        </div>
+                            <div class="mb-4 row">
+                                <label for="description" class="col-md-4 col-form-label text-md-right fw-bold"
+                                    name="description">Descrizione:</label>
+                                <div class="col-md-6">
+                                    <textarea class="form-control" id="description" rows="3" name="description">{{ old('description') }}</textarea>
+                                    @error('description')
+                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                            </div>
+                            <div class="mb-4 row">
+                                <label for="image" class="col-md-4 col-form-label text-md-right fw-bold"
+                                    name="image">Immagine</label>
+                                <div class="col-md-6">
+                                    <input type="file" class="form-control" id="image"
+                                        aria-describedby="emailHelp"name="image" value="{{ old('image') }}">
+                                    @error('image')
+                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="field-must mt-4">
+                                <p class="fst-italic fs-6">Sono contrassegnati con * i campi obbligatori</p>
+                            </div>
+
+                            <div class="mb-4 row mb-0">
+                                <div class="col-md-6 offset-md-4 text-end">
+                                    <button type="submit" class="btn btn-org">
+                                        {{ __('Register') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection
