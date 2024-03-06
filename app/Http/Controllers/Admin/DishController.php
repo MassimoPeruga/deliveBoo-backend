@@ -92,7 +92,7 @@ class DishController extends Controller
                 Storage::delete($dish->image);
             }
 
-            $dish->image = Storage::put('uploads', $data['image']);
+            $data['image'] = $request->file('image')->store('uploads', 'public');
         }
 
         $dish->update($data);
