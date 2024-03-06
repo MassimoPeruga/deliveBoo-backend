@@ -37,6 +37,7 @@ class RegistrationRequest extends FormRequest
             'vat' => ['required', 'min:11', 'max:11', 'string', 'unique:restaurants,vat'],
             'description' => ['string', 'max:500', 'nullable'],
             'image' => ['nullable', 'image', 'max:4096'],
+            'types' => ['required', 'exists:types,id'],
         ];
     }
 
@@ -76,6 +77,8 @@ class RegistrationRequest extends FormRequest
             'image.max' => 'Il file inserito non può superare i 4MB.',
             'description.string' => 'Il campo descrizione non è valido.',
             'description.max' => 'Il campo descrizione non può superare i :max caratteri.',
+            'types.required' => 'Il campo tipologie è obbligatorio.',
+            'types.exists' => 'I valori selezionati nel campo tipologie non sono validi.',
             //ristorante
         ];
     }

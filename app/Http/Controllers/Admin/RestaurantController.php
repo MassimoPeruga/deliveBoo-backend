@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRestuarantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 use App\Models\Restaurant;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -60,7 +61,8 @@ class RestaurantController extends Controller
     public function edit(Restaurant $restaurant)
     {
         $restaurants = Restaurant::all();
-        return view('admin.restaurants.edit', compact('restaurant'));
+        $types = Type::all();
+        return view('admin.restaurants.edit', compact('restaurant', 'types'));
     }
 
     /**
@@ -70,6 +72,13 @@ class RestaurantController extends Controller
     {
         $data = $request->validated();
         $restaurant->update($data);
+
+        if (isset($data['types'])) {
+            $restaurant->types()->sync($data['types']);
+        } else {
+            $restaurant->types()->sync([]);
+        }
+
         $restaurant->save();
         return redirect()->route('admin.restaurants.show', compact('restaurant'));
     }
