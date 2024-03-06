@@ -61,8 +61,7 @@
                                 <div class="col-md-6">
                                     <input type="password" id="password" name="password" class="form-control"
                                         name="password" required autocomplete="new-password" data-bs-toggle="popover"
-                                        data-bs-trigger="focus" data-bs-title="Dismissible popover"
-                                        data-bs-title="Deve contenere:"
+                                        data-bs-trigger="focus" data-bs-title="Deve contenere:"
                                         data-bs-content="almeno 8 caratteri, almeno una lettera maiuscola, almeno una lettera minuscola, almeno un numero e almeno un carattere speciale">
                                     <div class="d-flex justify-content-between">
                                         <div> <label for="show-password" class="mt-2">mostra password</label>

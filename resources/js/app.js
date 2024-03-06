@@ -5,43 +5,21 @@ import.meta.glob([
   '../img/**'
 ])
 
-// gestisce le classi dei messaggi di errore 
+// seleziona gli elementi necessari
 const password = document.getElementById("password");
-const updateRequirement = (id, valid) => {
-  const requirement = document.getElementById(id);
-  if (valid) {
-    requirement.classList.add("valid");
-    requirement.classList.remove("error");
-  } else {
-    requirement.classList.add("error");
-    requirement.classList.remove("valid");
-  }
-};
-
-// verifica il contentuto dell'input password
-const handleFormValidation = () => {
-  const value = password.value;
-  const isValidLength = value.length >= 8;
-  const hasLowercase = /[a-z]/.test(value);
-  const hasUppercase = /[A-Z]/.test(value);
-  const hasNumber = /\d/.test(value);
-  const hasSpecialChar = /[#.?!@$%^&*-]/.test(value);
-
-  updateRequirement("length", isValidLength);
-  updateRequirement("lowercase", hasLowercase);
-  updateRequirement("uppercase", hasUppercase);
-  updateRequirement("number", hasNumber);
-  updateRequirement("special-char", hasSpecialChar)
-};
-password.addEventListener("input", handleFormValidation);
-
-// controllo delle due password
-const password1 = document.getElementById("password");
 const password2 = document.getElementById("password_confirm");
 const passwordError = document.getElementById("password_error");
-const checkPasswordMatch = () => {
-  if (password1.value && password2.value) {
-    if (password1.value !== password2.value) {
+
+// verifica il contenuto dell'input password
+const handlePasswordValidation = (password, password2, passwordError) => {
+  const isValidLength = password.value.length >= 8;
+  const hasLowercase = /[a-z]/.test(password.value);
+  const hasUppercase = /[A-Z]/.test(password.value);
+  const hasNumber = /\d/.test(password.value);
+  const hasSpecialChar = /[#.?!@$%^&*-]/.test(password.value);
+
+  if (password.value && password2.value) {
+    if (password.value !== password2.value) {
       passwordError.textContent = "le due password non corrispondono.";
       passwordError.classList.add("passworderror");
       passwordError.classList.remove("passwordtrue");
@@ -54,22 +32,27 @@ const checkPasswordMatch = () => {
     }
   }
 };
-password1.addEventListener("input", checkPasswordMatch);
-password2.addEventListener("input", checkPasswordMatch);
 
-// impedisci l'invio del form se le password non corrispondono o se i campi sono vuoti
+// aggiunge event listener ai campi password
+password.addEventListener("input", () => {
+  handlePasswordValidation(password, password2, passwordError);
+});
+password2.addEventListener("input", () => {
+  handlePasswordValidation(password, password2, passwordError);
+});
+
+// impedisce l'invio del form se le password non corrispondono o se i campi sono vuoti
 const form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
-  if (!checkPasswordMatch()) {
+  if (!handlePasswordValidation(password, password2, passwordError)) {
     event.preventDefault();
   }
 });
 
-
-// messaggio se le password coincidono al click dell'input
+// mostra un messaggio se le password corrispondono al click del campo
 const passwordRequirements = document.getElementById("password-requirements")
 const displaynone = document.querySelector(".requirementpassowrd")
-password1.addEventListener("click", () => {
+password.addEventListener("click", () => {
   passwordRequirements.classList.add("display-block")
   displaynone.classList.remove("requirementpassowrd")
 })
@@ -78,9 +61,9 @@ password1.addEventListener("click", () => {
 const showPasswordCheckbox = document.getElementById('show-password');
 showPasswordCheckbox.addEventListener('change', function () {
   if (this.checked) {
-    password1.type = 'text';
+    password.type = 'text';
   } else {
-    password1.type = 'password';
+    password.type = 'password';
   }
 });
 
