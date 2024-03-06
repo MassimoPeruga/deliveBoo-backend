@@ -13,12 +13,11 @@
                             <h4 class="mb-4">Dati Utente</h4>
 
                             <div class="mb-4 row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right fw-bold">
+                                <label for="name" class="col-md-4 col form-label text-md-right fw-bold">
                                     {{ __('Nome*') }}
                                 </label>
                                 <div class="col-md-6">
-                                    <input id="names" type="text"
-                                        class="form-control @error('name') is-invalid @enderror" name="name"
+                                    <input id="name" type="text" class="form-control" name="name"
                                         value="{{ old('name') }}" required autocomplete="name" autofocus>
                                     @error('name')
                                         <div class="alert alert-danger mt-3">{{ $message }}</div>
@@ -27,13 +26,12 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="surname" class="col-md-4 col-form-label text-md-right fw-bold">
+                                <label for="surname" class="col-md-4 col form-label text-md-right fw-bold">
                                     {{ __('Cognome*') }}
                                 </label>
                                 <div class="col-md-6">
-                                    <input id="surname" type="text"
-                                        class="form-control @error('surname') is-invalid @enderror" name="surname"
-                                        value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+                                    <input id="surname" type="text" class="form-control" name="surname"
+                                        value="{{ old('surname') }}" required>
                                     @error('surname')
                                         <div class="alert alert-danger mt-3">{{ $message }}</div>
                                     @enderror
@@ -41,12 +39,11 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right fw-bold">
+                                <label for="email" class="col-md-4 col form-label text-md-right fw-bold">
                                     {{ __('Indirizzo E-mail*') }}
                                 </label>
                                 <div class="col-md-6">
-                                    <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                    <input id="email" type="email" class="form-control" name="email"
                                         value="{{ old('email') }}" required autocomplete="email">
                                     @error('email')
                                         <div class="alert alert-danger mt-3">{{ $message }}</div>
@@ -55,7 +52,7 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right fw-bold">
+                                <label for="password" class="col-md-4 col form-label text-md-right fw-bold">
                                     {{ __('Password*') }}
                                 </label>
                                 <div class="col-md-6">
@@ -80,7 +77,7 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right mx-1 fw-bold">
+                                <label for="password_confirm" class="col-md-4 col form-label text-md-right mx-1 fw-bold">
                                     {{ __('Conferma Password*') }}
                                 </label>
                                 <div class="col-md-6">
@@ -95,11 +92,13 @@
                             <h4 class="mb-4">Dati Ristorante</h4>
 
                             <div class="mb-4 row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right fw-bold">Nome
-                                    Ristorante*:</label>
+                                <label for="restaurant_name" class="col-md-4 col form-label text-md-right fw-bold">
+                                    Nome Ristorante*:
+                                </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                                        name="restaurant_name" value="{{ old('restaurant_name') }}" required>
+                                    <input type="text" class="form-control" id="restaurant_name"
+                                        aria-describedby="emailHelp" name="restaurant_name"
+                                        value="{{ old('restaurant_name') }}" required>
                                     @error('restaurant_name')
                                         <div class="alert alert-danger mt-3">{{ $message }}</div>
                                     @enderror
@@ -107,7 +106,7 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="address" class="col-md-4 col-form-label text-md-right fw-bold" name="address">
+                                <label for="address" class="col-md-4 col form-label text-md-right fw-bold" name="address">
                                     Indirizzo*:
                                 </label>
                                 <div class="col-md-6">
@@ -121,7 +120,7 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="phone" class="col-md-4 col-form-label text-md-right fw-bold">
+                                <label for="phone" class="col-md-4 col form-label text-md-right fw-bold">
                                     Numero di Telefono*:
                                 </label>
                                 <div class="col-md-6">
@@ -135,7 +134,7 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="vat" class="col-md-4 col-form-label text-md-right fw-bold"
+                                <label for="vat" class="col-md-4 col form-label text-md-right fw-bold"
                                     name="vat">
                                     P.IVA*:
                                 </label>
@@ -149,7 +148,7 @@
                             </div>
 
                             <div class="mb-4 px-2 row row-cols-6">
-                                <label class="form-label col-12 px-1 fw-bold">Tipologie*:</label>
+                                <span class="form-label col-12 px-1 fw-bold">Tipologie*:</span>
                                 @foreach ($types as $type)
                                     <div class="col form-check">
                                         <input class="form-check-input" type="checkbox" value="{{ $type->id }}"
@@ -166,7 +165,7 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="description" class="col-md-4 col-form-label text-md-right fw-bold"
+                                <label for="description" class="col-md-4 col form-label text-md-right fw-bold"
                                     name="description">
                                     Descrizione:
                                 </label>
@@ -179,7 +178,7 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="image" class="col-md-4 col-form-label text-md-right fw-bold"
+                                <label for="image" class="col-md-4 col form-label text-md-right fw-bold"
                                     name="image">
                                     Immagine
                                 </label>
