@@ -49,7 +49,6 @@
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email">
-
                                     @error('email')
                                         <div class="alert alert-danger mt-3">{{ $message }}</div>
                                     @enderror
