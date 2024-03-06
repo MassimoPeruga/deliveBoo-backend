@@ -15,10 +15,6 @@ td img {
     margin-top: 30px;
 }
 
-.btnanimation {
-    animation: animazionebottone 5s infinite linear;
-}
-
 .accordion {
     background: #000000;
     opacity: 0.9;
@@ -33,32 +29,5 @@ td img {
     p {
         background-color: #00000069;
         font-size: 1.25rem;
-    }
-}
-
-
-
-@keyframes animazionebottone {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    20% {
-        transform: rotate(5deg);
-        box-shadow: 2px 2px 2px 2px black;
-    }
-
-    40% {
-        transform: rotate(0deg);
-        box-shadow: 1px 1px 1px 1px #aaff00
-    }
-
-    60% {
-        transform: rotate(-5deg);
-        box-shadow: 2px 2px 2px 2px black;
-    }
-
-    100% {
-        transform: rotate(0deg);
     }
 }
