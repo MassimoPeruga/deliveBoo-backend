@@ -23,6 +23,22 @@ p {
     }
 }
 
+.carddish li{
+    border: 2px solid black;
+    width: 300px ;
+    padding: 10px;
+    border-radius: 20px;
+
+}
+.carddish li:hover{
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+}
+
+.btndish{
+    animation: animazionedish 5s infinite linear;
+    margin-right: 10px;
+}
 
 //jumbotron
 .jumbotron {
@@ -69,34 +85,71 @@ footer {
     color: $info;
 }
 
-//show dish
+//dish.show
+.dish-img-container:hover {
+    transform: scale(1.2);
+    transition: 0.4s ease-in-out;
+}
 
-.dish-img-container {
+.dish-img-container img {
+    filter: drop-shadow(5px 5px 5px #fff);
+}
+.ciao{
+    animation: ciao 1.5s ease-in-out;
+}
 
-    img {
-        max-width: 300px;
+@keyframes animazionedish {
+    0%{
+        transform: rotate(0deg);
+        box-shadow: 2px 2px 2px 2px black;
     }
+    50%{
+        transform: rotate(-5deg);
+        box-shadow: 1px 1px 1px 1px orange;
+    }
+
+    75%{
+        transform: rotate(5deg);
+        box-shadow: 2px 2px 2px 2px black;
+
+    }
+    100%{
+        transform: rotate(0);
+        box-shadow: 1px 1px 1px 1px orange;
+    }
+    
+}
+
+@keyframes ciao {
+    0%{
+       width: 0px;
+    }
+  
+    100%{
+     width: 100%;
+    }
+    
 }
 
 .requirement {
     color: #808080;
-}
-
-.requirement.valid {
+  }
+  
+  .requirement.valid {
     color: #4CAF50;
-}
-
-.requirement.error {
+  }
+  
+  .requirement.error {
     color: red;
-}
+  }
 
-.passworderror {
+  .passworderror{
     color: red;
-}
+  }
 
-.passwordtrue {
+  .passwordtrue{
     color: green;
-}
+  }
 
 //   .error {
 //     color: red;
@@ -106,19 +159,19 @@ footer {
 //     display: block;
 //   }
 
-.requirementpassowrd {
+  .requirementpassowrd{
     display: none;
-}
+  }
 
 //   .error {
 //     color: red;
 //     display: none;
 //   }
-
+  
 //   input:invalid + .error {
 //     display: block;
 //   }
-
+  
 //   input:valid + .error {
 //     display: none;
 //   }
@@ -126,11 +179,11 @@ footer {
 //     color: red;
 //     display: none;
 //   }
-
+  
 //   input:invalid + .error2 {
 //     display: block;
 //   }
-
+  
 //   input:valid + .error2 {
 //     display: none;
 //   }
