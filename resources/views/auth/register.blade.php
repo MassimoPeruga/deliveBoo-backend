@@ -55,7 +55,7 @@
                                     <div id="emailrequired" class="error">
                                         {{-- il campo email non può essere vuoto --}}
                                     </div>
-
+                                    <!--ciao!!-->
                                     @error('email')
                                         <div class="alert alert-danger mt-3">{{ $message }}</div>
                                     @enderror
