@@ -29,7 +29,7 @@ class RegistrationRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', 'confirmed','min:8', Rules\Password::defaults()],
             //ristoranti
             'restaurant_name' => ['required', 'string'],
             'address' => ['required', 'string'],
@@ -58,6 +58,7 @@ class RegistrationRequest extends FormRequest
             'email.unique' => 'La mail è già stata usata.',
             'password.required' => 'Il campo password è obbligatorio.',
             'password.confirmed' => 'Le password devono coincidere.',
+            'password.min'=>"la password deve contenere almeno 8 caratteri",
             //user
 
             //ristorante
