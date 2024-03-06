@@ -13,7 +13,7 @@
 
                             <div class="mb-4 row">
                                 <label for="name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome*') }}</label>
+                                    class="col-md-4 col-form-label text-md-right fw-bold">{{ __('Nome*') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -28,7 +28,7 @@
 
                             <div class="mb-4 row">
                                 <label for="surname"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Cognome*') }}</label>
+                                    class="col-md-4 col-form-label text-md-right fw-bold">{{ __('Cognome*') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="surname" type="text"
@@ -43,7 +43,7 @@
 
                             <div class="mb-4 row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo E-mail*') }}</label>
+                                    class="col-md-4 col-form-label text-md-right fw-bold">{{ __('Indirizzo E-mail*') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -58,7 +58,7 @@
 
                             <div class="mb-4 row">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password*') }}</label>
+                                    class="col-md-4 col-form-label text-md-right fw-bold">{{ __('Password*') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
@@ -73,7 +73,7 @@
 
                             <div class="mb-4 row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password*') }}</label>
+                                    class="col-md-4 col-form-label text-md-right fw-bold">{{ __('Conferma Password*') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
@@ -83,7 +83,7 @@
                             <!--ristoranti-->
                             <h4 class="mb-4">Dati Ristorante</h4>
                             <div class="mb-4 row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">Nome
+                                <label for="name" class="col-md-4 col-form-label text-md-right fw-bold">Nome
                                     Ristorante*:</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                             <div class="mb-4 row">
-                                <label for="address" class="col-md-4 col-form-label text-md-right"
+                                <label for="address" class="col-md-4 col-form-label text-md-right fw-bold"
                                     name="address">Indirizzo*:</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" id="address"
@@ -106,7 +106,7 @@
 
                             </div>
                             <div class="mb-4 row">
-                                <label for="phone" class="col-md-4 col-form-label text-md-right">Numero di
+                                <label for="phone" class="col-md-4 col-form-label text-md-right fw-bold">Numero di
                                     Telefono*:</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" id="phone" aria-describedby="emailHelp"
@@ -118,7 +118,7 @@
 
                             </div>
                             <div class="mb-4 row">
-                                <label for="vat" class="col-md-4 col-form-label text-md-right"
+                                <label for="vat" class="col-md-4 col-form-label text-md-right fw-bold"
                                     name="vat">P.IVA*:</label>
                                 <div class="col-md-6">
                                     <input type="number" class="form-control" id="vat"
@@ -127,10 +127,27 @@
                                         <div class="alert alert-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
-
                             </div>
+
+                            <div class="mb-4 px-2 row row-cols-6">
+                                <label class="form-label col-12 px-1 fw-bold">Tipologie*:</label>
+                                @foreach ($types as $type)
+                                    <div class="col form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{ $type->id }}"
+                                            id="type-{{ $type->id }}" name="types[]"
+                                            {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="type-{{ $type->id }}">
+                                            {{ $type->name }}
+                                        </label>
+                                    </div>
+                                @endforeach
+                                @error('type')
+                                    <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                             <div class="mb-4 row">
-                                <label for="description" class="col-md-4 col-form-label text-md-right"
+                                <label for="description" class="col-md-4 col-form-label text-md-right fw-bold"
                                     name="description">Descrizione:</label>
                                 <div class="col-md-6">
                                     <textarea class="form-control" id="description" rows="3" name="description">{{ old('description') }}</textarea>
@@ -141,7 +158,7 @@
 
                             </div>
                             <div class="mb-4 row">
-                                <label for="image" class="col-md-4 col-form-label text-md-right"
+                                <label for="image" class="col-md-4 col-form-label text-md-right fw-bold"
                                     name="image">Immagine</label>
                                 <div class="col-md-6">
                                     <input type="file" class="form-control" id="image"
@@ -157,7 +174,7 @@
                             </div>
 
                             <div class="mb-4 row mb-0">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="col-md-6 offset-md-4 text-end">
                                     <button type="submit" class="btn btn-org">
                                         {{ __('Register') }}
                                     </button>
