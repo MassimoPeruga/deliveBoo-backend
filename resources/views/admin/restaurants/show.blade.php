@@ -2,15 +2,15 @@
 
 @section('content')
     @if (session('message'))
-    <div class="toast show position-fixed bottom-0 end-0 p-3" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-            <strong class="me-auto">Alert</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        <div class="toast show position-fixed bottom-0 end-0 p-3" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Alert</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                {{ session('message') }}
+            </div>
         </div>
-        <div class="toast-body">
-            {{ session('message') }}
-        </div>
-    </div>
     @endif
     <div class="container">
         <h1 class="mt-3">{{ $restaurant->name }}</h1>
@@ -32,18 +32,20 @@
                         <td>{{ $dish->description }}</td>
                         <td>{{ $dish->price }} &euro;</td>
                         <td>
-                            @if ($dish->image) 
+                            @if ($dish->image)
                                 <a href="#" class="btn btn-secondary btn-sm">image</a>
-                            @else 
-                                <p>Immagine non disponibile</p> 
+                            @else
+                                <p>Immagine non disponibile</p>
                             @endif
                         </td>
                         <td>
                             <div class="d-flex justify-content-end">
+                                <a href="{{ route('admin.dishes.show', $dish) }}"
+                                    class="btn btn-primary btn-sm">Dettagli</a>
                                 <a href="{{ route('admin.dishes.edit', $dish) }}"
                                     class="btn btn-secondary btn-sm mx-2">Modifica</a>
                                 {{-- Button trigger modal  --}}
-                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-danger btn-sm " data-bs-toggle="modal"
                                     data-bs-target="#exampleModal-{{ $dish->id }}">
                                     Elimina
                                 </button>
