@@ -12,8 +12,8 @@
             </div>
         </div>
     @endif
+    <h1 class="p-3 btn-org">{{ $restaurant->name }}</h1>
     <div class="container">
-        <h1 class="mt-3">{{ $restaurant->name }}</h1>
         <h2 class="my-3">I tuoi piatti</h2>
         <table class="table table-striped">
             <thead>
