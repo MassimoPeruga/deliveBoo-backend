@@ -13,14 +13,26 @@
                 <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name"
                     required value="{{ old('name', $dish->name) }}">
             </div>
-            <div class="mb-3">
-                <label for="price" class="form-label" name="price">Prezzo:</label>
-                <input type="number" step="0.01" class="form-control" id="price" aria-describedby="emailHelp" name="price"
-                    value="{{ old('price', $dish->price) }}">
-                @error('price')
-                    <div class="alert alert-danger mt-3">{{ $message }}</div>
-                @enderror
-
+            <div class="d-flex">
+                <div class="mb-3 me-4">
+                    <label for="price" class="form-label" name="price">Prezzo:</label>
+                    <input type="number" step="0.01" class="form-control" id="price" aria-describedby="emailHelp" name="price"
+                        value="{{ old('price', $dish->price) }}">
+                    @error('price')
+                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="availability" class="form-label" name="availability">Disponibile:</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected value=null>Seleziona</option>
+                        <option value="0" {{ old('availability') == '0' ? 'selected' : '' }}>No</option>
+                        <option value="1" {{ old('availability') == '1' ? 'selected' : '' }}>Si</option>
+                    </select>
+                    @error('availability')
+                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                    @enderror
+                </div>  
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label" name="description">Descrizione:</label>
