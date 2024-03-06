@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegistrationRequest;
 use App\Models\Restaurant;
+use App\Models\Type;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -22,7 +23,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $types = Type::all();
+        return view('auth.register', compact('types'));
     }
 
     /**
@@ -50,6 +52,10 @@ class RegisteredUserController extends Controller
         $restaurant->description = $request->description;
         $restaurant->vat = $request->vat;
         $restaurant->user_id = $user->id;
+
+        if (isset($data['types'])) {
+            $restaurant->types()->sync($data['types']);
+        }
 
         $restaurant->save();
 

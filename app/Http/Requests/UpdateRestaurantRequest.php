@@ -30,6 +30,7 @@ class UpdateRestaurantRequest extends FormRequest
             "vat" => ["required", "min:11", "max:11", "string", Rule::unique('restaurants')->ignore($this->restaurant)],
             "description" => ["nullable", "string", "max:500"],
             'image' => ['nullable', 'image', 'max:4096'],
+            'types' => ['required', 'exists:types,id'],
         ];
     }
 
@@ -51,6 +52,8 @@ class UpdateRestaurantRequest extends FormRequest
             'image.max' => 'Il file inserito non può superare i 4MB.',
             'description.string' => 'Il campo descrizione non è valido.',
             'description.max' => 'Il campo descrizione non può superare i :max caratteri.',
+            'types.required' => 'Il campo tipologie è obbligatorio.',
+            'types.exists' => 'I valori selezionati nel campo tipologie non sono validi.',
         ];
     }
 }
