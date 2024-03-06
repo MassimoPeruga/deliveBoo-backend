@@ -41,6 +41,42 @@
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="mb-3 px-2 row row-cols-6">
+                <label class="form-label col-12 px-1 fw-bold">Tipologie*:</label>
+                {{-- @foreach ($types as $type)
+                    <div class="col form-check">
+                        <input class="form-check-input" type="checkbox" value="{{ $type->id }}"
+                            id="type-{{ $type->id }}" name="types[]"
+                            @if ($errors->any()) {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}
+                                @else
+                                {{ $restaurant->types->contains($type->id) ? 'checked' : '' }} @endif>>
+                        <label class="form-check-label" for="type-{{ $type->id }}">
+                            {{ $type->name }}
+                        </label>
+                    </div>
+                @endforeach --}}
+
+                @foreach ($types as $type)
+                    <div class="form-check form-check-inline">
+                        @if ($errors->any())
+                            <input class="form-check-input" type="checkbox" value="{{ $type->id }}" name="types[]"
+                                id="type-{{ $type->id }}"
+                                {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="type-{{ $type->id }}">{{ $type->name }}</label>
+                        @else
+                            <input class="form-check-input" type="checkbox" value="{{ $type->id }}" name="types[]"
+                                id="type-{{ $type->id }}"
+                                {{ $restaurant->types->contains($type->id) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="type-{{ $type->id }}">{{ $type->name }}</label>
+                        @endif
+                    </div>
+                @endforeach
+
+                @error('type')
+                    <div class="alert alert-danger mt-3">{{ $message }}</div>
+                @enderror
+            </div>
+
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Descrizione:</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
