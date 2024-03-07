@@ -37,8 +37,7 @@
 
             <div class="row justify-content-between">
                 <div class="d-flex align-items-center">
-                    <div class="text-dark title-dashboard fnt-std">Area di amministrazione</div>
-                    <a class="link-home navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">
+                    <a class="link-home navbar-brand col-md-3 col-lg-2 me-0 px-3" href="http://localhost:5174/">
                         <div class="text-dark">Home</div>
                     </a>
                     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
