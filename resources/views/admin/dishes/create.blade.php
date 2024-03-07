@@ -17,7 +17,7 @@
             <div class="d-flex">
                 <div class="mb-3 me-4">
                     <label for="price" class="form-label" name="price">Prezzo:</label>
-                    <input type="number" step="0.01" class="form-control" id="price" aria-describedby="emailHelp"name="price"
+                    <input type="number" min="0" step="0.01" class="form-control" id="price" aria-describedby="emailHelp"name="price"
                         value="{{ old('price') }}">
                     @error('price')
                         <div class="alert alert-danger mt-3">{{ $message }}</div>
