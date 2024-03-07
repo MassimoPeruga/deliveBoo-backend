@@ -25,7 +25,7 @@
                 </div>  
                 <div class="mb-3 mx-4">
                     <label for="availability" class="form-label" name="availability">Disponibile:</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" name="availability">
                         <option selected value=null>Seleziona</option>
                         <option value="0" {{ old('availability') == '0' ? 'selected' : '' }}>No</option>
                         <option value="1" {{ old('availability') == '1' ? 'selected' : '' }}>Si</option>

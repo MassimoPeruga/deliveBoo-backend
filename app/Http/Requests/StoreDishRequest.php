@@ -25,7 +25,7 @@ class StoreDishRequest extends FormRequest
             'name' => ['required', 'string'],
             'price' => ['nullable', 'min:1', 'max:999', 'numeric'],
             'description' => ['nullable', 'string', 'max:500'],
-            'avaibility' => ['nullable', 'boolean'],
+            'availability' => ['required', 'boolean'],
             'image' => ['nullable', 'image', 'max:4096'],
         ];
     }
@@ -40,7 +40,8 @@ class StoreDishRequest extends FormRequest
             'price.max' => 'Il campo prezzo deve essere al massimo :max',
             'description.string' => 'Il campo descrizione non è valido.',
             'description.max' => 'Il campo descrizione non può superare i :max caratteri.',
-            'avaibility.boolean' => 'Il valore del campo Disponibilità non è corretto.',
+            'availability.boolean' => 'Il valore del campo Disponibilità non è corretto.',
+            'availability.required' => 'seleziona la disponibilità del piatto',
             'image.image' => 'Il file inserito non è un immagine.',
             'image.max' => 'Il file inserito non può superare i 4MB.',
         ];
