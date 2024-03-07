@@ -30,7 +30,7 @@
                     <!--/sezione destra-->
 
                     <!--sezione sinistra-->
-                    <div class="pe-3 ps-5 pt-3">
+                    <div class="pe-3 ps-5 pt-3 col-sx">
                         <!--descrizione-->
                         <p>{{ $dish->description }}</p>
                         <!--/descrizione-->
