@@ -1,12 +1,16 @@
 @extends('layouts.layoutnew')
 
 @section('content')
-    <div class="container">
-        <h1>
-            Modifica:
-        </h1>
+        
 
-        <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" method="POST" enctype="multipart/form-data">
+
+    <div class="container bg-white px-0">
+        <div class="btn-org px-3">
+            <h1 class="px-0 py-2 m-0" >
+                Modifica:
+            </h1>    
+        </div>
+        <form class="px-3 py-3" action="{{ route('admin.restaurants.update', $restaurant->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3">
@@ -25,22 +29,33 @@
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Numero di Telefono*:</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    name="phone" required value="{{ old('phone', $restaurant['phone']) }}">
-                @error('phone')
-                    <div class="alert alert-danger mt-3">{{ $message }}</div>
-                @enderror
+            <div class="d-flex">
+                <div class="mb-3 me-4">
+                    <label for="exampleInputEmail1" class="form-label">Numero di Telefono*:</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        name="phone" required value="{{ old('phone', $restaurant['phone']) }}">
+                    @error('phone')
+                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3 mx-4">
+                    <label for="exampleInputEmail1" class="form-label">P.IVA*:</label>
+                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        name="vat" required value="{{ old('vat', $restaurant['vat']) }}">
+                    @error('vat')
+                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                    @enderror
+                </div> 
+                <div class="mb-3 ms-4">
+                    <label for="image" class="form-label"name="image">Immagine</label>
+                    <input type="file" class="form-control" id="image" aria-describedby="emailHelp"name="image"
+                        value="{{ old('image', $restaurant['image']) }}">
+                    @error('image')
+                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                    @enderror
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">P.IVA*:</label>
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    name="vat" required value="{{ old('vat', $restaurant['vat']) }}">
-                @error('vat')
-                    <div class="alert alert-danger mt-3">{{ $message }}</div>
-                @enderror
-            </div>
+            
             <div class="mb-3 px-2 row row-cols-6">
                 <label class="form-label col-12 px-1 fw-bold">Tipologie*:</label>
                 {{-- @foreach ($types as $type)
@@ -85,15 +100,7 @@
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="mb-3">
-                <label for="image" class="form-label"name="image">Immagine</label>
-                <input type="file" class="form-control" id="image" aria-describedby="emailHelp"name="image"
-                    value="{{ old('image', $restaurant['image']) }}">
-                @error('image')
-                    <div class="alert alert-danger mt-3">{{ $message }}</div>
-                @enderror
-            </div>
-            <button type="submit" class="btn btn-primary">Modifica</button>
+            <button type="submit" class="btn btn-org">Modifica</button>
             <div class="field-must mt-4">
                 <p class="fst-italic fs-6">Sono contrassegnati con * i campi obbligatori</p>
             </div>
