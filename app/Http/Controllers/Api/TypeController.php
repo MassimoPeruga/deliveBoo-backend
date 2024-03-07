@@ -10,15 +10,31 @@ class TypeController extends Controller
 {
     public function index()
     {
-        $types = Type::all()->map(function ($type) {
-            // Aggiungi il percorso dell'immagine all'oggetto Type
-            $type->image = asset('/storage/types/' . $type->image); // Assicurati che il percorso sia corretto
+        request()->validate(['key' => ['nullable', 'string']]);
+        if (request()->key) {
+            $types = Type::where('name', 'LIKE', '%' . request()->key . '%')->get()->map(function ($type) {
+                $type->image = asset('/storage/types/' . $type->image);
+                return $type;
+            });
+        } else {
+            $types = Type::all()->map(function ($type) {
 
-            return $type;
-        });
-        return response()->json([
-            'success' => true,
-            'results' => $types
-        ]);
+                $type->image = asset('/storage/types/' . $type->image);
+                return $type;
+            });
+        }
+        dd($types);
+        if ($types) {
+            return response()->json([
+                'success' => true,
+                'results' => $types
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'error' => 500,
+                'results' => [],
+            ]);
+        }
     }
 }
