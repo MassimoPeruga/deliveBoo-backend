@@ -23,7 +23,6 @@ class TypeController extends Controller
                 return $type;
             });
         }
-        dd($types);
         if ($types) {
             return response()->json([
                 'success' => true,
