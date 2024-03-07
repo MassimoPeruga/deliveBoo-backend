@@ -87,7 +87,7 @@
                     </div>
                 @endforeach
 
-                @error('type')
+                @error('types')
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
