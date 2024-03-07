@@ -53,12 +53,12 @@ class RegisteredUserController extends Controller
         $restaurant->vat = $request->vat;
         $restaurant->user_id = $user->id;
 
-        if (isset($data['types'])) {
-            $restaurant->types()->sync($data['types']);
-        }
 
         $restaurant->save();
 
+        if ($request->has('types')) {
+            $restaurant->types()->sync($request->types);
+        }
         event(new Registered($user));
 
         Auth::login($user);
