@@ -159,8 +159,8 @@
                                         </label>
                                     </div>
                                 @endforeach
-                                @error('type')
-                                    <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                @error('types')
+                                    <div class="alert alert-danger mt-3 col-12">{{ $message }}</div>
                                 @enderror
                             </div>
 
