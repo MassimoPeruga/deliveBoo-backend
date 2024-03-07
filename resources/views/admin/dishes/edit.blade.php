@@ -28,7 +28,6 @@
                         <option selected value=null>Seleziona</option>
                         <option value="0" {{ old('availability', $dish->availability) == '0' ? 'selected' : '' }}>No</option>
                         <option value="1" {{ old('availability', $dish->availability) == '1' ? 'selected' : '' }}>Si</option>
-
                     </select>
                     @error('availability')
                         <div class="alert alert-danger mt-3">{{ $message }}</div>
