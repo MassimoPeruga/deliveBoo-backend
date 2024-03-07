@@ -7,8 +7,8 @@
             <div class="container p-0">
                 <!--card header-->
                 <div class="btn-org d-flex justify-content-between align-items-center p-3">
-                    <div >
-                        <h3 class="m-0">{{ $dish->name }}</h3>  
+                    <div>
+                        <h3 class="m-0">{{ $dish->name }}</h3>
                     </div>
                     <div>
                         <h3 class="m-0">Descrizione/Ingredienti</h3>
@@ -22,8 +22,7 @@
                         <!--img-->
                         @if ($dish->image)
                             <div class="dish-img-container">
-                                <img src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}"
-                                    class="card-img-top">
+                                <img src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}" class="card-img">
                             </div>
                         @endif
                         <!--/img-->
@@ -36,25 +35,24 @@
                         <p>{{ $dish->description }}</p>
                         <!--/descrizione-->
                         <div class="d-flex justify-content-between mb-3 mt-4">
-                           <!--prezzo-->
+                            <!--prezzo-->
                             <div class="me-4">
-                            <span class="fw-bold">Prezzo:</span>  {{ $dish->price }}€
+                                <span class="fw-bold">Prezzo:</span> {{ $dish->price }}€
                             </div>
-                            <!--/prezzo--> 
+                            <!--/prezzo-->
                             <!--disponibilità-->
                             <div class="ms-4">
                                 <span class="fw-bold">Disponibilità:</span>
                                 @if ($dish->availability)
-                                    Si 
-                                    @else
-                                        No
-                                    
+                                    Si
+                                @else
+                                    No
                                 @endif
-                                 
+
                             </div>
                             <!--/disponibilità-->
                         </div>
-                        
+
                     </div>
                     <!--/sezione sinistra-->
                 </div>
