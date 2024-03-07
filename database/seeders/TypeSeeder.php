@@ -46,7 +46,7 @@ class TypeSeeder extends Seeder
         foreach ($types as $type) {
             $new_type = new Type();
             $new_type->name = $type['name'];
-            $new_type->image = 'types/' . $type['image'];
+            $new_type->image = $type['image'];
 
             // $new_type->image = 'storage/app/public/types' . Hash::make($type['image']) . '.jpg';
 

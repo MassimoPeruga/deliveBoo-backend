@@ -12,7 +12,7 @@ class TypeController extends Controller
     {
         $types = Type::all()->map(function ($type) {
             // Aggiungi il percorso dell'immagine all'oggetto Type
-            $type->image_url = asset('/storage/' . $type->image); // Assicurati che il percorso sia corretto
+            $type->image = asset('/storage/types/' . $type->image); // Assicurati che il percorso sia corretto
 
             return $type;
         });
