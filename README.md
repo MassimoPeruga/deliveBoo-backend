@@ -10,6 +10,24 @@
 - [x] Tabella del menu
 - [x] No animazioni dei bottoni in backend
 - [x] Modal delete
+- [ ] index piatti
+- [ ] cancellare show piatti
+- [ ] numero dei piatti in index
+- [ ] url dei ristoranti togliere id
+- [ ] togliere l'input dalla home
+- [ ] togliere la pagina di ricerca avanzata
+- [ ] create e edit piatti check disponibilità
+- [ ] togliere checkbox mostra password
+- [ ] togliere alert errori
+- [ ] sistemare la home types + restaurants
+- [ ] cambiare i bottoni da 'modifica' a 'salva'
+- [ ] aggiungere le immagini alle api di ristoranti e piatti
+- [ ] logout frontend
+- [ ] refresh ricerca
 ### Milestone:
 - [x] Singolo form registrazione + ristorante
 - [ ] Hompage funzionante
+- [ ] Carrello - local storage - messagio utente al cambio del ristorante
+- [ ] Pagamento - drop-in UI
+- [ ] index backend ordini - chi, quanto, quando
+- [ ] show backend ordine - cosa 
