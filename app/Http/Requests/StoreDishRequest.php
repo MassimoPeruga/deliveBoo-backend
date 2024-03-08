@@ -23,7 +23,7 @@ class StoreDishRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
-            'price' => ['nullable', 'min:1', 'max:999', 'numeric'],
+            'price' => ['required', 'min:1', 'max:999', 'numeric'],
             'description' => ['nullable', 'string', 'max:500'],
             'availability' => ['required', 'boolean'],
             'image' => ['nullable', 'image', 'max:4096'],
@@ -36,6 +36,7 @@ class StoreDishRequest extends FormRequest
             'name.required' => 'Il campo nome è obbligatorio.',
             'name.string' => 'Il campo nome non è valido',
             'price.numeric' => 'Il prezzo inserito non è valido.',
+            'price.required' => 'Il campo prezzo è obbligatorio',
             'price.min' => 'Il campo prezzo deve essere almeno :min',
             'price.max' => 'Il campo prezzo deve essere al massimo :max',
             'description.string' => 'Il campo descrizione non è valido.',
