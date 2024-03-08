@@ -58,14 +58,14 @@ password.addEventListener("click", () => {
 })
 
 // mostra i caratteri nascosti della password
-const showPasswordCheckbox = document.getElementById('show-password');
-showPasswordCheckbox.addEventListener('change', function () {
-  if (this.checked) {
-    password.type = 'text';
-  } else {
-    password.type = 'password';
-  }
-});
+// const showPasswordCheckbox = document.getElementById('show-password');
+// showPasswordCheckbox.addEventListener('change', function () {
+//   if (this.checked) {
+//     password.type = 'text';
+//   } else {
+//     password.type = 'password';
+//   }
+// });
 
 // gestione del popover
 const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
