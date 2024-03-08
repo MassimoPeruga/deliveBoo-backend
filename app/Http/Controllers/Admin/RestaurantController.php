@@ -9,6 +9,7 @@ use App\Models\Restaurant;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
 {
@@ -71,7 +72,11 @@ class RestaurantController extends Controller
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
         $data = $request->validated();
+        
+        $restaurant->slug = Str::of($data['name'])->slug('-');
+
         $restaurant->update($data);
+
 
         if (isset($data['image'])) {
             if (isset($restaurant->image)) {
