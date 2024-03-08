@@ -15,8 +15,8 @@ class RestaurantController extends Controller
             ->map(function ($restaurant) {
                 if ($restaurant->image) {
                     $restaurant->image = "http://127.0.0.1:8000/storage/" . $restaurant->image;
-                    return $restaurant;
                 }
+                return $restaurant;
             });
         return response()->json([
             'success' => true,
