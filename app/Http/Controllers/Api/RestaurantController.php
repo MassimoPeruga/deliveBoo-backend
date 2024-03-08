@@ -13,8 +13,10 @@ class RestaurantController extends Controller
 
         $restaurants = Restaurant::all()
             ->map(function ($restaurant) {
-                $restaurant->image = "http://127.0.0.1:8000/storage/" . $restaurant->image;
-                return $restaurant;
+                if ($restaurant->image) {
+                    $restaurant->image = "http://127.0.0.1:8000/storage/" . $restaurant->image;
+                    return $restaurant;
+                }
             });
         return response()->json([
             'success' => true,
@@ -62,9 +64,11 @@ class RestaurantController extends Controller
 
         if ($restaurant) {
             $restaurant->image = "http://127.0.0.1:8000/storage/" . $restaurant->image;
-            $restaurant->dishes->each(function ($dish) {
-                $dish->image = "http://127.0.0.1:8000/storage/" . $dish->image;
-                $dish->save();
+            $restaurant->dishes = $restaurant->dishes->map(function ($dish) {
+                if ($dish->image) {
+                    $dish->image = "http://127.0.0.1:8000/storage/" . $dish->image;
+                    return $dish;
+                }
             });
         }
 
