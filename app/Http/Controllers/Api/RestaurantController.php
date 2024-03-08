@@ -11,7 +11,7 @@ class RestaurantController extends Controller
     public function index()
     {
 
-        $restaurants = Restaurant::all()
+        $restaurants = Restaurant::with('types')->get()
             ->map(function ($restaurant) {
                 if ($restaurant->image) {
                     $restaurant->image = "http://127.0.0.1:8000/storage/" . $restaurant->image;
