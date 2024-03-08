@@ -28,7 +28,7 @@
             <div class="container">
 
                 <!--logo-->
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                <a class="navbar-brand d-flex align-items-center" href="{{ url('http://localhost:5174/') }}">
                     <div class="logo pt-1">
                         <img src="{{ asset('img/logo.jpeg') }}" alt="Logo">
                     </div>
@@ -44,7 +44,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li>Home</li>
+                        <li><div class="d-flex align-items-center">
+                            <a class="link-home navbar-brand col-md-3 col-lg-2 me-0 px-3" href="http://localhost:5174/">
+                                <div class="text-dark">Home</div>
+                            </a>
+                            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div></li>
                     </ul>
                     <!-- /Left Side Of Navbar -->
 
