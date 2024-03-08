@@ -13,6 +13,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -53,6 +54,9 @@ class RegisteredUserController extends Controller
         $restaurant->vat = $request->vat;
         $restaurant->user_id = $user->id;
 
+        if (isset($data['image'])) {
+            $restaurant->image = Storage::put('uploads', $data['image']);
+        }
 
         $restaurant->save();
 
