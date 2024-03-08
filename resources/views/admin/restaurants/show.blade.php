@@ -14,23 +14,20 @@
     @endif
     <h1 class="p-3 btn-org">{{ $restaurant->name }}</h1>
     <div class="container">
-        <h2 class="my-3">I tuoi piatti</h2>
+        <h2 class="my-3">I tuoi piatti ({{count($restaurant->dishes)}})</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Piatto</th>
-                    <th scope="col">Descrizione/Ingredienti</th>
-                    <th scope="col">Prezzo</th>
                     <th scope="col">Immagine</th>
+                    <th scope="col">Piatto</th>
+                    <th scope="col">Prezzo</th>
+                    <th scope="col">Disponibilità</th>
                     <th scope="col" class="text-end">Modifica/Elimina</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($restaurant->dishes as $dish)
                     <tr>
-                        <td>{{ $dish->name }}</td>
-                        <td>{{ $dish->description }}</td>
-                        <td>{{ $dish->price }} &euro;</td>
                         <td>
                             @if ($dish->image)
                                 <a href="#" class="btn btn-secondary btn-sm">image</a>
@@ -38,10 +35,19 @@
                                 <p>Immagine non disponibile</p>
                             @endif
                         </td>
+                        <td>{{ $dish->name }}</td>
+                        <td>{{ $dish->price }} &euro;</td>
+                        <td>
+                            @if ($dish->availability)
+                                Si
+                            @else
+                                No
+                            @endif
+                        </td>
                         <td>
                             <div class="d-flex justify-content-end">
-                                <a href="{{ route('admin.dishes.show', $dish) }}"
-                                    class="btn btn-primary btn-sm">Dettagli</a>
+                                {{-- <a href="{{ route('admin.dishes.show', $dish) }}"
+                                    class="btn btn-primary btn-sm">Dettagli</a> --}}
                                 <a href="{{ route('admin.dishes.edit', $dish) }}"
                                     class="btn btn-secondary btn-sm mx-2">Modifica</a>
                                 {{-- Button trigger modal  --}}

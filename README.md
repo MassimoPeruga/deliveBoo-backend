@@ -10,17 +10,17 @@
 - [x] Tabella del menu
 - [x] No animazioni dei bottoni in backend
 - [x] Modal delete
-- [ ] index piatti
-- [ ] cancellare show piatti
-- [ ] numero dei piatti in index
+- [x] index piatti
+- [x] cancellare show piatti
+- [x] numero dei piatti in index
 - [ ] url dei ristoranti togliere id
 - [ ] togliere l'input dalla home
 - [ ] togliere la pagina di ricerca avanzata
-- [ ] create e edit piatti check disponibilità
-- [ ] togliere checkbox mostra password
-- [ ] togliere alert errori
+- [x] create e edit piatti check disponibilità
+- [x] togliere checkbox mostra password
+- [x] togliere alert errori
 - [ ] sistemare la home types + restaurants
-- [ ] cambiare i bottoni da 'modifica' a 'salva'
+- [x] cambiare i bottoni da 'modifica' a 'salva'
 - [ ] aggiungere le immagini alle api di ristoranti e piatti
 - [ ] logout frontend
 - [ ] refresh ricerca
