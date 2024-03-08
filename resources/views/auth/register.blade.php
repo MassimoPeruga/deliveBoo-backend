@@ -20,7 +20,7 @@
                                     <input id="name" type="text" class="form-control" name="name"
                                         value="{{ old('name') }}" required autocomplete="name" autofocus>
                                     @error('name')
-                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                        <div class="text-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -33,7 +33,7 @@
                                     <input id="surname" type="text" class="form-control" name="surname"
                                         value="{{ old('surname') }}" required>
                                     @error('surname')
-                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                        <div class="text-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                                     <input id="email" type="email" class="form-control" name="email"
                                         value="{{ old('email') }}" required autocomplete="email">
                                     @error('email')
-                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                        <div class="text-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -61,9 +61,6 @@
                                         data-bs-trigger="focus" data-bs-title="Deve contenere:"
                                         data-bs-content="almeno 8 caratteri, almeno una lettera maiuscola, almeno una lettera minuscola, almeno un numero e almeno un carattere speciale">
                                     <div class="d-flex justify-content-between">
-                                        <div> <label for="show-password" class="mt-2">mostra password</label>
-                                            <input type="checkbox" name="" id="show-password">
-                                        </div>
                                         <div>
                                             <div class="requirementpassowrd text-end mt-2"id="password-requirements">
                                             </div>
@@ -72,7 +69,7 @@
                                 </div>
 
                                 @error('password')
-                                    <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                    <div class="text-danger mt-3">{{ $message }}</div>
                                 @enderror
                             </div>
 
@@ -100,7 +97,7 @@
                                         aria-describedby="emailHelp" name="restaurant_name"
                                         value="{{ old('restaurant_name') }}" required>
                                     @error('restaurant_name')
-                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                        <div class="text-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -113,7 +110,7 @@
                                     <input type="text" class="form-control" id="address" required
                                         aria-describedby="emailHelp"name="address" required value="{{ old('address') }}">
                                     @error('address')
-                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                        <div class="text-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
 
@@ -128,7 +125,7 @@
                                         aria-describedby="emailHelp" name="phone" required
                                         value="{{ old('phone') }}">
                                     @error('phone')
-                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                        <div class="text-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -142,7 +139,7 @@
                                     <input type="number" class="form-control" id="vat"
                                         aria-describedby="emailHelp"name="vat" required value="{{ old('vat') }}">
                                     @error('vat')
-                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                        <div class="text-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -160,7 +157,7 @@
                                     </div>
                                 @endforeach
                                 @error('types')
-                                    <div class="alert alert-danger mt-3 col-12">{{ $message }}</div>
+                                    <div class="text-danger mt-3 col-12">{{ $message }}</div>
                                 @enderror
                             </div>
 
@@ -172,7 +169,7 @@
                                 <div class="col-md-6">
                                     <textarea class="form-control" id="description" rows="3" name="description">{{ old('description') }}</textarea>
                                     @error('description')
-                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                        <div class="text-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -186,7 +183,7 @@
                                     <input type="file" class="form-control" id="image"
                                         aria-describedby="emailHelp"name="image" value="{{ old('image') }}">
                                     @error('image')
-                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                        <div class="text-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
