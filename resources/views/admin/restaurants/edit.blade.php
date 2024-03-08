@@ -10,7 +10,7 @@
                 Modifica:
             </h1>    
         </div>
-        <form class="px-3 py-3" action="{{ route('admin.restaurants.update', $restaurant->id) }}" method="POST" enctype="multipart/form-data">
+        <form class="px-3 py-3" action="{{ route('admin.restaurants.update', $restaurant->slug) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3">

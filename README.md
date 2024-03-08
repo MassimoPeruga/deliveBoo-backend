@@ -13,7 +13,7 @@
 - [x] index piatti
 - [x] cancellare show piatti
 - [x] numero dei piatti in index
-- [ ] url dei ristoranti togliere id
+- [x] url dei ristoranti togliere id
 - [x] togliere l'input dalla home
 - [x] togliere la pagina di ricerca avanzata
 - [x] create e edit piatti check disponibilità

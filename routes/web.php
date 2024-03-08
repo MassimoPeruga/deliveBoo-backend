@@ -37,8 +37,8 @@ Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->prefix('admin')
     ->group(function () {
-        Route::resource('restaurants', RestaurantController::class)->except(['index', 'create', 'store']);
-        Route::resource('dishes', DishController::class)->except(['index', 'show']);
+        Route::resource('restaurants', RestaurantController::class)->parameters(['restaurants' => 'restaurant:slug'])->except(['index', 'create', 'store']);
+        Route::resource('dishes', DishController::class)->parameters(['dishes' => 'dish:slug'])->except(['index', 'show']);
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     });
 

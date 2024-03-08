@@ -49,12 +49,12 @@
                     <div class="d-flex justify-content-between my-5">
                         <button class="btn-org rounded p-2">
                             <a class="text-dark"
-                                href="{{ route('admin.restaurants.edit', Auth::user()->restaurant->id) }}">Modifica
+                                href="{{ route('admin.restaurants.edit', Auth::user()->restaurant->slug) }}">Modifica
                                 ristorante</a>
                         </button>
                         <button class="btn-org rounded p-2">
                             <a class="text-dark"
-                                href="{{ route('admin.restaurants.show', Auth::user()->restaurant->id) }}">Dettagli e
+                                href="{{ route('admin.restaurants.show', Auth::user()->restaurant->slug) }}">Dettagli e
                                 menù</a>
                         </button>
                     </div>

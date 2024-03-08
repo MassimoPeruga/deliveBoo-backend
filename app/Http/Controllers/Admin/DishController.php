@@ -10,6 +10,7 @@ use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class DishController extends Controller
 {
@@ -44,8 +45,11 @@ class DishController extends Controller
             ->first();
 
         $data = $request->validated();
+        
         $new_dish = new Dish();
         $new_dish->fill($data);
+        $new_dish->slug = Str::of($data['name'])->slug('-');
+        
         if (isset($data['image'])) {
             $new_dish->image = Storage::put('uploads', $data['image']);
         }
@@ -85,6 +89,8 @@ class DishController extends Controller
     public function update(UpdateDishRequest $request, Dish $dish, Restaurant $restaurant)
     {
         $data = $request->validated();
+
+        $dish->slug = Str::of($data['name'])->slug('-');
 
         if (isset($data['image'])) {
 
