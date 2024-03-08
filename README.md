@@ -14,12 +14,12 @@
 - [x] cancellare show piatti
 - [x] numero dei piatti in index
 - [ ] url dei ristoranti togliere id
-- [ ] togliere l'input dalla home
-- [ ] togliere la pagina di ricerca avanzata
+- [x] togliere l'input dalla home
+- [x] togliere la pagina di ricerca avanzata
 - [x] create e edit piatti check disponibilità
 - [x] togliere checkbox mostra password
 - [x] togliere alert errori
-- [ ] sistemare la home types + restaurants
+- [x] sistemare la home types + restaurants
 - [x] cambiare i bottoni da 'modifica' a 'salva'
 - [x] aggiungere le immagini alle api di ristoranti e piatti
 - [ ] logout frontend
