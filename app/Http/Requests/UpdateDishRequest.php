@@ -25,10 +25,10 @@ class UpdateDishRequest extends FormRequest
             'name' => ['required', 'string'],
             'price' => ['required', 'min:1', 'max:999', 'numeric'],
             'description' => ['nullable', 'string', 'max:500'],
-            'availability' => ['required', 'boolean', function ($attribute, $value, $fail) {
-                if ($value === null) {
-                    $fail('Seleziona la disponibilità del piatto.');
-                }
+            'availability' => ['nullable', 'boolean', function ($attribute, $value, $fail) {
+                // if ($value === null) {
+                //     $fail('Seleziona la disponibilità del piatto.');
+                // }
             }],
             'image' => ['nullable', 'image', 'max:4096'],
         ];

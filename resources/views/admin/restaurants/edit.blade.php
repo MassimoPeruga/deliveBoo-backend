@@ -100,7 +100,7 @@
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-org">Modifica</button>
+            <button type="submit" class="btn btn-org">Salva</button>
             <div class="field-must mt-4">
                 <p class="fst-italic fs-6">Sono contrassegnati con * i campi obbligatori</p>
             </div>
