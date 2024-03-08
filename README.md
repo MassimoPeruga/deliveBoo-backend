@@ -14,7 +14,7 @@
 -   [x] index piatti
 -   [x] cancellare show piatti
 -   [x] numero dei piatti in index
--   [ ] url dei ristoranti togliere id
+-   [x] url dei ristoranti togliere id
 -   [x] togliere l'input dalla home
 -   [x] togliere la pagina di ricerca avanzata
 -   [x] create e edit piatti check disponibilità
@@ -25,6 +25,9 @@
 -   [x] aggiungere le immagini alle api di ristoranti e piatti
 -   [ ] logout frontend
 -   [ ] refresh ricerca
+-   [ ] anteprima immagine piatti - backend
+-   [ ] disabilitare il bottone acquista ai piatti non disponibili dal menu - frontend
+-   [ ] favicon
 
 ### Milestone:
 
