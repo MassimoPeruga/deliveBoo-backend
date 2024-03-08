@@ -8,6 +8,19 @@ use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
+    public function index()
+    {
+
+        $restaurants = Restaurant::all()
+            ->map(function ($restaurant) {
+                $restaurant->image = "http://127.0.0.1:8000/storage/" . $restaurant->image;
+                return $restaurant;
+            });
+        return response()->json([
+            'success' => true,
+            'results' => $restaurants
+        ]);
+    }
     // public function index(Request $request)
     // {
 
@@ -32,19 +45,29 @@ class RestaurantController extends Controller
     //     ]);
     // }
 
-    public function index(Request $request)
-    {
-        $restaurants = Restaurant::all();
-
-        return response()->json([
-            'success' => true,
-            'results' => $restaurants
-        ]);
-    }
-
+    // public function show(string $id)
+    // {
+    //     $restaurant = Restaurant::where('id', $id)->with('dishes')->first()->map(function ($restaurant) {
+    //         $restaurant->image = "http://127.0.0.1:8000/storage/".$restaurant->image;
+    //         return $restaurant;
+    //     });;
+    //     return response()->json([
+    //         'success' => true,
+    //         'results' => $restaurant
+    //     ]);
+    // }
     public function show(string $id)
     {
         $restaurant = Restaurant::where('id', $id)->with('dishes')->first();
+
+        if ($restaurant) {
+            $restaurant->image = "http://127.0.0.1:8000/storage/" . $restaurant->image;
+            $restaurant->dishes->each(function ($dish) {
+                $dish->image = "http://127.0.0.1:8000/storage/" . $dish->image;
+                $dish->save();
+            });
+        }
+
         return response()->json([
             'success' => true,
             'results' => $restaurant
