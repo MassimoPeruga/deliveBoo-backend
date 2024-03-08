@@ -73,6 +73,13 @@ class RestaurantController extends Controller
         $data = $request->validated();
         $restaurant->update($data);
 
+        if (isset($data['image'])) {
+            if (isset($restaurant->image)) {
+                Storage::delete($restaurant->image);
+            }
+            $restaurant->image = Storage::put('uploads', $data['image']);
+        }
+
         if (isset($data['types'])) {
             $restaurant->types()->sync($data['types']);
         } else {
