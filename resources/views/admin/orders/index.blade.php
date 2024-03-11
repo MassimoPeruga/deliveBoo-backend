@@ -25,5 +25,6 @@
                 @endforeach
             </tbody>
         </table>
+        <a href="{{ route('admin.dashboard', Auth::user()->restaurant->slug) }}" class="btn btn-secondary">Indietro</a>
     </div>
 @endsection
