@@ -3,42 +3,38 @@
 @section('content')
     <h1 class="p-3 btn-org">Ordini</h1>
     <div class="container">
-        <div class="row">
-            <h2>Info Ordine</h2>
-            <div class="col-6">
-                <h5 class="d-inline">#</h5>
-                {{ $order->id }}
-            </div>
-            <div class="col-6">
-                <h5 class="d-inline">Totale</h5>
-                {{ $order->total_amount }} &euro;
-            </div>
-            <h2 class="mt-3">Info Cliente</h2>
-            <div class="col">
-                <h5>Nome</h5>
-                {{ $order->name }}
-                {{ $order->surname }}
-            </div>
-            <div class="col">
-                <h5>Numero di Telefono</h5>
-                {{ $order->phone }}
-            </div>
-            <div class="col">
-                <h5>Email</h5>
-                {{ $order->email }}
-            </div>
-            <div class="col">
-                <h5>Indirizzo</h5>
-                {{ $order->delivery_address }}
+        <h3 class="mx-0">Ordine n. #{{ $order->id }}</h3>
+        <div class="my-4">
+            <h5>Info Cliente</h5>
+            <div class="row">
+                <div class="col">
+                    <h5>Nome</h5>
+                    {{ $order->name }}
+                    {{ $order->surname }}
+                </div>
+                <div class="col">
+                    <h5>Numero di Telefono</h5>
+                    {{ $order->phone }}
+                </div>
+                <div class="col">
+                    <h5>Email</h5>
+                    {{ $order->email }}
+                </div>
+                <div class="col">
+                    <h5>Indirizzo</h5>
+                    {{ $order->delivery_address }}
+                </div>
             </div>
         </div>
-        <h2 class="mt-3">Piatti ordinati</h2>
+
+        <h5>Piatti ordinati</h5>
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Nome piatto</th>
-                    <th scope="col">Prezzo</th>
-                    <th scope="col">Quantità</th>
+                    <th scope="col" class="col-7">Nome piatto</th>
+                    <th scope="col" class="col-2">Prezzo</th>
+                    <th scope="col" class="col-2">Quantità</th>
+                    <th scope="col" class="col-1">Totale</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,9 +43,19 @@
                         <td>{{ $dish['dish']->name }}</td>
                         <td>{{ $dish['dish']->price }} &euro;</td>
                         <td>{{ $dish['quantity'] }}</td>
+                        <td>{{ sprintf('%.2f', $dish['dish']->price * $dish['quantity']) }} &euro;</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+
+        <div class="text-end pe-5">
+            <h5 class="d-inline">Totale Ordine: </h5>
+            <span class="pe-1">{{ $order->total_amount }} &euro;</span>
+        </div>
+
+        <a class="btn btn-secondary" href="{{ route('admin.orders.index') }}">
+            Torna alla lista degli ordini
+        </a>
     </div>
 @endsection
