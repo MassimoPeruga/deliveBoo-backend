@@ -27,7 +27,6 @@ class StoreOrderRequest extends FormRequest
             'phone' => ['required', 'string'],
             'email' => ['required', 'email'],
             'delivery_address' => ['required', 'string'],
-            'total_amount' => ['required', 'numeric', 'min:0'],
         ];
     }
 }

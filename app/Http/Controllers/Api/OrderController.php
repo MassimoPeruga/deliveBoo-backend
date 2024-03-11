@@ -28,21 +28,27 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreOrderRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->validated();
+        $client = $request->input('userData');
+        $cart_dishes = $request->input('cart');
         $new_order = new Order();
-        $new_order->fill($data);
+        $new_order->name = $client['name'];
+        $new_order->surname = $client['surname'];
+        $new_order->phone = $client['phone'];
+        $new_order->email = $client['email'];
+        $new_order->delivery_address = $client['address'];
+        $new_order->total_amount = $request->input('total');
         $new_order->save();
 
-        if (isset($data['dishes'])) {
+        if (isset($cart_dishes)) {
             $pivot_data = [];
-            foreach ($data['dishes'] as $dish_data) {
-                $pivot_data[] = [
+            foreach ($cart_dishes as $dish_data) {
+                $pivot_data[$dish_data['id']] = [
                     'quantity' => $dish_data['quantity'],
                 ];
             }
-            $new_order->dishes()->sync($data['dishes'], $pivot_data);
+            $new_order->dishes()->sync($pivot_data);
         }
     }
 
