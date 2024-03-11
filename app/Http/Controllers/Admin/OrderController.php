@@ -40,10 +40,15 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        // $order = Order::with('dishes');
-        $dishes = Dish::where('order_id', $order->id)->with('quantity')->get();
+        $order->load('dishes');
+        $dishes = [];
+        foreach ($order->dishes as $dish) {
+            $quantity = $dish->pivot->quantity;
+            $dishes[] = ['dish' => $dish, 'quantity' => $quantity];
+        }
         return view('admin.orders.show', compact('order', 'dishes'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
