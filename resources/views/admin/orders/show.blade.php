@@ -4,17 +4,17 @@
     <h1 class="p-3 btn-org">Ordini</h1>
     <div class="container">
         <div class="row">
+            <h2>Info Ordine</h2>
             <div class="col-6">
-                <h2>Info Ordine</h2>
-                <h5>#</h5>
+                <h5 class="d-inline">#</h5>
                 {{ $order->id }}
             </div>
             <div class="col-6">
-                <h5>Totale</h5>
+                <h5 class="d-inline">Totale</h5>
                 {{ $order->total_amount }} &euro;
             </div>
+            <h2 class="mt-3">Info Cliente</h2>
             <div class="col">
-                <h2>Info Cliente</h2>
                 <h5>Nome</h5>
                 {{ $order->name }}
                 {{ $order->surname }}
@@ -32,6 +32,7 @@
                 {{ $order->delivery_address }}
             </div>
         </div>
+        <h2 class="mt-3">Piatti ordinati</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -43,9 +44,9 @@
             <tbody>
                 @foreach ($dishes as $dish)
                     <tr>
-                        <td>{{ $dish->name }}</td>
-                        <td>{{ $dish->price }} &euro;</td>
-                        <td>{{ $dish->quantity }}</td>
+                        <td>{{ $dish['dish']->name }}</td>
+                        <td>{{ $dish['dish']->price }} &euro;</td>
+                        <td>{{ $dish['quantity'] }}</td>
                     </tr>
                 @endforeach
             </tbody>
