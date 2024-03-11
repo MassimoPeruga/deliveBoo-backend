@@ -36,7 +36,7 @@ class RegisteredUserController extends Controller
      */
     public function store(RegistrationRequest $request): RedirectResponse
     {
-       $data = $request->validated();
+        $data = $request->validated();
 
 
         $user = User::create([
@@ -47,7 +47,7 @@ class RegisteredUserController extends Controller
         ]);
 
         $restaurant = new Restaurant();
-        $restaurant->slug = Str::slug($data['name']);
+        $restaurant->slug = Str::slug($request['restaurant_name']);
         $restaurant->name = $request->restaurant_name;
         $restaurant->address = $request->address;
         $restaurant->phone = $request->phone;
