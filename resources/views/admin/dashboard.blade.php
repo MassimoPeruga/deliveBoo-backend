@@ -65,7 +65,8 @@
                         <a class="text-dark" href="{{ route('admin.restaurants.create') }}">Aggiungi ristorante</a>
                     </button>
                 @endif
-                <a href="{{ route('admin.orders.index') }}" class="btn btn-info">Ordini Ricevuti</a>
+                <a href="{{ route('admin.orders.index') }}" class="btn btn-info">Ordini
+                    Ricevuti</a>
             </div>
 
         </div>

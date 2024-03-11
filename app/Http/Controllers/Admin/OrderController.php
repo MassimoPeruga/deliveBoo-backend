@@ -7,6 +7,7 @@ use App\Models\Dish;
 use App\Models\Order;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -15,9 +16,14 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all()->sortBy('created_at');
+        $orders = Order::whereHas('dishes', function ($query) {
+            $query->where('restaurant_id', Auth::user()->restaurant->id);
+        })->orderBy('created_at')->get();
+
         return view('admin.orders.index', compact('orders'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
