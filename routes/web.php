@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DishController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\RestaurantController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,7 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::resource('restaurants', RestaurantController::class)->parameters(['restaurants' => 'restaurant:slug'])->except(['index', 'create', 'store']);
         Route::resource('dishes', DishController::class)->parameters(['dishes' => 'dish:slug'])->except(['index', 'show']);
+        Route::resource('orders', OrderController::class)->only(['index', 'show']);
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     });
 

@@ -14,7 +14,8 @@
                         <div class="col-md-4">
                             <!--img-->
                             @if (Auth::user()->restaurant->image)
-                                    <img src="{{ asset('storage/' . Auth::user()->restaurant->image) }}" alt="{{ Auth::user()->restaurant->name }}" class="img-fluid rounded-start">
+                                <img src="{{ asset('storage/' . Auth::user()->restaurant->image) }}"
+                                    alt="{{ Auth::user()->restaurant->name }}" class="img-fluid rounded-start">
                             @endif
                             <!--/img-->
                         </div>
@@ -64,8 +65,7 @@
                         <a class="text-dark" href="{{ route('admin.restaurants.create') }}">Aggiungi ristorante</a>
                     </button>
                 @endif
-
-
+                <a href="{{ route('admin.orders.index') }}" class="btn btn-info">Ordini Ricevuti</a>
             </div>
 
         </div>

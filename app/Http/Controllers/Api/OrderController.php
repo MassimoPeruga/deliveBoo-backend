@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Dish;
+use App\Http\Requests\StoreOrderRequest;
 use App\Models\Order;
-use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -15,8 +14,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all()->sortBy('created_at');
-        return view('admin.orders.index', compact('orders'));
+        //
     }
 
     /**
@@ -30,19 +28,30 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreOrderRequest $request)
     {
-        //
+        $data = $request->validated();
+        $new_order = new Order();
+        $new_order->fill($data);
+        $new_order->save();
+
+        if (isset($data['dishes'])) {
+            $pivot_data = [];
+            foreach ($data['dishes'] as $dish_data) {
+                $pivot_data[] = [
+                    'quantity' => $dish_data['quantity'],
+                ];
+            }
+            $new_order->dishes()->sync($data['dishes'], $pivot_data);
+        }
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function show(string $id)
     {
-        // $order = Order::with('dishes');
-        $dishes = Dish::where('order_id', $order->id)->with('quantity')->get();
-        return view('admin.orders.show', compact('order', 'dishes'));
+        //
     }
 
     /**
