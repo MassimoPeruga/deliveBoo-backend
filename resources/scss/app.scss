@@ -30,7 +30,20 @@ td img {
         background-color: #00000069;
         font-size: 1.25rem;
     }
+
     .restaurant-card {
         background-color: #00000069;
+    }
+}
+
+.img_not_found {
+    position: relative;
+
+    span {
+        position: absolute;
+        top: -8px;
+        right: 3px;
+        font-weight: bolder;
+        font-size: 31px;
     }
 }

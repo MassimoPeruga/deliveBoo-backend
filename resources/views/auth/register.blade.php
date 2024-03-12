@@ -5,7 +5,7 @@
         <div class="row justify-content-center container">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header  bg-nav">{{ __('Register') }}</div>
+                    <div class="card-header  bg-nav">Registrati</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
@@ -74,7 +74,7 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="password_confirm" class="col-md-4 col form-label text-md-right mx-1 fw-bold">
+                                <label for="password_confirm" class="col-md-4 col form-label text-md-right fw-bold">
                                     {{ __('Conferma Password*') }}
                                 </label>
                                 <div class="col-md-6">
@@ -121,9 +121,8 @@
                                     Numero di Telefono*:
                                 </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="phone"
-                                        aria-describedby="emailHelp" name="phone" required
-                                        value="{{ old('phone') }}">
+                                    <input type="text" class="form-control" id="phone" aria-describedby="emailHelp"
+                                        name="phone" required value="{{ old('phone') }}">
                                     @error('phone')
                                         <div class="text-danger mt-3">{{ $message }}</div>
                                     @enderror
@@ -195,7 +194,7 @@
                             <div class="mb-4 row mb-0">
                                 <div class="col-md-6 offset-md-4 text-end">
                                     <button type="submit" class="btn btn-org">
-                                        {{ __('Register') }}
+                                        Registrati
                                     </button>
                                 </div>
                             </div>

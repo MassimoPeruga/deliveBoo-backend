@@ -3,7 +3,14 @@
 @section('content')
     <h1 class="p-3 btn-org">Ordini</h1>
     <div class="container">
-        <h3 class="mx-0">Ordine n. #{{ $order->id }}</h3>
+        <div class="row">
+            <div class="col col-4">
+                <h3 class="mx-0">Ordine n. #{{ $order->id }}</h3>
+            </div>
+            <div class="col col-4">
+                <h5>Effettuato il: <span class="fw-normal">{{ date('Y-m-d H:i', strtotime($order->created_at)) }}</span></h5>
+            </div>
+        </div>
         <div class="my-4">
             <h5>Info Cliente</h5>
             <div class="row">
@@ -55,7 +62,7 @@
         </div>
 
         <a class="btn btn-secondary" href="{{ route('admin.orders.index') }}">
-            Torna alla lista degli ordini
+            <i class="fa-solid fa-right-to-bracket fa-rotate-180"></i>
         </a>
     </div>
 @endsection
