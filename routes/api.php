@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\TypeController;
+use App\Http\Controllers\Api\CheckoutController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,5 @@ Route::get('restaurants', [RestaurantController::class, 'index']);
 Route::get('restaurants/{id}', [RestaurantController::class, 'show']);
 Route::get('types', [TypeController::class, 'index']);
 Route::post('orders', [OrderController::class, 'store']);
+Route::get('/payment/token', [CheckoutController::class, 'getToken']);
+Route::post('/checkout', [CheckoutController::class, 'checkout']);
