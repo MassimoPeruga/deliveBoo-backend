@@ -64,36 +64,38 @@
 
         <div class="container-fluid vh-100">
             <div class="row h-100">
-                <!-- Definire solo parte del menu di navigazione inizialmente per poi
-        aggiungere i link necessari giorno per giorno
-        -->
                 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-nav navbar-dark sidebar collapse">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                @if (isset($restaurant))
-                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
-                                        href="{{ route('admin.restaurants.show', Auth::user()->restaurant->id) }}">
-                                        <!-- Visualizza l'immagine del ristorante associato all'utente loggato o il logo -->
-                                        @if (Auth::check() && Auth::user()->restaurant && Auth::user()->restaurant->image)
-                                            <img class="logo"
-                                                src="{{ asset('storage/' . Auth::user()->restaurant->image) }}"
-                                                alt="{{ Auth::user()->restaurant->name }}">
-                                        @else
-                                            <img class="logo" src="{{ asset('img/logo.jpeg') }}"
-                                                alt="Logo predefinito">
-                                        @endif
-                                        {{ Auth::user()->restaurant->name ?? 'Nome del Ristorante' }}
-                                    </a>
-                                @endif
+                                <a class="nav-link text-black fs-5 {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.dashboard') }}">
+                                    <i class="fa-solid fa-gauge-simple fa-lg fa-fw"></i> Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-black fs-5  {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.restaurants.edit', Auth::user()->restaurant->slug) }}">
+                                    <i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i> Modifica Ristorante
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-black fs-5 {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.restaurants.show', Auth::user()->restaurant->slug) }}">
+                                    <i class="fa-solid fa-utensils fa-lg fa-fw"></i> Menù
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-black fs-5 {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.orders.index') }}">
+                                    <i class="fa-solid fa-receipt fa-lg fa-fw"></i></i> Ordini Ricevuti
+                                </a>
                             </li>
                         </ul>
-
-
                     </div>
                 </nav>
 
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4  containermain">
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 containermain">
                     @yield('content')
                 </main>
             </div>
