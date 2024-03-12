@@ -1,8 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1 class="p-3 btn-org">Ordini</h1>
     <div class="container">
+        <div class="btn-org px-3">
+            <h1 class="px-0 py-2 m-0">
+                Ordini
+            </h1>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
