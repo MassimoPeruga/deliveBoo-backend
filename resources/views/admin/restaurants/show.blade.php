@@ -12,9 +12,11 @@
             </div>
         </div>
     @endif
-    <h1 class="p-3 btn-org">{{ $restaurant->name }}</h1>
+
     <div class="container">
-        <h2 class="my-3">I tuoi piatti ({{ count($restaurant->dishes) }})</h2>
+        <div class="btn-org px-3">
+            <h1 class="px-0 py-2 m-0">{{ $restaurant->name }} - I tuoi piatti({{ count($restaurant->dishes) }}) </h1>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
