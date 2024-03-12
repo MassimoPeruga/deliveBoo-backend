@@ -14,15 +14,15 @@
     @endif
     <h1 class="p-3 btn-org">{{ $restaurant->name }}</h1>
     <div class="container">
-        <h2 class="my-3">I tuoi piatti ({{count($restaurant->dishes)}})</h2>
+        <h2 class="my-3">I tuoi piatti ({{ count($restaurant->dishes) }})</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Immagine</th>
                     <th scope="col">Piatto</th>
                     <th scope="col">Prezzo</th>
-                    <th scope="col">Disponibilità</th>
-                    <th scope="col" class="text-end">Modifica/Elimina</th>
+                    <th scope="col">Disponibile</th>
+                    <th scope="col" class="text-end">Azioni</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,30 +30,34 @@
                     <tr>
                         <td>
                             @if ($dish->image)
-                                <a href="#" class="btn btn-secondary btn-sm">image</a>
+                                <img src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }} img"
+                                    class="d-block ms-2" height="25px">
                             @else
-                                <p>Immagine non disponibile</p>
+                                <i class="fa-regular fa-image img_not_found ms-3">
+                                    <span>/</span>
+                                </i>
                             @endif
                         </td>
                         <td>{{ $dish->name }}</td>
                         <td>{{ $dish->price }} &euro;</td>
-                        <td>
+                        <td class="ps-5">
                             @if ($dish->availability)
-                                Si
+                                <i class="fa-solid fa-square-check text-success"></i>
                             @else
-                                No
+                                <i class="fa-solid fa-square-xmark text-danger"></i>
                             @endif
                         </td>
                         <td>
                             <div class="d-flex justify-content-end">
                                 {{-- <a href="{{ route('admin.dishes.show', $dish) }}"
                                     class="btn btn-primary btn-sm">Dettagli</a> --}}
-                                <a href="{{ route('admin.dishes.edit', $dish) }}"
-                                    class="btn btn-secondary btn-sm mx-2">Modifica</a>
+                                <a href="{{ route('admin.dishes.edit', $dish) }}" class="btn btn-primary btn-sm mx-2">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
                                 {{-- Button trigger modal  --}}
                                 <button type="button" class="btn btn-danger btn-sm " data-bs-toggle="modal"
                                     data-bs-target="#exampleModal-{{ $dish->id }}">
-                                    Elimina
+                                    <i class="fa-solid fa-trash"></i>
                                 </button>
                                 {{-- Button trigger modal  --}}
                                 {{-- Modal  --}}
@@ -89,8 +93,11 @@
             </tbody>
         </table>
         <div class="my-3">
+            <a href="{{ route('admin.dashboard', $restaurant->id) }}" class="btn btn-secondary">
+                <i class="fa-solid fa-right-to-bracket fa-rotate-180"></i>
+            </a>
             <a href="{{ route('admin.dishes.create', $restaurant->id) }}" class="btn btn-org">Aggiungi piatto</a>
-            <a href="{{ route('admin.dashboard', $restaurant->id) }}" class="btn btn-secondary">Indietro</a>
+
         </div>
     </div>
 @endsection
