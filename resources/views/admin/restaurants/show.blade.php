@@ -34,7 +34,7 @@
                                     class="d-block ms-2" height="25px">
                             @else
                                 <i class="fa-regular fa-image img_not_found ms-3">
-                                    <span>/</span>
+                                    <span>\</span>
                                 </i>
                             @endif
                         </td>
