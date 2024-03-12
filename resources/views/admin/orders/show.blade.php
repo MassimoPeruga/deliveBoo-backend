@@ -1,4 +1,4 @@
-@extends('layouts.layoutnew')
+@extends('layouts.admin')
 
 @section('content')
     <h1 class="p-3 btn-org">Ordini</h1>
