@@ -1,22 +1,20 @@
-@extends('layouts.layoutnew')
+@extends('layouts.admin')
 
 @section('content')
-        
-
-
     <div class="container bg-white px-0">
         <div class="btn-org px-3">
-            <h1 class="px-0 py-2 m-0" >
+            <h1 class="px-0 py-2 m-0">
                 Modifica:
-            </h1>    
+            </h1>
         </div>
-        <form class="px-3 py-3" action="{{ route('admin.restaurants.update', $restaurant->slug) }}" method="POST" enctype="multipart/form-data">
+        <form class="px-3 py-3" action="{{ route('admin.restaurants.update', $restaurant->slug) }}" method="POST"
+            enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nome*:</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name"
-                    required value="{{ old('name', $restaurant['name']) }}">
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    name="name" required value="{{ old('name', $restaurant['name']) }}">
                 @error('name')
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
@@ -45,7 +43,7 @@
                     @error('vat')
                         <div class="alert alert-danger mt-3">{{ $message }}</div>
                     @enderror
-                </div> 
+                </div>
                 <div class="mb-3 ms-4">
                     <label for="image" class="form-label"name="image">Immagine</label>
                     <input type="file" class="form-control" id="image" aria-describedby="emailHelp"name="image"
@@ -55,7 +53,7 @@
                     @enderror
                 </div>
             </div>
-            
+
             <div class="mb-3 px-2 row row-cols-6">
                 <label class="form-label col-12 px-1 fw-bold">Tipologie*:</label>
                 {{-- @foreach ($types as $type)

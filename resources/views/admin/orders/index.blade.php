@@ -1,8 +1,12 @@
-@extends('layouts.layoutnew')
+@extends('layouts.admin')
 
 @section('content')
-    <h1 class="p-3 btn-org">Ordini</h1>
     <div class="container">
+        <div class="btn-org px-3">
+            <h1 class="px-0 py-2 m-0">
+                Ordini
+            </h1>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -21,7 +25,7 @@
                         <td>{{ $order->total_amount }} &euro;</td>
                         <td>{{ date('Y-m-d H:i', strtotime($order->created_at)) }}</td>
                         <td>
-                            <a href="{{ route('admin.orders.show', $order) }}" class="btn btn-info">Dettagli Ordine</a>
+                            <a href="{{ route('admin.orders.show', $order) }}" class="btn btn-primary">Dettagli Ordine</a>
                         </td>
                     </tr>
                 @endforeach
