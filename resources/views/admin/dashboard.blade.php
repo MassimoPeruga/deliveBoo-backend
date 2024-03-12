@@ -28,24 +28,7 @@
                     </div>
                 </div>
 
-                {{-- <div class="card mb-4">
-                    <div class="card-header bg-nav">
-                        {{ __('Dashboard') }}
-                    </div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        {{ __('Login effettuato con successo!') }}
-                    </div>
-                </div> --}}
-                <!--/card-->
-
-                @if (Auth::check() && Auth::user()->restaurant)
+                {{-- @if (Auth::check() && Auth::user()->restaurant)
                     <!-- Modifica ristorante -->
                     <div class="d-flex justify-content-between my-5">
                         <button class="btn-org rounded p-2">
@@ -66,12 +49,9 @@
                     </button>
                 @endif
                 <a href="{{ route('admin.orders.index') }}" class="btn btn-info">Ordini
-                    Ricevuti</a>
+                    Ricevuti</a> --}}
             </div>
 
         </div>
-        {{-- <form action="{{ route('dish.store') }}">
-            <button class="btn btn-primary btnanimation">Crea un nuovo piatto</button>
-        </form> --}}
     </div>
 @endsection

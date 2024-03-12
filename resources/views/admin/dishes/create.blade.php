@@ -1,4 +1,5 @@
-@extends('layouts.layoutnew')
+@extends('layouts.admin')
+
 @section('content')
     <div class="container">
         <h1 class="btn-org p-2 m-0">
