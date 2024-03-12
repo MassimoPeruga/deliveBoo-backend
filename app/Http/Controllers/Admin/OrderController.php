@@ -49,6 +49,9 @@ class OrderController extends Controller
         $order->load('dishes');
         $dishes = [];
         foreach ($order->dishes as $dish) {
+            if (Auth::user()->restaurant->id !== $dish->restaurant_id) {
+                return abort(404);
+            }
             $quantity = $dish->pivot->quantity;
             $dishes[] = ['dish' => $dish, 'quantity' => $quantity];
         }
