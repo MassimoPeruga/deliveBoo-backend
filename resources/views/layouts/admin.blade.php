@@ -32,11 +32,14 @@
 
         <header class="navbar navbar-dark sticky-top bg-nav flex-md-nowrap p-2 shadow">
 
-            <div class="row justify-content-between">
+            <div class="row justify-content-between ms-1">
                 <div class="d-flex align-items-center">
-                    <a class="link-home navbar-brand col-md-3 col-lg-2 me-0 px-3" href="http://localhost:5174/">
+                    {{-- <a class="link-home navbar-brand col-md-3 col-lg-2 me-0 px-3" href="http://localhost:5174/">
                         <div class="text-dark">Home</div>
-                    </a>
+                    </a> --}}
+                    <div class="logo-container">
+                        <img src="../img/logo.jpeg" alt="logo" class="logo">
+                    </div>
                     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
                         data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +48,7 @@
                 </div>
 
             </div>
-            <div class="navbar-nav">
+            <div class="navbar-nav mx-2">
                 <div class="nav-item text-nowrap ms-2">
                     <a class="nav-link text-dark" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
