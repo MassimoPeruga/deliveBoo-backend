@@ -44,9 +44,9 @@
                         <td>{{ $dish->price }} &euro;</td>
                         <td class="ps-5">
                             @if ($dish->availability)
-                                <i class="fa-solid fa-square-check text-success"></i>
+                                <i class="fa-solid fa-square-check text-success fs-5"></i>
                             @else
-                                <i class="fa-solid fa-square-xmark text-danger"></i>
+                                <i class="fa-solid fa-square-xmark text-danger fs-5"></i>
                             @endif
                         </td>
                         <td>
