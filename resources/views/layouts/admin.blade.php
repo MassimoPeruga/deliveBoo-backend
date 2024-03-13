@@ -38,7 +38,7 @@
                         <div class="text-dark">Home</div>
                     </a> --}}
                     <div class="logo-container">
-                        <img src="../img/logo.jpeg" alt="logo" class="logo">
+                        <img src="{{asset('img/logo.jpeg')}}" alt="logo" class="logo">
                     </div>
                     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
                         data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
