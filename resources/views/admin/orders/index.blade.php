@@ -4,7 +4,7 @@
     <div class="container">
         <div class="btn-org px-3">
             <h1 class="px-0 py-2 m-0">
-                Ordini
+                Ordini ricevuti - ({{count($orders)}})
             </h1>
         </div>
         <table class="table table-striped">
@@ -23,7 +23,7 @@
                         <td>{{ $order->id }}</td>
                         <td>{{ $order->email }}</td>
                         <td>{{ $order->total_amount }} &euro;</td>
-                        <td>{{ date('Y-m-d H:i', strtotime($order->created_at)) }}</td>
+                        <td>{{ date('d-m-Y H:i', strtotime($order->created_at)) }}</td>
                         <td>
                             <a href="{{ route('admin.orders.show', $order) }}" class="btn btn-primary">Dettagli Ordine</a>
                         </td>
