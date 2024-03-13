@@ -10,12 +10,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Imposta l'icona in base alla presenza dell'immagine del ristorante associato all'utente loggato -->
-    @if (Auth::check() && Auth::user()->restaurant && Auth::user()->restaurant->image)
-        <link rel="icon" type="image/x-icon" href="{{ asset('storage/' . Auth::user()->restaurant->image) }}">
-    @else
-        <link rel="icon" type="image/x-icon" href="{{ asset('img/logo.jpeg') }}">
-    @endif
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/logo.jpeg') }}">
+
 
     <!-- Fontawesome 6 cdn -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'
