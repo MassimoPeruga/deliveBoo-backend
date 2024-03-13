@@ -27,7 +27,7 @@
     @vite(['resources/js/app.js'])
 </head>
 
-<body>
+<body class="overflow-hidden">
     <div id="app">
 
         <header class="navbar navbar-dark sticky-top bg-nav flex-md-nowrap p-2 shadow">
@@ -92,7 +92,8 @@
                     </div>
                 </nav>
 
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 containermain">
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 overflow-y-auto containermain"
+                    style="height: calc(100vh - 40px);">
                     @yield('content')
                 </main>
             </div>
