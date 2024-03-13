@@ -58,9 +58,9 @@ class RestaurantController extends Controller
     //         'results' => $restaurant
     //     ]);
     // }
-    public function show(string $id)
+    public function show(string $slug)
     {
-        $restaurant = Restaurant::where('id', $id)->with('dishes')->first();
+        $restaurant = Restaurant::where('slug', $slug)->with('dishes')->first();
 
         if ($restaurant) {
             $restaurant->image = "http://127.0.0.1:8000/storage/" . $restaurant->image;
