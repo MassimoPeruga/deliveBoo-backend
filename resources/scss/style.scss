@@ -17,6 +17,7 @@ p {
     object-fit: cover;
     width: 3.125rem;
     border-radius: 6.25rem;
+
     img {
         width: 100%;
     }
@@ -132,3 +133,26 @@ footer {
 //   input:valid + .error2 {
 //     display: none;
 //   }
+
+#sidebarMenu {
+    text-align: center;
+    font-size: 1rem * .875;
+}
+
+@media screen and (min-width:768px) {
+    #sidebarMenu {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width:992px) {
+    #sidebarMenu {
+        text-align: start;
+    }
+}
+
+@media screen and (min-width:1400px) {
+    #sidebarMenu {
+        font-size: 1rem * 1.5;
+    }
+}
