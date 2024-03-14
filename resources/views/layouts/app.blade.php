@@ -44,7 +44,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li>
+                        {{-- <li>
                             <div class="d-flex align-items-center">
                                 <a class="link-home navbar-brand col-md-3 col-lg-2 me-0 px-3"
                                     href="http://localhost:5174/">
@@ -56,7 +56,7 @@
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
                             </div>
-                        </li>
+                        </li> --}}
                     </ul>
                     <!-- /Left Side Of Navbar -->
 
