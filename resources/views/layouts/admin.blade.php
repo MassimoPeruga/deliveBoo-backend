@@ -38,7 +38,7 @@
                         <div class="text-dark">Home</div>
                     </a> --}}
                     <div class="logo-container">
-                        <img src="{{asset('img/logo.jpeg')}}" alt="logo" class="logo">
+                        <img src="{{ asset('img/logo.jpeg') }}" alt="logo" class="logo">
                     </div>
                     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
                         data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
@@ -64,38 +64,51 @@
 
         <div class="container-fluid vh-100">
             <div class="row h-100">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-nav navbar-dark sidebar collapse">
+                <nav id="sidebarMenu"
+                    class="col-1 col-md-2 col-lg-3 col-xl-2 d-block bg-nav navbar-dark sidebar collapse">
                     <div class="position-sticky pt-3">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link text-black fs-5 {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                        <ul class="nav flex-column gy-2">
+                            <li class="nav-item w-100">
+                                <a class="nav-link text-black p-1 {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dashboard') }}">
-                                    <i class="fa-solid fa-gauge-simple fa-lg fa-fw"></i> Dashboard
+                                    <i class="fa-solid fa-gauge-simple fa-lg fa-fw"></i>
+                                    <span class="d-none d-lg-inline">
+                                        Dashboard
+                                    </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-black fs-5  {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                            <li class="nav-item w-100">
+                                <a class="nav-link text-black p-1 {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.restaurants.edit', Auth::user()->restaurant->slug) }}">
-                                    <i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i> Modifica Ristorante
+                                    <i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i>
+                                    <span class="d-none d-lg-inline">
+                                        Modifica Ristorante
+                                    </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-black fs-5 {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                            <li class="nav-item w-100">
+                                <a class="nav-link text-black p-1 {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.restaurants.show', Auth::user()->restaurant->slug) }}">
-                                    <i class="fa-solid fa-utensils fa-lg fa-fw"></i> Menù
+                                    <i class="fa-solid fa-utensils fa-lg fa-fw"></i>
+                                    <span class="d-none d-lg-inline">
+                                        Menù
+                                    </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-black fs-5 {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                            <li class="nav-item w-100">
+                                <a class="nav-link text-black p-1 {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.orders.index') }}">
-                                    <i class="fa-solid fa-receipt fa-lg fa-fw"></i></i> Ordini Ricevuti
+                                    <i class="fa-solid fa-receipt fa-lg fa-fw"></i></i>
+                                    <span class="d-none d-lg-inline">
+                                        Ordini Ricevuti
+                                    </span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </nav>
 
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 overflow-y-auto containermain"
+                <main class="col-11 col-md-10 col-lg-9 col-xl-10 ms-sm-auto p-4 overflow-y-auto containermain"
                     style="height: calc(100vh - 40px);">
                     @yield('content')
                 </main>
