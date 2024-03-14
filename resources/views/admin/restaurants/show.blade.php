@@ -14,17 +14,20 @@
     @endif
 
     <div class="container">
+        <div class="my-3">
+            <a href="{{ route('admin.dishes.create', $restaurant->id) }}" class="btn btn-org">Aggiungi piatto</a>
+        </div>
         <div class="btn-org px-3">
-            <h1 class="px-0 py-2 m-0">{{ $restaurant->name }} - I tuoi piatti({{ count($restaurant->dishes) }}) </h1>
+            <h1 class="px-0 py-2 m-0">I tuoi piatti({{ count($restaurant->dishes) }}) </h1>
         </div>
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Immagine</th>
+                    <th scope="col" class="col-2">Immagine</th>
                     <th scope="col">Piatto</th>
-                    <th scope="col">Prezzo</th>
-                    <th scope="col">Disponibile</th>
-                    <th scope="col" class="text-end">Azioni</th>
+                    <th scope="col" class="col-1">Prezzo</th>
+                    <th scope="col" class="col-1">Disponibile</th>
+                    <th scope="col" class="text-end col-2">Azioni</th>
                 </tr>
             </thead>
             <tbody>
@@ -94,12 +97,5 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="my-3">
-            <a href="{{ route('admin.dashboard', $restaurant->id) }}" class="btn btn-secondary">
-                <i class="fa-solid fa-right-to-bracket fa-rotate-180"></i>
-            </a>
-            <a href="{{ route('admin.dishes.create', $restaurant->id) }}" class="btn btn-org">Aggiungi piatto</a>
-
-        </div>
     </div>
 @endsection

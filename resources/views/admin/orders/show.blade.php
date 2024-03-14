@@ -7,7 +7,7 @@
                 <h3 class="mx-0">Ordine n. #{{ $order->id }}</h3>
             </div>
             <div class="col col-4">
-                <h5>Effettuato il: <span class="fw-normal">{{ date('Y-m-d H:i', strtotime($order->created_at)) }}</span></h5>
+                <h5>Effettuato il: <span class="fw-normal">{{ date('d-m-Y H:i', strtotime($order->created_at)) }}</span></h5>
             </div>
         </div>
         <div class="my-4">
@@ -59,9 +59,5 @@
             <h5 class="d-inline">Totale Ordine: </h5>
             <span class="pe-1">{{ $order->total_amount }} &euro;</span>
         </div>
-
-        <a class="btn btn-secondary" href="{{ route('admin.orders.index') }}">
-            <i class="fa-solid fa-right-to-bracket fa-rotate-180"></i>
-        </a>
     </div>
 @endsection
