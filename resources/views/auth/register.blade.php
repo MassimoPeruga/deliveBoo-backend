@@ -18,7 +18,7 @@
                                 </label>
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control" name="name"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        value="{{ old('name') }}" required autofocus>
                                     @error('name')
                                         <div class="text-danger mt-3">{{ $message }}</div>
                                     @enderror
@@ -44,7 +44,7 @@
                                 </label>
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email">
+                                        value="{{ old('email') }}" required>
                                     @error('email')
                                         <div class="text-danger mt-3">{{ $message }}</div>
                                     @enderror
@@ -57,8 +57,8 @@
                                 </label>
                                 <div class="col-md-6">
                                     <input type="password" id="password" name="password" class="form-control"
-                                        name="password" required autocomplete="new-password" data-bs-toggle="popover"
-                                        data-bs-trigger="focus" data-bs-title="Deve contenere:"
+                                        name="password" required data-bs-toggle="popover" data-bs-trigger="focus"
+                                        data-bs-title="Deve contenere:"
                                         data-bs-content="almeno 8 caratteri, almeno una lettera maiuscola, almeno una lettera minuscola, almeno un numero e almeno un carattere speciale">
                                     <div class="d-flex justify-content-between">
                                         <div>
@@ -79,7 +79,7 @@
                                 </label>
                                 <div class="col-md-6">
                                     <input id="password_confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password">
+                                        name="password_confirmation" required>
                                     <div id="password_error">
                                     </div>
                                 </div>
