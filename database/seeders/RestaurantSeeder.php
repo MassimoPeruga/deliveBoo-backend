@@ -32,8 +32,9 @@ class RestaurantSeeder extends Seeder
                 'slug' => Str::slug('Pizza Italia'),
                 'address' => 'Via Nazionale, 12, Roma',
                 'phone' => '+39 06 1234567',
-                'vat' => 'IT123456789',
+                'vat' => '11123456789',
                 'description' => 'Pizza tradizionale italiana e altri piatti italiani.',
+                'image' => 'restaurants/pizzeria-italia.jpeg'
             ],
             [
                 'user_id' => 2,
@@ -41,8 +42,9 @@ class RestaurantSeeder extends Seeder
                 'slug' => Str::slug('Curry House'),
                 'address' => 'Piazza San Pietro, 5, Roma',
                 'phone' => '+44 20 1234 5678',
-                'vat' => 'GB765432109',
+                'vat' => '12765432109',
                 'description' => 'Cibi indiani speziati e curry aromatici.',
+                'image' => 'restaurants/curry-house.jpeg'
             ],
             [
                 'user_id' => 3,
@@ -50,8 +52,9 @@ class RestaurantSeeder extends Seeder
                 'slug' => Str::slug('Sushi Sake'),
                 'address' => 'Piazza di Spagna, 2, Roma',
                 'phone' => '+81 3-1234-5678',
-                'vat' => 'IT876543210',
+                'vat' => '13876543210',
                 'description' => 'Sushi fresco e sashimi prelibati.',
+                'image' => 'restaurants/Sake-Sushi-Logo.png'
             ],
             [
                 'user_id' => 4,
@@ -59,8 +62,9 @@ class RestaurantSeeder extends Seeder
                 'slug' => Str::slug('Taco Express'),
                 'address' => 'Piazza Navona, 3, Roma',
                 'phone' => '+52 55 1234 5678',
-                'vat' => 'MX567890123',
+                'vat' => '14567890123',
                 'description' => 'Tacos autentici e burritos deliziosi.',
+                'image' => 'restaurants/taco-express.jpeg'
             ],
             [
                 'user_id' => 5,
@@ -68,8 +72,9 @@ class RestaurantSeeder extends Seeder
                 'slug' => Str::slug('Dim Sum Delight'),
                 'address' => 'Piazza del Popolo, 7, Roma',
                 'phone' => '+852 1234 5678',
-                'vat' => 'HK012345678',
+                'vat' => '15012345678',
                 'description' => 'Dim sum tradizionale e autentico.',
+                'image' => 'restaurants/dim-sum.jpeg'
             ],
             [
                 'user_id' => 6,
@@ -77,8 +82,9 @@ class RestaurantSeeder extends Seeder
                 'slug' => Str::slug('Ristorante Elegante'),
                 'address' => 'Via Condotti, 30, Roma',
                 'phone' => '+39 06 3456789',
-                'vat' => 'IT543210987',
+                'vat' => '16543210987',
                 'description' => 'Cucina raffinata e servizio impeccabile.',
+                'image' => 'restaurants/ristoranti-eleganti.jpeg'
             ],
             [
                 'user_id' => 7,
@@ -86,8 +92,9 @@ class RestaurantSeeder extends Seeder
                 'slug' => Str::slug('Veggy Deligth'),
                 'address' => 'Piazza di Spagna, 20, Roma',
                 'phone' => '+39 06 5432109',
-                'vat' => 'IT321098765',
+                'vat' => '17321098765',
                 'description' => 'Pane fresco e dolci appena sfornati.',
+                'image' => 'restaurants/veggy.png'
             ],
             [
                 'user_id' => 8,
@@ -95,8 +102,9 @@ class RestaurantSeeder extends Seeder
                 'slug' => Str::slug('Burger Palace'),
                 'address' => 'Piazza Venezia, 1, Roma',
                 'phone' => '+1 212-555-1234',
-                'vat' => 'US987654321',
+                'vat' => '18987654321',
                 'description' => 'Hamburger succulenti e patatine croccanti.',
+                'image' => 'restaurants/burger-palace.png'
             ],
             [
                 'user_id' => 9,
@@ -104,8 +112,9 @@ class RestaurantSeeder extends Seeder
                 'slug' => Str::slug('Pizzeria Bella Napoli'),
                 'address' => 'Viale dei Parioli, 25, Roma',
                 'phone' => '+39 06 2345678',
-                'vat' => 'IT876543222',
+                'vat' => '19876543222',
                 'description' => 'Pizza napoletana autentica e gustosa.',
+                'image' => 'restaurants/bella-napoli.png'
             ],
             [
                 'user_id' => 10,
@@ -113,8 +122,9 @@ class RestaurantSeeder extends Seeder
                 'slug' => Str::slug('Nippon'),
                 'address' => 'Piazza di Spagna, 2, Roma',
                 'phone' => '+81 3-1234-5678',
-                'vat' => 'JP876543210',
+                'vat' => '22876543210',
                 'description' => 'Sushi fresco e sashimi prelibati.',
+                'image' => 'restaurants/nippon.jpeg'
             ],
             [
                 'user_id' => 11,
@@ -122,17 +132,19 @@ class RestaurantSeeder extends Seeder
                 'slug' => Str::slug('Ramen House'),
                 'address' => 'Piazza Barberini, 9, Roma',
                 'phone' => '+81 3-9876-5432',
-                'vat' => 'JP543210987',
+                'vat' => '23543210987',
                 'description' => 'Ramen fumanti e gustosi brodi giapponesi.',
+                'image' =>'restaurants/ramen-house.png'
             ],
             [
                 'user_id' => 12,
-                'name' => 'Kebab King',
-                'slug' => Str::slug('Kebab King'),
+                'name' => 'Sulemani Kebab',
+                'slug' => Str::slug('Sulemani Kebab'),
                 'address' => 'Via Appia, 20, Roma',
                 'phone' => '+39 06 7654321',
-                'vat' => 'IT234567890',
+                'vat' => '24234567890',
                 'description' => 'Kebab gustoso e pietanze mediorientali.',
+                'image' => 'restaurants/suleman.jpg'
             ],
             [
                 'user_id' => 13,
@@ -140,8 +152,9 @@ class RestaurantSeeder extends Seeder
                 'slug' => Str::slug('BBQ Heaven'),
                 'address' => 'Viale Trastevere, 30, Roma',
                 'phone' => '+39 06 8765432',
-                'vat' => 'IT345678901',
+                'vat' => '25345678901',
                 'description' => 'Grigliate succulente e carni alla brace.',
+                'image' => 'restaurants/bbq-heaven.jpeg'
             ],
             [
                 'user_id' => 14,
@@ -149,8 +162,9 @@ class RestaurantSeeder extends Seeder
                 'slug' => Str::slug('Gelateria Delizia'),
                 'address' => 'Via Cola di Rienzo, 40, Roma',
                 'phone' => '+39 06 6543210',
-                'vat' => 'IT456789012',
+                'vat' => '26456789012',
                 'description' => 'Gelato artigianale e sorbetti freschi.',
+                'image' => 'restaurants/gelateria-delizia.jpeg'
             ],
             [
                 'user_id' => 15,
@@ -158,8 +172,9 @@ class RestaurantSeeder extends Seeder
                 'slug' => Str::slug('Pasticceria Fantasia'),
                 'address' => 'Piazza Navona, 50, Roma',
                 'phone' => '+39 06 5432109',
-                'vat' => 'IT567890123',
+                'vat' => '27567890123',
                 'description' => 'Dolci deliziosi e pasticceria di alta qualità.',
+                'image' => 'restaurants/pasticceria-fantasia.jpeg'
             ],
             [
                 'user_id' => 16,
@@ -167,15 +182,15 @@ class RestaurantSeeder extends Seeder
                 'slug' => Str::slug('Caffè Italia'),
                 'address' => 'Via Veneto, 60, Roma',
                 'phone' => '+39 06 4321098',
-                'vat' => 'IT678901234',
+                'vat' => '28678901234',
                 'description' => 'Caffè pregiato e deliziosi dolci fatti in casa.',
+                'image' => 'restaurants/caffetteria-italia.png'
             ],
         ];
 
         foreach ($restaurantsData as $index => $restaurantData) {
             // Crea il ristorante
             $restaurant = Restaurant::create($restaurantData);
-
             // Recupera il tipo corrispondente in base all'indice
             $type = Type::find($index + 1);
 
@@ -187,3 +202,4 @@ class RestaurantSeeder extends Seeder
         }
     }
 }
+
