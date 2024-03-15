@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6 mt-4">
             <p class="p-3 mb-4 rounded">
-                Ora che hai eseguito l' accesso puoi gestire il il profilo del tuo ristorante al meglio aggiungendo i
+                Ora che hai eseguito l' accesso puoi gestire il profilo del tuo ristorante al meglio aggiungendo i
                 piatti che andranno ad arricchire il tuo menù visualizzato online
             </p>
             <!--card-->
