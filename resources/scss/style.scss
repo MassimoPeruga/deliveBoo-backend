@@ -1,0 +1,158 @@
+body {
+    background-color: #e7e3df;
+}
+
+//font paragrafi
+p {
+    font-size: 1.125rem;
+}
+
+//admin.blade
+.fnt-std {
+    font-size: 1.25rem;
+}
+
+//admin.blade
+.logo {
+    object-fit: cover;
+    width: 3.125rem;
+    border-radius: 6.25rem;
+
+    img {
+        width: 100%;
+    }
+}
+
+//jumbotron
+.jumbotron {
+    background-image: url('../../public/img/jumbo.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    h1 {
+        color: rgba(0, 0, 0, 0.767);
+    }
+
+    p {
+        background-color: rgba(0, 0, 0, 0.356);
+        padding: .625rem;
+        color: white;
+        border-radius: .9375rem;
+    }
+
+    .jumbo {
+        object-fit: cover;
+        width: 6.25rem;
+
+        img {
+            width: 100%;
+            border-radius: 6.25rem;
+        }
+    }
+}
+
+//card pagina home
+.home-card {
+    width: calc(100% / 2 - 1.25rem);
+    background-color: white;
+    border: .125rem solid #FFA500;
+
+    p {
+        margin: 0;
+    }
+}
+
+//footer
+footer {
+    background-color: #1D1D1DFF;
+    color: $info;
+}
+
+//dish.show
+.dish-img-container {
+    width: 21.875rem;
+}
+
+.col-sx {
+    width: 100%;
+}
+
+.requirement {
+    color: #808080;
+}
+
+.requirement.valid {
+    color: #4CAF50;
+}
+
+.requirement.error {
+    color: red;
+}
+
+.passworderror {
+    color: red;
+}
+
+.passwordtrue {
+    color: green;
+}
+
+//   .error {
+//     color: red;
+//   }
+
+//   .display-block {
+//     display: block;
+//   }
+
+.requirementpassowrd {
+    display: none;
+}
+
+//   .error {
+//     color: red;
+//     display: none;
+//   }
+
+//   input:invalid + .error {
+//     display: block;
+//   }
+
+//   input:valid + .error {
+//     display: none;
+//   }
+//   .error2 {
+//     color: red;
+//     display: none;
+//   }
+
+//   input:invalid + .error2 {
+//     display: block;
+//   }
+
+//   input:valid + .error2 {
+//     display: none;
+//   }
+
+#sidebarMenu {
+    text-align: center;
+    font-size: 1rem * .875;
+}
+
+@media screen and (min-width:768px) {
+    #sidebarMenu {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width:992px) {
+    #sidebarMenu {
+        text-align: start;
+    }
+}
+
+@media screen and (min-width:1400px) {
+    #sidebarMenu {
+        font-size: 1.25rem;
+    }
+}

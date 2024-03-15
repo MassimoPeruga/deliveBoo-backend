@@ -1,1 +1,54 @@
 @import "~bootstrap/scss/bootstrap";
+@import "utils.scss";
+@import "reset.scss";
+@import "style.scss";
+
+td img {
+    width: 30px;
+}
+
+.logo {
+    width: 50px;
+}
+
+.container-table {
+    margin-top: 30px;
+}
+
+.accordion {
+    background: #000000;
+    opacity: 0.9;
+}
+
+.containermain {
+    // background-image: url('../../public/img/dashboard.jpg');
+    background-color: #fef6e4;
+    opacity: 1;
+    background: linear-gradient(135deg, #ffcb9355 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(225deg, #ffcb93 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(315deg, #ffcb9355 25%, transparent 25%) 0px 0/ 20px 20px, linear-gradient(45deg, #ffcb93 25%, #fef6e4 25%) 0px 0/ 20px 20px;
+    background-size: cover;
+    background-position: right;
+    padding: 35px 0;
+    margin-bottom: 10px;
+
+    p {
+        // background-color: #00000069;
+        font-size: 1.25rem;
+        color: black;
+    }
+
+    .restaurant-card {
+        background-color: transparent;
+    }
+}
+
+.img_not_found {
+    position: relative;
+
+    span {
+        position: absolute;
+        top: -8px;
+        right: 3px;
+        font-weight: bolder;
+        font-size: 31px;
+    }
+}
