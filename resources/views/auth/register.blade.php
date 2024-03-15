@@ -3,12 +3,11 @@
 @section('content')
     <div class="container mt-4">
         <div class="row justify-content-center container">
-            <div class="col">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header  bg-nav">Registrati</div>
-                    <div class="d-flex mediaqueries">
 
-                    <div class="card-body col">
+                    <div class="card-body">
                         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
                             <h4 class="mb-4">Dati Utente</h4>
@@ -85,10 +84,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-7">
+
                             <!--ristoranti-->
-                            <h4 class="mt-3">Dati Ristorante</h4>
+                            <h4 class="mb-4">Dati Ristorante</h4>
 
                             <div class="mb-4 row">
                                 <label for="restaurant_name" class="col-md-4 col form-label text-md-right fw-bold">
@@ -195,14 +193,13 @@
 
                             <div class="mb-4 row mb-0">
                                 <div class="col-md-6 offset-md-4 text-end">
-                                    <button type="submit" class="btn btn-org buttonregister">
+                                    <button type="submit" class="btn btn-org">
                                         Registrati
                                     </button>
                                 </div>
                             </div>
                         </form>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
