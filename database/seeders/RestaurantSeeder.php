@@ -17,24 +17,18 @@ class RestaurantSeeder extends Seeder
      */
     public function run()
     {
-        // Disabilita temporaneamente i vincoli delle chiavi esterne
-        Schema::disableForeignKeyConstraints();
-        // Svuota la tabella
-        Restaurant::truncate();
-        // Riabilita i vincoli delle chiavi esterne
-        Schema::enableForeignKeyConstraints();
-
         // Array di dati dei ristoranti con le tipologie desiderate
         $restaurantsData = [
             [
                 'user_id' => 1,
-                'name' => 'Pizza Italia',
-                'slug' => Str::slug('Pizza Italia'),
+                'name' => 'Pizzeria Italia',
+                'slug' => Str::slug('Pizzeria Italia'),
                 'address' => 'Via Nazionale, 12, Roma',
                 'phone' => '+39 06 1234567',
                 'vat' => '11123456789',
                 'description' => 'Pizza tradizionale italiana e altri piatti italiani.',
-                'image' => 'restaurants/pizzeria-italia.jpeg'
+                'image' => 'restaurants/pizzeria-italia.jpg',
+                'types' => ['Italiano', 'Pizzeria'],
             ],
             [
                 'user_id' => 2,
@@ -44,7 +38,8 @@ class RestaurantSeeder extends Seeder
                 'phone' => '+44 20 1234 5678',
                 'vat' => '12765432109',
                 'description' => 'Cibi indiani speziati e curry aromatici.',
-                'image' => 'restaurants/curry-house.jpeg'
+                'image' => 'restaurants/curry-house.jpeg',
+                'types' => ['Indiano'],
             ],
             [
                 'user_id' => 3,
@@ -54,7 +49,8 @@ class RestaurantSeeder extends Seeder
                 'phone' => '+81 3-1234-5678',
                 'vat' => '13876543210',
                 'description' => 'Sushi fresco e sashimi prelibati.',
-                'image' => 'restaurants/Sake-Sushi-Logo.png'
+                'image' => 'restaurants/Sake-Sushi-Logo.png',
+                'types' => ['Giapponese', 'Sushi'],
             ],
             [
                 'user_id' => 4,
@@ -64,7 +60,8 @@ class RestaurantSeeder extends Seeder
                 'phone' => '+52 55 1234 5678',
                 'vat' => '14567890123',
                 'description' => 'Tacos autentici e burritos deliziosi.',
-                'image' => 'restaurants/taco-express.jpeg'
+                'image' => 'restaurants/taco-express.jpeg',
+                'types' => ['Messicano'],
             ],
             [
                 'user_id' => 5,
@@ -74,7 +71,8 @@ class RestaurantSeeder extends Seeder
                 'phone' => '+852 1234 5678',
                 'vat' => '15012345678',
                 'description' => 'Dim sum tradizionale e autentico.',
-                'image' => 'restaurants/dim-sum.jpeg'
+                'image' => 'restaurants/dim-sum.jpeg',
+                'types' => ['Cinese'],
             ],
             [
                 'user_id' => 6,
@@ -84,7 +82,8 @@ class RestaurantSeeder extends Seeder
                 'phone' => '+39 06 3456789',
                 'vat' => '16543210987',
                 'description' => 'Cucina raffinata e servizio impeccabile.',
-                'image' => 'restaurants/ristoranti-eleganti.jpeg'
+                'image' => 'restaurants/ristoranti-eleganti.jpeg',
+                'types' => ['Italiano'],
             ],
             [
                 'user_id' => 7,
@@ -94,7 +93,8 @@ class RestaurantSeeder extends Seeder
                 'phone' => '+39 06 5432109',
                 'vat' => '17321098765',
                 'description' => 'Pane fresco e dolci appena sfornati.',
-                'image' => 'restaurants/veggy.png'
+                'image' => 'restaurants/veggy.png',
+                'types' => ['Vegano', 'Vegetariano'],
             ],
             [
                 'user_id' => 8,
@@ -104,7 +104,8 @@ class RestaurantSeeder extends Seeder
                 'phone' => '+1 212-555-1234',
                 'vat' => '18987654321',
                 'description' => 'Hamburger succulenti e patatine croccanti.',
-                'image' => 'restaurants/burger-palace.png'
+                'image' => 'restaurants/burger-palace.png',
+                'types' => ['Fast-Food'],
             ],
             [
                 'user_id' => 9,
@@ -114,7 +115,8 @@ class RestaurantSeeder extends Seeder
                 'phone' => '+39 06 2345678',
                 'vat' => '19876543222',
                 'description' => 'Pizza napoletana autentica e gustosa.',
-                'image' => 'restaurants/bella-napoli.png'
+                'image' => 'restaurants/bella-napoli.png',
+                'types' => ['Italiano', 'Pizzeria'],
             ],
             [
                 'user_id' => 10,
@@ -124,7 +126,8 @@ class RestaurantSeeder extends Seeder
                 'phone' => '+81 3-1234-5678',
                 'vat' => '22876543210',
                 'description' => 'Sushi fresco e sashimi prelibati.',
-                'image' => 'restaurants/nippon.jpeg'
+                'image' => 'restaurants/nippon.jpeg',
+                'types' => ['Giapponese', 'Sushi'],
             ],
             [
                 'user_id' => 11,
@@ -134,7 +137,8 @@ class RestaurantSeeder extends Seeder
                 'phone' => '+81 3-9876-5432',
                 'vat' => '23543210987',
                 'description' => 'Ramen fumanti e gustosi brodi giapponesi.',
-                'image' =>'restaurants/ramen-house.png'
+                'image' => 'restaurants/ramen-house.png',
+                'types' => ['Cinese'],
             ],
             [
                 'user_id' => 12,
@@ -144,7 +148,8 @@ class RestaurantSeeder extends Seeder
                 'phone' => '+39 06 7654321',
                 'vat' => '24234567890',
                 'description' => 'Kebab gustoso e pietanze mediorientali.',
-                'image' => 'restaurants/suleman.jpg'
+                'image' => 'restaurants/suleman.jpg',
+                'types' => ['Kebab'],
             ],
             [
                 'user_id' => 13,
@@ -154,7 +159,8 @@ class RestaurantSeeder extends Seeder
                 'phone' => '+39 06 8765432',
                 'vat' => '25345678901',
                 'description' => 'Grigliate succulente e carni alla brace.',
-                'image' => 'restaurants/bbq-heaven.jpeg'
+                'image' => 'restaurants/bbq-heaven.jpg',
+                'types' => ['Barbecue'],
             ],
             [
                 'user_id' => 14,
@@ -164,7 +170,8 @@ class RestaurantSeeder extends Seeder
                 'phone' => '+39 06 6543210',
                 'vat' => '26456789012',
                 'description' => 'Gelato artigianale e sorbetti freschi.',
-                'image' => 'restaurants/gelateria-delizia.jpeg'
+                'image' => 'restaurants/gelateria-delizia.jpg',
+                'types' => ['Italiano', 'Gelateria', 'Vegetariano'],
             ],
             [
                 'user_id' => 15,
@@ -174,7 +181,8 @@ class RestaurantSeeder extends Seeder
                 'phone' => '+39 06 5432109',
                 'vat' => '27567890123',
                 'description' => 'Dolci deliziosi e pasticceria di alta qualità.',
-                'image' => 'restaurants/pasticceria-fantasia.jpeg'
+                'image' => 'restaurants/pasticceria-fantasia.png',
+                'types' => ['Pasticceria'],
             ],
             [
                 'user_id' => 16,
@@ -184,22 +192,39 @@ class RestaurantSeeder extends Seeder
                 'phone' => '+39 06 4321098',
                 'vat' => '28678901234',
                 'description' => 'Caffè pregiato e deliziosi dolci fatti in casa.',
-                'image' => 'restaurants/caffetteria-italia.png'
+                'image' => 'restaurants/caffetteria-italia.png',
+                'types' => ['Italiano', 'Caffetteria'],
             ],
         ];
 
-        foreach ($restaurantsData as $index => $restaurantData) {
+        // Disabilita temporaneamente i vincoli delle chiavi esterne
+        Schema::disableForeignKeyConstraints();
+
+        // Scorri tutti i ristoranti e dissociare i tipi
+        $restaurants = Restaurant::all();
+        foreach ($restaurants as $restaurant) {
+            $restaurant->types()->detach();
+        }
+
+        // Svuota la tabella
+        Restaurant::truncate();
+
+        // Riabilita i vincoli delle chiavi esterne
+        Schema::enableForeignKeyConstraints();
+
+        foreach ($restaurantsData as $restaurantData) {
+            // Salva i tipi in una variabile e rimuovili dall'array dei dati del ristorante
+            $types = $restaurantData['types'];
+            unset($restaurantData['types']);
+
             // Crea il ristorante
             $restaurant = Restaurant::create($restaurantData);
-            // Recupera il tipo corrispondente in base all'indice
-            $type = Type::find($index + 1);
 
-            // Assicurati che il tipo esista
-            if ($type) {
-                // Associa il tipo al ristorante
-                $restaurant->types()->attach($type);
-            }
+            // Recupera le tipologie in base ai loro nomi
+            $types = Type::whereIn('name', $types)->get();
+
+            // Associa le tipologie al ristorante
+            $restaurant->types()->sync($types);
         }
     }
 }
-
