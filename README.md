@@ -1,86 +1,39 @@
-# Laravel Auth Template
-```
-composer create-project laravel/laravel nomeprogetto
-```
+# QuackDelivery
 
-# Installazione breeze
-```
-composer require laravel/breeze --dev
-```
+### Fix:
 
-# Scaffold dell'autenticazione breeze/blade
-```
-php artisan breeze:install
-```
+-   [ ] Controllo client sulla password login e registrazione
+-   [x] Campi ed errori nel login e nella registrazione in italiano
+-   [x] Specificare che \* é obbligatorio
+-   [x] Controllo client sul prezzo del piatto
+-   [x] Immagine del piatto
+-   [x] Aggiungere il form di delete
+-   [x] Tabella del menu
+-   [x] No animazioni dei bottoni in backend
+-   [x] Modal delete
+-   [x] index piatti
+-   [x] cancellare show piatti
+-   [x] numero dei piatti in index
+-   [x] url dei ristoranti togliere id
+-   [x] togliere l'input dalla home
+-   [x] togliere la pagina di ricerca avanzata
+-   [x] create e edit piatti check disponibilità
+-   [x] togliere checkbox mostra password
+-   [x] togliere alert errori
+-   [x] sistemare la home types + restaurants
+-   [x] cambiare i bottoni da 'modifica' a 'salva'
+-   [x] aggiungere le immagini alle api di ristoranti e piatti
+-   [ ] logout frontend
+-   [ ] refresh ricerca
+-   [ ] anteprima immagine piatti - backend
+-   [ ] disabilitare il bottone acquista ai piatti non disponibili dal menu - frontend
+-   [ ] favicon
 
-- Which Breeze stack would you like to install? Blade with Alpine
-- Would you like dark mode support? Yes
-- Which testing framework do you prefer? PHPUnit
+### Milestone:
 
-
-## Eseguire i passaggi per installare bootstrap invece di tailwind
-```
-npm remove postcss
-npm remove tailwindcss
-npm i --save-dev sass
-npm i --save bootstrap @popperjs/core
-```
-Cancellare il file tailwind.config.js e postcss.config.js
-```
-rm tailwind.config.js
-rm postcss.config.js
-```
-
-Rinominiamo la cartella css in scss 
-```
-mv resources/css resources/scss
-```
-ed il file app.css in app.scss
-```
-mv resources/scss/app.css  resources/scss/app.scss
-```
-
-## Nel file app.scss
-Cancelliamo gli import di tailwind dal file app.scss e inseriamo:
-```
-@import "~bootstrap/scss/bootstrap";
-```
-
-## Nel file vite.config.js:
-
-- modifichiamo il percorso del css
-- aggiungiamo un alias per resources e per il bootstrap
-
-```
-import path from 'path';
-
-resolve: {
-        alias: {
-            '~resources': '/resources/',
-            '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap')
-        }
-    },
-```
-
-## Nel file app.js 
-
-- togliere il codice che imposta alpine, lasciando solo la prima riga
-- importare app.css, bootstrap e img
-```
-import '~resources/scss/app.scss'
-import * as bootstrap from 'bootstrap'
-import.meta.glob([
-    '../img/**'
-])
-```
-
-## Inserire le views con bootstrap
-Cancellare tutti i file di default dalla cartella views e inserire i file presenti in questa repo
-
-## Partenza
-1. installare le dipendenze di npm e composer
-2. inserire dati nel file .env
-3. far partire le migrations
-4. avviare il server (php e node)
-
-Buon lavoro!
+-   [x] Singolo form registrazione + ristorante
+-   [x] Hompage funzionante
+-   [ ] Carrello - local storage - messagio utente al cambio del ristorante
+-   [ ] Pagamento - drop-in UI
+-   [ ] index backend ordini - chi, quanto, quando
+-   [ ] show backend ordine - cosa
