@@ -27,97 +27,97 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Paolo',
                 'surname' => 'Rossi',
-                'email' => 'paolo@example.com',
+                'email' => 'paolo.rossi@example.com',
                 'password' => Hash::make('password123')
             ],
             [
                 'name' => 'Gianni',
                 'surname' => 'Neri',
-                'email' => 'gianni@example.com',
+                'email' => 'gianni.neri@example.com',
                 'password' => Hash::make('password123')
             ],
             [
                 'name' => 'Maria',
                 'surname' => 'Bianchi',
-                'email' => 'maria@example.com',
+                'email' => 'maria.bianchi@example.com',
                 'password' => Hash::make('password123')
             ],
             [
                 'name' => 'Luca',
                 'surname' => 'Verdi',
-                'email' => 'luca@example.com',
+                'email' => 'luca.verdi@example.com',
                 'password' => Hash::make('password123')
             ],
             [
                 'name' => 'Anna',
                 'surname' => 'Gialli',
-                'email' => 'anna@example.com',
+                'email' => 'anna.gialli@example.com',
                 'password' => Hash::make('password123')
             ],
             [
                 'name' => 'Giovanni',
                 'surname' => 'Rosa',
-                'email' => 'giovanni@example.com',
+                'email' => 'giovanni.rosa@example.com',
                 'password' => Hash::make('password123')
             ],
             [
                 'name' => 'Laura',
                 'surname' => 'Marrone',
-                'email' => 'laura@example.com',
+                'email' => 'laura.marrone@example.com',
                 'password' => Hash::make('password123')
             ],
             [
                 'name' => 'Marco',
                 'surname' => 'Azzurri',
-                'email' => 'marcoa@example.com',
+                'email' => 'marco.azzuri@example.com',
                 'password' => Hash::make('password123')
             ],
             [
                 'name' => 'Francesca',
                 'surname' => 'Verdi',
-                'email' => 'francesca@example.com',
+                'email' => 'francesca.verdi@example.com',
                 'password' => Hash::make('password123')
             ],
             [
                 'name' => 'Marco',
                 'surname' => 'Bianchi',
-                'email' => 'marco@example.com',
+                'email' => 'marco.bianchi@example.com',
                 'password' => Hash::make('password123')
             ],
             [
                 'name' => 'Andrea',
                 'surname' => 'Russo',
-                'email' => 'andrea@example.com',
+                'email' => 'andrea.russo@example.com',
                 'password' => Hash::make('password123')
             ],
             [
                 'name' => 'Chiara',
                 'surname' => 'Bruni',
-                'email' => 'chiara@example.com',
+                'email' => 'chiara.bruni@example.com',
                 'password' => Hash::make('password123')
             ],
             [
                 'name' => 'Simone',
                 'surname' => 'Gallo',
-                'email' => 'simone@example.com',
+                'email' => 'simone.gallo@example.com',
                 'password' => Hash::make('password123')
             ],
             [
                 'name' => 'Valentina',
                 'surname' => 'Ferrari',
-                'email' => 'valentina@example.com',
+                'email' => 'valentina.ferrari@example.com',
                 'password' => Hash::make('password123')
             ],
             [
                 'name' => 'Alessia',
                 'surname' => 'Moretti',
-                'email' => 'alessia@example.com',
+                'email' => 'alessia.moretti@example.com',
                 'password' => Hash::make('password123')
             ],
             [
                 'name' => 'Davide',
                 'surname' => 'Ricci',
-                'email' => 'davide@example.com',
+                'email' => 'davide.ricci@example.com',
                 'password' => Hash::make('password123')
             ],
         ];
