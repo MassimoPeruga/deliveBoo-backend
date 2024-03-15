@@ -172,15 +172,18 @@ class RestaurantSeeder extends Seeder
             ],
         ];
 
-        foreach ($restaurantsData as $restaurantData) {
+        foreach ($restaurantsData as $index => $restaurantData) {
             // Crea il ristorante
             $restaurant = Restaurant::create($restaurantData);
 
-            // Recupera le tipologie associate ai ristoranti nell'ordine di salvataggio nel database
-            $types = Type::orderBy('id')->limit(1)->get();
+            // Recupera il tipo corrispondente in base all'indice
+            $type = Type::find($index + 1);
 
-            // Associa le tipologie al ristorante
-            $restaurant->types()->attach($types);
+            // Assicurati che il tipo esista
+            if ($type) {
+                // Associa il tipo al ristorante
+                $restaurant->types()->attach($type);
+            }
         }
     }
 }
