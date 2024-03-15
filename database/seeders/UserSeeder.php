@@ -7,6 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Schema;
 
 class UserSeeder extends Seeder
 {
@@ -15,6 +16,12 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        // Disabilita temporaneamente i vincoli delle chiavi esterne
+        Schema::disableForeignKeyConstraints();
+        // Svuota la tabella
+        User::truncate();
+        // Riabilita i vincoli delle chiavi esterne
+        Schema::enableForeignKeyConstraints();
 
         $usersData = [
             [
@@ -62,7 +69,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Marco',
                 'surname' => 'Azzurri',
-                'email' => 'marco@example.com',
+                'email' => 'marcoa@example.com',
                 'password' => Hash::make('password123')
             ],
             [
@@ -75,6 +82,42 @@ class UserSeeder extends Seeder
                 'name' => 'Marco',
                 'surname' => 'Bianchi',
                 'email' => 'marco@example.com',
+                'password' => Hash::make('password123')
+            ],
+            [
+                'name' => 'Andrea',
+                'surname' => 'Russo',
+                'email' => 'andrea@example.com',
+                'password' => Hash::make('password123')
+            ],
+            [
+                'name' => 'Chiara',
+                'surname' => 'Bruni',
+                'email' => 'chiara@example.com',
+                'password' => Hash::make('password123')
+            ],
+            [
+                'name' => 'Simone',
+                'surname' => 'Gallo',
+                'email' => 'simone@example.com',
+                'password' => Hash::make('password123')
+            ],
+            [
+                'name' => 'Valentina',
+                'surname' => 'Ferrari',
+                'email' => 'valentina@example.com',
+                'password' => Hash::make('password123')
+            ],
+            [
+                'name' => 'Alessia',
+                'surname' => 'Moretti',
+                'email' => 'alessia@example.com',
+                'password' => Hash::make('password123')
+            ],
+            [
+                'name' => 'Davide',
+                'surname' => 'Ricci',
+                'email' => 'davide@example.com',
                 'password' => Hash::make('password123')
             ],
         ];
