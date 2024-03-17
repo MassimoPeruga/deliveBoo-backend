@@ -65,7 +65,7 @@
         <div class="container-fluid vh-100">
             <div class="row h-100">
                 <nav id="sidebarMenu"
-                    class="col-1 col-md-2 col-lg-3 col-xl-2 d-block bg-nav navbar-dark sidebar collapse">
+                    class="col-2 col-md-2 col-lg-3 col-xl-2 d-block bg-nav navbar-dark sidebar collapse">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column gy-2">
                             <li class="nav-item w-100">
@@ -108,7 +108,7 @@
                     </div>
                 </nav>
 
-                <main class="col-11 col-md-10 col-lg-9 col-xl-10 ms-sm-auto p-4 overflow-y-auto containermain"
+                <main class="col-10 col-md-10 col-lg-9 col-xl-10 ms-sm-auto p-4 overflow-y-auto containermain"
                     style="height: calc(100vh - 40px);">
                     @yield('content')
                 </main>

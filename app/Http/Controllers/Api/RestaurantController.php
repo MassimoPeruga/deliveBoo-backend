@@ -14,7 +14,7 @@ class RestaurantController extends Controller
         $restaurants = Restaurant::with('types')->get()
             ->map(function ($restaurant) {
                 if ($restaurant->image) {
-                    $restaurant->image = "http://127.0.0.1:8000/storage/" . $restaurant->image;
+                    $restaurant->image = "http://localhost:8000/storage/" . $restaurant->image;
                 }
                 return $restaurant;
             });
@@ -63,10 +63,10 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::where('slug', $slug)->with('dishes')->first();
 
         if ($restaurant) {
-            $restaurant->image = "http://127.0.0.1:8000/storage/" . $restaurant->image;
+            $restaurant->image = "http://localhost:8000/storage/" . $restaurant->image;
             $restaurant->dishes = $restaurant->dishes->map(function ($dish) {
                 if ($dish->image) {
-                    $dish->image = "http://127.0.0.1:8000/storage/" . $dish->image;
+                    $dish->image = "http://localhost:8000/storage/" . $dish->image;
                     return $dish;
                 }
             });

@@ -45,11 +45,11 @@ class DishController extends Controller
             ->first();
 
         $data = $request->validated();
-        
+
         $new_dish = new Dish();
         $new_dish->fill($data);
         $new_dish->slug = Str::of($data['name'])->slug('-');
-        
+
         if (isset($data['image'])) {
             $new_dish->image = Storage::put('uploads', $data['image']);
         }
@@ -72,6 +72,11 @@ class DishController extends Controller
             }])
             ->first();
 
+        // Verifica se l'utente corrente ha il permesso di vedere questo piatto
+        if ($restaurant === null) {
+            abort(403, 'Non hai il permesso di vedere questo piatto');
+        }
+
         return view('admin.dishes.show', compact('dish', 'restaurant'));
     }
 
@@ -80,6 +85,18 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
+        $userId = auth()->id();
+        $restaurant = Restaurant::where('user_id', $userId)
+            ->with(['dishes' => function ($query) use ($dish) {
+                $query->where('slug', $dish->slug);
+            }])
+            ->first();
+
+        // Verifica se l'utente corrente ha il permesso di modificare questo piatto
+        if ($restaurant === null) {
+            abort(403, 'Non hai il permesso di modificare questo piatto');
+        }
+
         return view('admin.dishes.edit', compact('dish'));
     }
 
@@ -88,6 +105,18 @@ class DishController extends Controller
      */
     public function update(UpdateDishRequest $request, Dish $dish, Restaurant $restaurant)
     {
+        $userId = auth()->id();
+        $restaurant = Restaurant::where('user_id', $userId)
+            ->with(['dishes' => function ($query) use ($dish) {
+                $query->where('slug', $dish->slug);
+            }])
+            ->first();
+
+        // Verifica se l'utente corrente ha il permesso di modificare questo piatto
+        if ($restaurant === null) {
+            abort(403, 'Non hai il permesso di modificare questo piatto');
+        }
+
         $data = $request->validated();
 
         $dish->slug = Str::of($data['name'])->slug('-');
@@ -118,16 +147,23 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
+        $userId = auth()->id();
+        $restaurant = Restaurant::where('user_id', $userId)
+            ->with(['dishes' => function ($query) use ($dish) {
+                $query->where('slug', $dish->slug);
+            }])
+            ->first();
+
+        // Verifica se l'utente corrente ha il permesso di eliminare questo piatto
+        if ($restaurant === null) {
+            abort(403, 'Non hai il permesso di eliminare questo piatto');
+        }
+
         if ($dish->image) {
             Storage::delete($dish->image);
         }
         $dish->delete();
-        $userId = auth()->id();
-        $restaurant = Restaurant::where('user_id', $userId)
-            ->with(['dishes' => function ($query) {
-                $query->whereNull('deleted_at');
-            }])
-            ->first();
-        return redirect()->route('admin.restaurants.show', compact('restaurant'))->with('message', "Piatto: \"$dish->name\"cancellato con successo!");
+
+        return redirect()->route('admin.restaurants.show', compact('restaurant'))->with('message', "Piatto: \"$dish->name\" cancellato con successo!");
     }
 }
