@@ -97,7 +97,7 @@ return [
         'vat' => '12345678901',
         'description' => 'Autentici piatti hawaiani freschi e gustosi.',
         'image' => 'restaurants/poke-house.jpg',
-        'types' => ['Sushi', 'Vegetariano'],
+        'types' => ['Poke', 'Sushi', 'Vegetariano'],
     ],
     [
         'user_id' => 10,
