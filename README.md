@@ -53,21 +53,21 @@ Definiamo i seguenti tipi di utente che possono utilizzare DeliveBoo:
 
 ## Requisiti Tecnici
 
-#### (RT1) Client-side Validation
+#### (RT1) Client-side Validation {#RT1}
 Tutti gli input inseriti dall’utente sono controllati client-side (oltre
 che server-side) per un controllo di veridicità (es. il prezzo di un
 piatto deve essere positivo).
 
-####  (RT2) Sistema di Pagamento
+####  (RT2) Sistema di Pagamento {#RT2}
 Il sistema di pagamento utilizzato è Braintree:
 [<u>https://www.braintreepayments.com/</u>](https://www.braintreepayments.com/)
 Il sistema permette agli sviluppatori di simulare pagamenti senza essere
 approvati formalmente e senza utilizzare vere carte di credito.
 
-####   (RT3) Il sito è responsive
+####   (RT3) Il sito è responsive {#RT3}
 Il sito è correttamente visibile da desktop e da smartphone.
 
-####   (RT4) La ricerca dei ristoranti avviene senza il refresh
+####   (RT4) La ricerca dei ristoranti avviene senza il refresh {#RT4}
 
 
 
@@ -88,11 +88,12 @@ dettagliati nei seguenti punti:
 >    > ● Uno o più tipologie\*:<br/>
 >    > italiano, internazionale, cinese, giapponese, messicano, indiano, pesce, carne, pizza...
 
-    *Sono contrassegnati con \* i dati obbligatori.*
+*Sono contrassegnati con \* i dati obbligatori.*
+
 Email e password sono utilizzati dall’utente per fare il login alla
 piattaforma.
 Non è previsto un pannello per modificare le informazioni inserite una
-volta registrato. I form devono rispettare <u>RT1</u>
+volta registrato. I form devono rispettare [RT1](#RT1)
 
 **Risultato:** Un nuovo utente viene creato nel sistema <br/>
 **Eccezioni:**
@@ -110,7 +111,7 @@ inserite le seguenti informazioni:
 > ● Prezzo<br/>
 > ● visibile si/no<br/>
 
-È possibile modificare le informazioni inserite I form devono rispettare <u>RT1.</u>
+È possibile modificare le informazioni inserite I form devono rispettare [RT1](#RT1)<br/>
 **Risultato:** Un piatto è inserito nel sistema e le sue informazioni
 sono aggiornate <br/>
 **Eccezioni:** /
@@ -119,7 +120,7 @@ sono aggiornate <br/>
 #### (RF3) Permette ai visitatori di ricercare per tipologia di ristorante
 
 **Visibilità:** UI / UR<br/>
-**Descrizione:** Un utente è in grado di ricercare per una o più tipologie di ristorante La ricerca dei ristoranti deve rispettare <u>RT4</u><br/>
+**Descrizione:** Un utente è in grado di ricercare per una o più tipologie di ristorante La ricerca dei ristoranti deve rispettare [RT4](#RT4)<br/>
 **Risultato:** Viene generata una lista di ristoranti che corrispondono alla ricerca<br/> 
 **Eccezioni:** **/**
 
