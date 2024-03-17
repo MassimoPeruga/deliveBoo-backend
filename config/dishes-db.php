@@ -8,7 +8,7 @@ return [
         'price' => 8.50,
         'description' => 'Una deliziosa pizza con pomodoro, mozzarella e basilico.',
         'availability' => 1,
-        'image' => 'dishes/pizzeria-italia/margerita.jpeg',
+        'image' => 'dishes/pizzeria-italia/margherita.jpeg',
     ],
     [
         'restaurant_id' => 1,
@@ -44,7 +44,7 @@ return [
         'price' => 8.00,
         'description' => 'Con pomodoro, mozzarella, peperoni, zucchine, melanzane e cipolla.',
         'availability' => 1,
-        'image' => 'dishes/pizzeria-italia/vegetaiana.jpg',
+        'image' => 'dishes/pizzeria-italia/vegetariana.jpg',
     ],
     [
         'restaurant_id' => 1,
@@ -107,7 +107,7 @@ return [
         'price' => '12.99',
         'description' => 'Un piatto ricco e speziato con pollo marinato nel curry.',
         'availability' => 1,
-        'image' => 'dishes/curry-house/pollo-al-curry.jpg',
+        'image' => 'dishes/curry-house/pollo-curry.jpg',
     ],
     [
         'restaurant_id' => 2,
@@ -143,7 +143,7 @@ return [
         'price' => '12.99',
         'description' => 'Un assortimento di sushi.',
         'availability' => 1,
-        'image' => 'dishes/sushi-sake/nighiri.jpg',
+        'image' => 'dishes/sushi-sake/nighiri.jpeg',
     ],
     [
         'restaurant_id' => 3,
@@ -233,7 +233,7 @@ return [
         'price' => '7.99',
         'description' => 'Un piatto delizioso con carne avvolta e cotta a vapore.',
         'availability' => 0,
-        'image' => 'dishes/dim-sum/involtini-di-carne.jpg',
+        'image' => 'dishes/dim-sum/ravioli-carne.jpg',
     ],
     [
         'restaurant_id' => 5,
@@ -242,7 +242,7 @@ return [
         'price' => '8.99',
         'description' => 'Un piatto di pasta ripiena di gamberi.',
         'availability' => 1,
-        'image' => 'dishes/dim-sum/ravioli-di-gamberi.jpg',
+        'image' => 'dishes/dim-sum/ravioli-gamberi.jpg',
     ],
     [
         'restaurant_id' => 5,
@@ -251,7 +251,7 @@ return [
         'price' => '9.99',
         'description' => 'Un piatto vegetariano con spaghetti di soia e verdure fresche.',
         'availability' => 1,
-        'image' => 'dishes/dim-sum/spaghetti-di-soia-con-verdure.jpg',
+        'image' => 'dishes/dim-sum/spaghetti-soia-verdure.jpg',
     ],
     [
         'restaurant_id' => 5,
@@ -260,7 +260,7 @@ return [
         'price' => '14.99',
         'description' => 'Un piatto audace con zampe di rana fritte croccanti.',
         'availability' => 1,
-        'image' => 'dishes/dim-sum/zampe-di-rana-fritta.jpg',
+        'image' => 'dishes/dim-sum/zampe-rana-fritta.jpg',
     ],
     [
         'restaurant_id' => 6,
@@ -512,7 +512,7 @@ return [
         'price' => '12.99',
         'description' => 'Zuppa di noodle giapponese con brodo di carne o pesce, salsa di soia o miso e guarnita con maiale affettato, alghe e cipollotti.',
         'availability' => 1,
-        'image' => 'dishes/nippon/ramen.jpeg',
+        'image' => 'dishes/nippon/ramen.jpg',
     ],
     [
         'restaurant_id' => 10,
@@ -521,7 +521,7 @@ return [
         'price' => '6.99',
         'description' => 'Ravioli giapponesi ripieni di carne o verdure e cotti al vapore.',
         'availability' => 0,
-        'image' => 'dishes/nippon/gyoza.jpg',
+        'image' => 'dishes/nippon/gyoza.jpeg',
     ],
     [
         'restaurant_id' => 10,
@@ -530,7 +530,7 @@ return [
         'price' => '14.99',
         'description' => 'Pesce crudo affettato sottilmente e servito senza riso.',
         'availability' => 1,
-        'image' => 'dishes/nippon/sashimi.jpg',
+        'image' => 'dishes/nippon/sashimi.jpeg',
     ],
     [
         'restaurant_id' => 10,
@@ -656,7 +656,7 @@ return [
         'price' => '14.99',
         'description' => 'Costolette di maiale alla griglia con salsa BBQ.',
         'availability' => 1,
-        'image' => 'dishes/bbq-heaven/ribs.jpg',
+        'image' => 'dishes/bbq-heaven/ribs.jpeg',
     ],
     [
         'restaurant_id' => 13,
@@ -782,7 +782,7 @@ return [
         'price' => '1.00',
         'description' => 'Cornetto dolce, ripieno di crema pasticcera, di laboratorio.',
         'availability' => 1,
-        'image' => 'dishes/caffetteria-italia/cornetto.jpg',
+        'image' => 'dishes/caffetteria-italia/cornetto.png',
     ],
     [
         'restaurant_id' => 16,
@@ -791,7 +791,7 @@ return [
         'price' => '3.50',
         'description' => 'Dolce soffice glassato al cioccolato.',
         'availability' => 0,
-        'image' => 'dishes/caffetteria-italia/ciambella.png',
+        'image' => 'dishes/caffetteria-italia/ciambella.jpg',
     ],
     [
         'restaurant_id' => 16,
@@ -800,6 +800,6 @@ return [
         'price' => '3.00',
         'description' => 'Panino fresco farcito con prosciutto.',
         'availability' => 1,
-        'image' => 'dishes/caffetteria-italia/panino-prosciutto.jpg',
+        'image' => 'dishes/caffetteria-italia/panino.jpg',
     ],
 ];
