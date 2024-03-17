@@ -2,21 +2,22 @@
 
 @section('content')
     <div class="container mt-4">
-        <div class="row justify-content-center container">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header  bg-nav">Registrati</div>
 
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
-                            @csrf
+        <div class="card">
+            <div class="card-header  bg-nav">Registrati</div>
+
+            <div class="card-body">
+                <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="col-12 col-md-5 col-lg-4">
                             <h4 class="mb-4">Dati Utente</h4>
 
                             <div class="mb-4 row">
-                                <label for="name" class="col-md-4 col form-label text-md-right fw-bold">
+                                <label for="name" class="col-12 col-lg-4 form-label text-md-right fw-bold">
                                     {{ __('Nome*') }}
                                 </label>
-                                <div class="col-md-6">
+                                <div class="col-12 col-lg-8">
                                     <input id="name" type="text" class="form-control" name="name"
                                         value="{{ old('name') }}" required autofocus>
                                     @error('name')
@@ -26,10 +27,10 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="surname" class="col-md-4 col form-label text-md-right fw-bold">
+                                <label for="surname" class="col-12 col-lg-4 form-label text-md-right fw-bold">
                                     {{ __('Cognome*') }}
                                 </label>
-                                <div class="col-md-6">
+                                <div class="col-12 col-lg-8">
                                     <input id="surname" type="text" class="form-control" name="surname"
                                         value="{{ old('surname') }}" required>
                                     @error('surname')
@@ -39,10 +40,10 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="email" class="col-md-4 col form-label text-md-right fw-bold">
-                                    {{ __('Indirizzo E-mail*') }}
+                                <label for="email" class="col-12 col-lg-4 form-label text-md-right fw-bold">
+                                    {{ __('E-mail*') }}
                                 </label>
-                                <div class="col-md-6">
+                                <div class="col-12 col-lg-8">
                                     <input id="email" type="email" class="form-control" name="email"
                                         value="{{ old('email') }}" required>
                                     @error('email')
@@ -52,10 +53,10 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="password" class="col-md-4 col form-label text-md-right fw-bold">
+                                <label for="password" class="col-12 col-lg-4 form-label text-md-right fw-bold">
                                     {{ __('Password*') }}
                                 </label>
-                                <div class="col-md-6">
+                                <div class="col-12 col-lg-8">
                                     <input type="password" id="password" name="password" class="form-control"
                                         name="password" required data-bs-toggle="popover" data-bs-trigger="focus"
                                         data-bs-title="Deve contenere:"
@@ -74,17 +75,18 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="password_confirm" class="col-md-4 col form-label text-md-right fw-bold">
+                                <label for="password_confirm" class="col-12 col-lg-4 form-label text-md-right fw-bold">
                                     {{ __('Conferma Password*') }}
                                 </label>
-                                <div class="col-md-6">
+                                <div class="col-12 col-lg-8">
                                     <input id="password_confirm" type="password" class="form-control"
                                         name="password_confirmation" required>
                                     <div id="password_error">
                                     </div>
                                 </div>
                             </div>
-
+                        </div>
+                        <div class="col-12 col-md-7 col-lg-8">
                             <!--ristoranti-->
                             <h4 class="mb-4">Dati Ristorante</h4>
 
@@ -146,7 +148,7 @@
                             <div class="mb-4 px-2 row row-cols-6">
                                 <span class="form-label col-12 px-1 fw-bold">Tipologie*:</span>
                                 @foreach ($types as $type)
-                                    <div class="col form-check">
+                                    <div class="col-6 col-md-4 col-lg-2 form-check">
                                         <input class="form-check-input" type="checkbox" value="{{ $type->id }}"
                                             id="type-{{ $type->id }}" name="types[]"
                                             {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
@@ -186,22 +188,22 @@
                                     @enderror
                                 </div>
                             </div>
-
-                            <div class="field-must mt-4">
-                                <p class="fst-italic fs-6">Sono contrassegnati con * i campi obbligatori</p>
-                            </div>
-
-                            <div class="mb-4 row mb-0">
-                                <div class="col-md-6 offset-md-4 text-end">
-                                    <button type="submit" class="btn btn-org">
-                                        Registrati
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="mb-4 row justify-content-between mt-4 mb-0">
+                        <div class="field-must col-12 col-md-6">
+                            <p class="fst-italic fs-6">Sono contrassegnati con * i campi obbligatori</p>
+                        </div>
+                        <div class="col-12 col-md-2 offset-md-4 text-end">
+                            <button type="submit" class="btn btn-org">
+                                Registrati
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
+
     </div>
 @endsection
