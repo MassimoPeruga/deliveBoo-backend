@@ -129,7 +129,9 @@ class DishController extends Controller
 
             $data['image'] = $request->file('image')->store('uploads', 'public');
         }
-        $dish->availability = $request->input('availability');
+        if ($request->input('availability')) {
+            $dish->availability = $request->input('availability');
+        } else $dish->availability = 0;
         $dish->update($data);
 
         $userId = auth()->id();
