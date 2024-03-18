@@ -23,17 +23,17 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col" class="col-2">Immagine</th>
+                    <th scope="col" class="d-none d-md-table-cell col-2">Immagine</th>
                     <th scope="col">Piatto</th>
                     <th scope="col" class="col-1">Prezzo</th>
-                    <th scope="col" class="col-1">Disponibile</th>
+                    <th scope="col" class="col-1 d-none d-md-table-cell">Disponibile</th>
                     <th scope="col" class="text-end col-2">Azioni</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($restaurant->dishes as $dish)
                     <tr>
-                        <td>
+                        <td class="d-none d-md-table-cell">
                             @if ($dish->image)
                                 <img src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }} img"
                                     class="d-block ms-2" height="25px">
@@ -45,7 +45,7 @@
                         </td>
                         <td>{{ $dish->name }}</td>
                         <td>{{ $dish->price }} &euro;</td>
-                        <td class="ps-5">
+                        <td class="ps-5 d-none d-md-table-cell">
                             @if ($dish->availability)
                                 <i class="fa-solid fa-square-check text-success fs-5"></i>
                             @else
@@ -54,8 +54,6 @@
                         </td>
                         <td>
                             <div class="d-flex justify-content-end">
-                                {{-- <a href="{{ route('admin.dishes.show', $dish) }}"
-                                    class="btn btn-primary btn-sm">Dettagli</a> --}}
                                 <a href="{{ route('admin.dishes.edit', $dish) }}" class="btn btn-primary btn-sm mx-2">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
@@ -79,8 +77,6 @@
                                                 Sei sicuro di voler eliminare: {{ $dish->name }}?
                                             </div>
                                             <div class="modal-footer border-0">
-                                                {{-- <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Chiudi</button> --}}
                                                 <form action="{{ route('admin.dishes.destroy', $dish) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')

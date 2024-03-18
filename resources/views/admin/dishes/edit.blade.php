@@ -9,22 +9,14 @@
             enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div class="mb-3">
-                <label for="name" class="form-label" name="name">Nome*:</label>
-                <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name"
-                    required value="{{ old('name', $dish->name) }}">
-            </div>
-            <div class="d-flex">
-                <div class="mb-3 me-4">
-                    <label for="price" class="form-label" name="price">Prezzo*:</label>
-                    <input type="number" min="0" step="0.01" class="form-control" id="price"
-                        aria-describedby="emailHelp" name="price" value="{{ old('price', $dish->price) }}" required>
-                    @error('price')
-                        <div class="alert alert-danger mt-3">{{ $message }}</div>
-                    @enderror
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <label for="name" class="form-label" name="name">Nome*:</label>
+                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name"
+                        required value="{{ old('name', $dish->name) }}">
                 </div>
-                <div class="mb-3 me-4 d-flex">
-                    <div class="form-check mt-auto pb-2">
+                <div class="col-12 col-md-4">
+                    <div class="form-check py-3">
                         @if ($errors->any())
                             <input class="form-check-input" type="checkbox" value="1" id="availability"
                                 name="availability" {{ old('availability') ? 'checked' : '' }}>
@@ -38,19 +30,22 @@
                                 Disponibile
                             </label>
                         @endif
-
                     </div>
-                    {{-- <label for="availability" class="form-label" name="availability">Disponibile*:</label>
-                    <select class="form-select" aria-label="Default select example" name="availability">
-                        <option selected value=null>Seleziona</option>
-                        <option value="0" {{ old('availability', $dish->availability) == '0' ? 'selected' : '' }}>No</option>
-                        <option value="1" {{ old('availability', $dish->availability) == '1' ? 'selected' : '' }}>Si</option>
-                    </select> --}}
                     @error('availability')
                         <div class="alert alert-danger mt-3">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="mb-3 ms-4">
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <label for="price" class="form-label" name="price">Prezzo*:</label>
+                    <input type="number" min="0" step="0.01" class="form-control" id="price"
+                        aria-describedby="emailHelp" name="price" value="{{ old('price', $dish->price) }}" required>
+                    @error('price')
+                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col-12 col-md-6">
                     <label for="image" class="form-label"name="image">Immagine</label>
                     <input type="file" class="form-control" id="image" aria-describedby="emailHelp"name="image"
                         value="{{ old('image') }}">
