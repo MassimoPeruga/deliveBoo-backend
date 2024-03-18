@@ -31,7 +31,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="row">
+            <div class="row my-3">
                 <div class="col-12 col-md-6">
                     <label for="price" class="form-label" name="price">Prezzo*:</label>
                     <input type="number" min="0" step="0.01" class="form-control" id="price"
