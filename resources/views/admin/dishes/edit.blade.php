@@ -14,6 +14,9 @@
                     <label for="name" class="form-label" name="name">Nome*:</label>
                     <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name"
                         required value="{{ old('name', $dish->name) }}">
+                    @error('name')
+                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="form-check py-3">

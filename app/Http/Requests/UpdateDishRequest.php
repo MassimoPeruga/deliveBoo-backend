@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\UniqueDishSlugForRestaurant;
 
 class UpdateDishRequest extends FormRequest
 {
@@ -22,7 +23,7 @@ class UpdateDishRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string'],
+            'name' => ['required', 'string', new UniqueDishSlugForRestaurant($this->dish->slug)],
             'price' => ['required', 'min:1', 'max:999', 'numeric'],
             'description' => ['nullable', 'string', 'max:500'],
             'availability' => ['nullable', 'boolean'],
