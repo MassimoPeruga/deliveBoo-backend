@@ -3,11 +3,10 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col col-4">
-                <h3 class="mx-0">Ordine n. #{{ $order->id }}</h3>
-            </div>
-            <div class="col col-4">
-                <h5>Effettuato il: <span class="fw-normal">{{ date('d-m-Y H:i', strtotime($order->created_at)) }}</span></h5>
+            <div class="col-12">
+                <h3 class="mx-0 fw-normal">Ordine Effettuato il:
+                    <span class="fw-bold"> {{ date('d-m-Y H:i', strtotime($order->created_at)) }}</span>
+                </h3>
             </div>
         </div>
         <div class="my-4">
