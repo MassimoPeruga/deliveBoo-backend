@@ -126,9 +126,9 @@ class DishController extends Controller
             if ($dish->image) {
                 Storage::delete($dish->image);
             }
-
             $data['image'] = $request->file('image')->store('uploads', 'public');
         }
+
         if ($request->input('availability')) {
             $dish->availability = $request->input('availability');
         } else $dish->availability = 0;
