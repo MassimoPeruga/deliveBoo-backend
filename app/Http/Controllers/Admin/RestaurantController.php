@@ -72,7 +72,7 @@ class RestaurantController extends Controller
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
         $data = $request->validated();
-        
+
         $restaurant->slug = Str::of($data['name'])->slug('-');
 
         $restaurant->update($data);
@@ -92,7 +92,7 @@ class RestaurantController extends Controller
         }
 
         $restaurant->save();
-        return redirect()->route('admin.restaurants.show', compact('restaurant'));
+        return redirect()->route('admin.dashboard', compact('restaurant'));
     }
 
     /**
