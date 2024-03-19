@@ -33,7 +33,7 @@ class UniqueDishSlugForRestaurant implements ValidationRule
         }
 
         if ($query->exists()) {
-            $fail('Lo slug del piatto deve essere unico per ogni ristorante.');
+            $fail('Il nome inserito non è disponibile.');
         }
     }
 }
