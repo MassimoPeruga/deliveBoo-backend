@@ -1,199 +1,130 @@
-# DeliveBoo
+# DeliveBoo — backend
 
-## Introduzione
+Applicazione didattica per ordinare cibo a domicilio, dalla scelta dei piatti alla gestione degli ordini nell’area ristoratore. Progetto finale del percorso Full Stack Web Developer di Boolean, sviluppato nel 2024 da un team di cinque persone in circa un mese.
 
-**DeliveBoo è una web app che permette di ordinare cibo a domicilio nella città di Roma.**
+**[Guarda la demo video](https://massimoperuga.dev/demo/deliveboo)** · [Il progetto nel portfolio](https://massimoperuga.dev/formazione/boolean#deliveboo) · [English](README.en.md)
 
-Permette agli utenti di cercare i loro cibi preferiti, preparati dai
-loro ristoranti di fiducia. Tutto rimanendo comodamente sul divano di
-casa.
+[![Homepage di DeliveBoo, dalla registrazione video dell’applicazione completa](docs/images/deliveboo-preview.jpg)](https://massimoperuga.dev/demo/deliveboo)
 
+Questa repository contiene il **backend Laravel**, le API per il frontend e le viste dell’area ristoratore. Il video mostra l’applicazione completa, compreso il frontend cliente sviluppato separatamente. Nel portfolio è disponibile la registrazione: il backend non è pubblicato come servizio utilizzabile online.
 
+## Il progetto
 
-## Tipi di Utenti
+Abbiamo organizzato il lavoro in autonomia, con docenti di altre classi nel ruolo di committenti per simulare il confronto con gli stakeholder. L’obiettivo era collegare un’interfaccia di ordinazione a un backend con dati relazionali, un’area riservata e pagamenti di prova.
 
-Definiamo i seguenti tipi di utente che possono utilizzare DeliveBoo:
+La [consegna e documentazione originale dell’esercizio](CONSEGNA.md) è conservata integralmente, così da poter confrontare le richieste iniziali con il codice realizzato.
 
-> ● Utente Interessato (UI): un utente non registrato che visita il sito<br/>
-> ● Utente Registrato (UR): un utente che ha effettuato la registrazione come ristoratore
+## Il mio contributo
 
+Mi sono occupato della divisione dei compiti, delle decisioni tecniche e del supporto ai compagni, concordando le scelte con il gruppo. Sul backend ho implementato:
 
+- **Ordini:** salvataggio dei dati di consegna e associazione ai piatti con le rispettive quantità, tramite una relazione molti-a-molti.
+- **Consultazione:** elenco degli ordini del ristorante autenticato e vista di dettaglio con piatti e quantità.
+- **Pagamenti:** integrazione Braintree in sandbox, dalla generazione del token per il client all’invio della transazione e alla restituzione dell’esito.
 
-## Lista delle pagine
+## Funzionalità del backend
 
-> ● **Homepage:** <br/>
-> offre la possibilità di cliccare sulle tipologie di ristorante e senza il refresh della pagina ottenere una lista di ristoranti con le tipologie di appartenenza sotto ogni nome.
+- Registrazione e accesso dei ristoratori, con profilo del ristorante e tipologie di cucina.
+- Inserimento, modifica ed eliminazione dei piatti, con immagini e disponibilità.
+- API per consultare ristoranti, menu e tipologie e per registrare gli ordini.
+- Area riservata per visualizzare gli ordini ricevuti.
+- Endpoint per token di pagamento e checkout Braintree in ambiente sandbox.
 
-> ● **Pagina Menù Ristoratore Pubblica:**<br/>
-> permette di visualizzare il menù di un particolare ristoratore.
-> È possibile scegliere i cibi desiderati e relativa quantità per inserirli nel carrello. Il carrello si popola con i cibi selezionati e le relative quantità.
+## Stack e organizzazione
 
-> ● **Pagina carrello/checkout:**<br/>
-> permette di modificare le quantità dei cibi e di procedere all’ordine.
-> È possibile acquistare solo da un ristoratore alla volta.
-> Tramite questo pannello è possibile pagare inserendo i dettagli della carta di credito. 
+| Ambito | Tecnologie |
+| --- | --- |
+| Backend | PHP, Laravel 10 |
+| Dati | MySQL, Eloquent, migration e seeder |
+| Area ristoratore | Blade, Bootstrap 5, Sass, Vite |
+| Autenticazione | Laravel Breeze |
+| Pagamenti di prova | Braintree PHP SDK, sandbox |
 
-> ● **Dashboard Utente Registrato:**<br/>
-> permette la gestione dei propri dati e l’inserimento dei piatti disponibili 
->    > ○ **Pagina Lista Piatti**<br/>
->    > Da qui è possibile accedere alla modifica e cancellazione dei propri piatti
->    > I piatti non hanno categoria e si mostrano in ordine alfabetico.
->    >(possibilità di integrare ordinamento e categoria successivamente)
+Il modello collega utenti e ristoranti, ristoranti e piatti, ristoranti e tipologie. La tabella di associazione `dish_order` conserva la quantità di ogni piatto nell’ordine.
 
->    > ○ **Pagina Piatto**<br/>
->    > pagina per l’inserimento del piatto singolo con descrizione e prezzo
+Per orientarsi nel codice:
 
->    > ○ **Pagina Lista Ordini Ricevuti**<br/>
+- [Controller API](app/Http/Controllers/Api): catalogo, creazione degli ordini e checkout.
+- [Controller dell’area riservata](app/Http/Controllers/Admin) e [viste Blade](resources/views/admin): gestione del ristorante, dei piatti e consultazione degli ordini.
+- [Modelli](app/Models) e [migration](database/migrations): relazioni e struttura dei dati.
+- [Route API](routes/api.php) e [route web](routes/web.php): punti d’ingresso dell’applicazione.
 
->    > ○ **Pagina Statistiche Ordini**<br/>
->    > permette di visualizzare le statistiche degli ordini.
->    > Nello specifico i grafici mostrano il numero di ordini per mesi/anni e l’ammontare delle vendite
+## Avvio locale
 
+La configurazione seguente riguarda il backend e la sua area riservata. Per il percorso cliente completo serve anche il frontend separato mostrato nel video.
 
+### Prerequisiti
 
-## Requisiti Tecnici
+- PHP 8.1–8.3, con le estensioni richieste da Laravel e il driver PDO MySQL. Il lockfile storico include dipendenze con limiti sulle versioni PHP successive.
+- Composer 2.
+- Node.js compatibile con Vite 5 (`^18.0.0 || >=20.0.0`) e npm.
+- MySQL attivo e un database locale dedicato al progetto.
 
-#### (RT1) Client-side Validation
-Tutti gli input inseriti dall’utente sono controllati client-side (oltre che server-side) per un controllo di veridicità (es. il prezzo di un piatto deve essere positivo).
+### Installazione e database
 
-####  (RT2) Sistema di Pagamento 
-Il sistema di pagamento utilizzato è Braintree: [<u>https://www.braintreepayments.com/</u>](https://www.braintreepayments.com/)
-Il sistema permette agli sviluppatori di simulare pagamenti senza essere approvati formalmente e senza utilizzare vere carte di credito.
+```sh
+git clone https://github.com/MassimoPeruga/deliveBoo-backend.git
+cd deliveBoo-backend
+composer install
+npm ci
+cp .env.example .env
+php artisan key:generate
+```
 
-####   (RT3) Il sito è responsive 
-Il sito è correttamente visibile da desktop e da smartphone.
+Nel file `.env` imposta `APP_URL=http://localhost:8000`, `FILESYSTEM_DISK=public` e i valori `DB_CONNECTION=mysql`, `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD` del database locale. La scelta del disco pubblico permette di servire le immagini caricate attraverso il collegamento `storage`.
 
-####   (RT4) La ricerca dei ristoranti avviene senza il refresh 
+```sh
+php artisan migrate
+php artisan storage:link
+php artisan db:seed --class=TypeSeeder
+```
 
+Il seeder generale è vuoto: `migrate --seed` da solo non carica i dati dimostrativi. `TypeSeeder` prepara le tipologie necessarie alla registrazione di un ristorante. I seeder svuotano le tabelle interessate: eseguili soltanto sul database locale dedicato.
 
+### Avvio dei server
 
-## Requisiti Funzionali
+In un terminale avvia gli asset:
 
-La piattaforma soddisfa i seguenti requisiti funzionali (RF) che vengono dettagliati nei seguenti punti:
+```sh
+npm run dev
+```
 
+In un secondo terminale, dalla stessa cartella:
 
-#### (RF1) Permettere ai ristoratori di registrarsi alla piattaforma
-**Visibilità:** UI<br/>
-**Descrizione:** L’applicazione permette ai ristoratori di registrarsi alla piattaforma e creare un profilo. Le informazioni che l’utente può inserire sono:
->    > ● Email \*<br/>
->    > ● Password \*<br/>
->    > ● Nome Attività *\*<br/>
->    > ● Indirizzo *\**<br/>
->    > ● PIVA *\**<br/>
->    > ● Uno o più tipologie\*:<br/>
->    > italiano, internazionale, cinese, giapponese, messicano, indiano, pesce, carne, pizza...
+```sh
+php artisan serve --host=localhost --port=8000
+```
 
-*Sono contrassegnati con \* i dati obbligatori.*
+Apri [la registrazione](http://localhost:8000/register) per creare un ristorante oppure [il login](http://localhost:8000/login) per accedere all’area riservata. La route `/` non è definita in questo backend. L’host `localhost:8000` corrisponde anche agli URL delle immagini costruiti dalle API originali.
 
-Email e password sono utilizzati dall’utente per fare il login alla
-piattaforma.
-Non è previsto un pannello per modificare le informazioni inserite una
-volta registrato. I form devono rispettare [RT1](#RT1-client-side-validation)
+### Pagamenti sandbox
 
-**Risultato:** Un nuovo utente viene creato nel sistema <br/>
-**Eccezioni:**
-Esiste già nel sistema un utente con l’email inserita
+Per provare gli endpoint di pagamento, aggiungi a `.env` le credenziali del tuo account **Braintree sandbox** con questi nomi:
 
+```dotenv
+MERCHANT_ID=
+PUBLIC_KEY=
+PRIVATE_KEY=
+```
 
-#### (RF2) Permettere ai ristoratori di aggiungere un piatto 
-**Visibilità:** UR<br/>
-**Descrizione:** 
-Un ristoratore ha la possibilità di inserire uno o più
-piatti all’interno del sistema. Per inserire un nuovo piatto vanno
-inserite le seguenti informazioni:
-> ● Nome piatto<br/>
-> ● Ingredienti/descrizione <br/>
-> ● Prezzo<br/>
-> ● visibile si/no<br/>
+Queste variabili sono lette dal [controller di checkout](app/Http/Controllers/Api/CheckoutController.php) e non sono presenti nel modello `.env.example`. Mantieni i valori nel file locale, escluso da Git. Le altre funzionalità del backend possono essere esplorate senza configurare Braintree.
 
-È possibile modificare le informazioni inserite I form devono rispettare [RT1](#RT1-client-side-validation)<br/>
-**Risultato:** Un piatto è inserito nel sistema e le sue informazioni
-sono aggiornate <br/>
-**Eccezioni:** /
+<details>
+<summary>Dati dimostrativi aggiuntivi</summary>
 
+Su un database locale appena creato, dopo `TypeSeeder`, puoi caricare nell’ordine:
 
-#### (RF3) Permette ai visitatori di ricercare per tipologia di ristorante
+```sh
+php artisan db:seed --class=UserSeeder
+php artisan db:seed --class=RestaurantSeeder
+php artisan db:seed --class=DishSeeder
+php artisan db:seed --class=OrderSeeder
+```
 
-**Visibilità:** UI / UR<br/>
-**Descrizione:** Un utente è in grado di ricercare per una o più tipologie di ristorante La ricerca dei ristoranti deve rispettare [RT4](#RT4-La-ricerca-dei-ristoranti-avviene-senza-il-refresh)<br/>
-**Risultato:** Viene generata una lista di ristoranti che corrispondono alla ricerca<br/> 
-**Eccezioni:** **/**
+Questi seeder sostituiscono i dati delle tabelle coinvolte. Gli ordini sono generati con Faker; le immagini dei dati iniziali fanno riferimento a file di storage che non sono inclusi nella repository.
 
+</details>
 
-#### (RF4) Permettere ai visitatori di vedere il menu di un ristorante
-**Visibilità:** UI / UR<br/>
-**Descrizione:** Selezionando un ristoratore appaiono tutti i dettagli
-disponibili riguardanti il ristorante e i piatti disponibili.<br/>
-È possibile aggiungere piatti al carrello cliccando sui singoli
-prodotti. Il carrello si visualizza in pagina e si aggiorna senza
-refresh.
+## Ambito e limiti
 
-**Risultato:** Viene visualizzata la pagina del menu <br/>
-**Eccezioni:** /
-
-
-#### (RF5) Permettere ai UI di pagare l’ordinazione 
-**Visibilità:** UI / UR<br/>
-**Descrizione:** in questa pagina è possibile aggiornare il carrello e
-inserire i dati per la consegna e della carta di credito con cui
-processare il pagamento<br/>
-**Risultato:** L’ordine viene effettuato e si viene inviati ad una
-pagina di avvenuto ordine e viene inviata una mail all’utente e al
-ristoratore<br/>
-**Eccezioni:** Il sistema di pagamento non ha processato correttamente
-il pagamento / i dati della carta di credito non sono validi
-
-
-#### (RF6) Permettere ai ristoratori di visualizzare il riepilogo degli ordini ricevuti
-**Visibilità:** UR<br/>
-**Descrizione:** Un ristoratore ha la possibilità di vedere il riepilogo degli ordini ricevuti, con i dati dell’utente che ha effettuato l’ordine.<br/>
-**Risultato:** L'utente visualizza il riepilogo degli ordini ricevuti, ordinati in modo decrescente per data<br/>
-**Eccezioni:** **/**
-
-
-#### (RF7) Permettere ai ristoratori di visualizzare le statistiche degli ordini 
-**Visibilità:** UR<br/>
-**Descrizione:** Un ristoratore ha la possibilità di vedere le statistiche degli ordini ricevuti<br/>
-**Risultato:** L'utente visualizza le statistiche degli ordini ricevuti per mese/anno e l’ammontare delle vendite<br/>
-**Eccezioni:** **/**
-
-
-
-## Consigli CTO
-
-### Organizzazione
-
-Non iniziare a scrivere subito codice: è importante leggere e rileggere bene il documento per avere un’idea chiara del progetto.
-
-I RF sono in ordine di necessità e complessità: seguendo l’ordine si costruisce un’applicazione completa con funzionalità crescenti.
-È essenziale però avere bene in mente la strada da seguire per non fare scelte iniziali che andranno totalmente cambiate successivamente.
-
-È importante che la fase di progettazione iniziale sia affrontata da tutto il team.
-Durante questo step il team ragiona sull'implementazione delle feature (ad es. si analizzano i requisiti funzionali, si definisce la struttura del dato a DB, si disegnano i wireframe dei flussi applicativi etc.).
-
-In seguito si suddivide l'operatività in task ben definite che potrebbero essere assegnate ai diversi membri in modo da parallelizzare
-lo sviluppo e procedere spediti (ad es. sistemare Model e Migrations, studiare come utilizzare API esterne e nuove librerie, implementare la parte visuale, ecc.).
-
-Affinché il lavoro in team sia proficuo è però essenziale essere sempre aggiornati su tutti gli step, anche se non sviluppati in prima persona.
-A tale scopo è quindi necessario fissare diversi meeting giornalieri affinché ci si possa coordinare, eventualmente integrare le features completate nel branch master, o effettuare debugging.
-
-
-
-### Tecnologie da utilizzare
-
-Non c’è alcun limite nelle tecnologie utilizzabili, purchè rispettino i requisiti. Chiaramente la scelta più ovvia (e consigliata) è quella di usare Laravel e Vue.
-
-#### Ricerca
-
-Per soddisfare il fatto che non si deve avere un refresh della pagina della ricerca bisogna fare delle chiamate ajax utilizzando axios.
-Il metodo più utilizzato in questi casi è fare in modo che ogni cambiamento di input vada a modificare i campi utili alla ricerca nell’url (ad esempio: /ricerca?tipologia=cinese).
-Dopo ogni cambiamento viene fatta una chiamata ajax con i parametri presenti nella URL.
-
-#### Carrello (solo per DeliveBoo)
-
-Le informazioni sui piatti aggiunti al carrello devono essere persistenti lato client anche al refresh o al cambio pagina. Per ottenere questa persistenza, esistono diverse tecnologie native del browser che si possono sfruttare.
-
-#### Statistiche
-
-Potete utilizzare
-[<u>https://www.chartjs.org/</u>](https://www.chartjs.org/)
+Il progetto conserva l’implementazione didattica del 2024 e le relative dipendenze. I pagamenti usano esclusivamente la sandbox e la registrazione video documenta il risultato del lavoro in team. Le funzionalità elencate nella consegna rappresentano le richieste iniziali: questa presentazione descrive il perimetro riscontrabile nel backend, senza dare per realizzato ogni requisito del documento originale.
