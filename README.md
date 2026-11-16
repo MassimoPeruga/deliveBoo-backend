@@ -1,199 +1,58 @@
-# DeliveBoo
+# DeliveBoo — backend
 
-## Introduzione
+Applicazione didattica per ordinare cibo a domicilio, dalla scelta dei piatti alla gestione degli ordini nell’area ristoratore. Progetto finale del percorso Full Stack Web Developer di Boolean, sviluppato nel 2024 da un team di cinque persone in circa un mese.
 
-**DeliveBoo è una web app che permette di ordinare cibo a domicilio nella città di Roma.**
+**[Guarda la demo video](https://massimoperuga.dev/demo/deliveboo)** · [Il progetto nel portfolio](https://massimoperuga.dev/formazione/boolean#deliveboo) · [English](README.en.md)
 
-Permette agli utenti di cercare i loro cibi preferiti, preparati dai
-loro ristoranti di fiducia. Tutto rimanendo comodamente sul divano di
-casa.
+[![Homepage di DeliveBoo, dalla registrazione video dell’applicazione completa](docs/images/deliveboo-preview.jpg)](https://massimoperuga.dev/demo/deliveboo)
 
+Questa repository contiene il **backend Laravel**, le API per il frontend e le viste dell’area ristoratore. Il video mostra l’applicazione completa, compreso il frontend cliente sviluppato separatamente. Nel portfolio è disponibile la registrazione: il backend non è pubblicato come servizio utilizzabile online.
 
+## Il progetto
 
-## Tipi di Utenti
+Abbiamo organizzato il lavoro in autonomia, con docenti di altre classi nel ruolo di committenti per simulare il confronto con gli stakeholder. L’obiettivo era collegare un’interfaccia di ordinazione a un backend con dati relazionali, un’area riservata e pagamenti di prova.
 
-Definiamo i seguenti tipi di utente che possono utilizzare DeliveBoo:
+La [consegna e documentazione originale dell’esercizio](CONSEGNA.md) è conservata integralmente, così da poter confrontare le richieste iniziali con il codice realizzato.
 
-> ● Utente Interessato (UI): un utente non registrato che visita il sito<br/>
-> ● Utente Registrato (UR): un utente che ha effettuato la registrazione come ristoratore
+## Funzionalità del backend
 
+- Registrazione e accesso dei ristoratori, con profilo del ristorante e tipologie di cucina.
+- Inserimento, modifica ed eliminazione dei piatti, con immagini e disponibilità.
+- API per consultare ristoranti, menu e tipologie e per registrare gli ordini.
+- Area riservata per visualizzare gli ordini ricevuti.
+- Endpoint per token di pagamento e checkout Braintree in ambiente sandbox.
 
+## Il mio contributo
 
-## Lista delle pagine
+Mi sono occupato della divisione dei compiti, delle decisioni tecniche e del supporto ai compagni, concordando le scelte con il gruppo. Sul backend ho implementato:
 
-> ● **Homepage:** <br/>
-> offre la possibilità di cliccare sulle tipologie di ristorante e senza il refresh della pagina ottenere una lista di ristoranti con le tipologie di appartenenza sotto ogni nome.
+- **Ordini:** salvataggio dei dati di consegna e associazione ai piatti con le rispettive quantità, tramite una relazione molti-a-molti.
+- **Consultazione:** elenco degli ordini del ristorante autenticato e vista di dettaglio con piatti e quantità.
+- **Pagamenti:** integrazione Braintree in sandbox, dalla generazione del token per il client all’invio della transazione e alla restituzione dell’esito.
 
-> ● **Pagina Menù Ristoratore Pubblica:**<br/>
-> permette di visualizzare il menù di un particolare ristoratore.
-> È possibile scegliere i cibi desiderati e relativa quantità per inserirli nel carrello. Il carrello si popola con i cibi selezionati e le relative quantità.
+## Stack e organizzazione
 
-> ● **Pagina carrello/checkout:**<br/>
-> permette di modificare le quantità dei cibi e di procedere all’ordine.
-> È possibile acquistare solo da un ristoratore alla volta.
-> Tramite questo pannello è possibile pagare inserendo i dettagli della carta di credito. 
+| Ambito | Tecnologie |
+| --- | --- |
+| Backend | PHP, Laravel 10 |
+| Dati | MySQL, Eloquent, migration e seeder |
+| Area ristoratore | Blade, Bootstrap 5, Sass, Vite |
+| Autenticazione | Laravel Breeze |
+| Pagamenti di prova | Braintree PHP SDK, sandbox |
 
-> ● **Dashboard Utente Registrato:**<br/>
-> permette la gestione dei propri dati e l’inserimento dei piatti disponibili 
->    > ○ **Pagina Lista Piatti**<br/>
->    > Da qui è possibile accedere alla modifica e cancellazione dei propri piatti
->    > I piatti non hanno categoria e si mostrano in ordine alfabetico.
->    >(possibilità di integrare ordinamento e categoria successivamente)
+### Scelte tecniche
 
->    > ○ **Pagina Piatto**<br/>
->    > pagina per l’inserimento del piatto singolo con descrizione e prezzo
+- **Relazioni Eloquent:** la tabella `dish_order` associa piatti e ordini conservando la quantità nella relazione. Un ordine può così contenere più piatti senza duplicarne i dati.
+- **API e viste Blade:** il frontend cliente comunica attraverso endpoint JSON; l’area ristoratore usa viste renderizzate da Laravel. Le due interfacce condividono modelli e dati.
+- **Braintree sandbox:** la generazione del token e l’invio della transazione restano sul backend; il client fornisce il nonce del metodo di pagamento. La sandbox permette di esercitare l’integrazione senza addebiti reali.
 
->    > ○ **Pagina Lista Ordini Ricevuti**<br/>
+Per orientarsi nel codice:
 
->    > ○ **Pagina Statistiche Ordini**<br/>
->    > permette di visualizzare le statistiche degli ordini.
->    > Nello specifico i grafici mostrano il numero di ordini per mesi/anni e l’ammontare delle vendite
+- [Controller API](app/Http/Controllers/Api): catalogo, creazione degli ordini e checkout.
+- [Controller dell’area riservata](app/Http/Controllers/Admin) e [viste Blade](resources/views/admin): gestione del ristorante, dei piatti e consultazione degli ordini.
+- [Modelli](app/Models) e [migration](database/migrations): relazioni e struttura dei dati.
+- [Route API](routes/api.php) e [route web](routes/web.php): punti d’ingresso dell’applicazione.
 
+## Avvio locale
 
-
-## Requisiti Tecnici
-
-#### (RT1) Client-side Validation
-Tutti gli input inseriti dall’utente sono controllati client-side (oltre che server-side) per un controllo di veridicità (es. il prezzo di un piatto deve essere positivo).
-
-####  (RT2) Sistema di Pagamento 
-Il sistema di pagamento utilizzato è Braintree: [<u>https://www.braintreepayments.com/</u>](https://www.braintreepayments.com/)
-Il sistema permette agli sviluppatori di simulare pagamenti senza essere approvati formalmente e senza utilizzare vere carte di credito.
-
-####   (RT3) Il sito è responsive 
-Il sito è correttamente visibile da desktop e da smartphone.
-
-####   (RT4) La ricerca dei ristoranti avviene senza il refresh 
-
-
-
-## Requisiti Funzionali
-
-La piattaforma soddisfa i seguenti requisiti funzionali (RF) che vengono dettagliati nei seguenti punti:
-
-
-#### (RF1) Permettere ai ristoratori di registrarsi alla piattaforma
-**Visibilità:** UI<br/>
-**Descrizione:** L’applicazione permette ai ristoratori di registrarsi alla piattaforma e creare un profilo. Le informazioni che l’utente può inserire sono:
->    > ● Email \*<br/>
->    > ● Password \*<br/>
->    > ● Nome Attività *\*<br/>
->    > ● Indirizzo *\**<br/>
->    > ● PIVA *\**<br/>
->    > ● Uno o più tipologie\*:<br/>
->    > italiano, internazionale, cinese, giapponese, messicano, indiano, pesce, carne, pizza...
-
-*Sono contrassegnati con \* i dati obbligatori.*
-
-Email e password sono utilizzati dall’utente per fare il login alla
-piattaforma.
-Non è previsto un pannello per modificare le informazioni inserite una
-volta registrato. I form devono rispettare [RT1](#RT1-client-side-validation)
-
-**Risultato:** Un nuovo utente viene creato nel sistema <br/>
-**Eccezioni:**
-Esiste già nel sistema un utente con l’email inserita
-
-
-#### (RF2) Permettere ai ristoratori di aggiungere un piatto 
-**Visibilità:** UR<br/>
-**Descrizione:** 
-Un ristoratore ha la possibilità di inserire uno o più
-piatti all’interno del sistema. Per inserire un nuovo piatto vanno
-inserite le seguenti informazioni:
-> ● Nome piatto<br/>
-> ● Ingredienti/descrizione <br/>
-> ● Prezzo<br/>
-> ● visibile si/no<br/>
-
-È possibile modificare le informazioni inserite I form devono rispettare [RT1](#RT1-client-side-validation)<br/>
-**Risultato:** Un piatto è inserito nel sistema e le sue informazioni
-sono aggiornate <br/>
-**Eccezioni:** /
-
-
-#### (RF3) Permette ai visitatori di ricercare per tipologia di ristorante
-
-**Visibilità:** UI / UR<br/>
-**Descrizione:** Un utente è in grado di ricercare per una o più tipologie di ristorante La ricerca dei ristoranti deve rispettare [RT4](#RT4-La-ricerca-dei-ristoranti-avviene-senza-il-refresh)<br/>
-**Risultato:** Viene generata una lista di ristoranti che corrispondono alla ricerca<br/> 
-**Eccezioni:** **/**
-
-
-#### (RF4) Permettere ai visitatori di vedere il menu di un ristorante
-**Visibilità:** UI / UR<br/>
-**Descrizione:** Selezionando un ristoratore appaiono tutti i dettagli
-disponibili riguardanti il ristorante e i piatti disponibili.<br/>
-È possibile aggiungere piatti al carrello cliccando sui singoli
-prodotti. Il carrello si visualizza in pagina e si aggiorna senza
-refresh.
-
-**Risultato:** Viene visualizzata la pagina del menu <br/>
-**Eccezioni:** /
-
-
-#### (RF5) Permettere ai UI di pagare l’ordinazione 
-**Visibilità:** UI / UR<br/>
-**Descrizione:** in questa pagina è possibile aggiornare il carrello e
-inserire i dati per la consegna e della carta di credito con cui
-processare il pagamento<br/>
-**Risultato:** L’ordine viene effettuato e si viene inviati ad una
-pagina di avvenuto ordine e viene inviata una mail all’utente e al
-ristoratore<br/>
-**Eccezioni:** Il sistema di pagamento non ha processato correttamente
-il pagamento / i dati della carta di credito non sono validi
-
-
-#### (RF6) Permettere ai ristoratori di visualizzare il riepilogo degli ordini ricevuti
-**Visibilità:** UR<br/>
-**Descrizione:** Un ristoratore ha la possibilità di vedere il riepilogo degli ordini ricevuti, con i dati dell’utente che ha effettuato l’ordine.<br/>
-**Risultato:** L'utente visualizza il riepilogo degli ordini ricevuti, ordinati in modo decrescente per data<br/>
-**Eccezioni:** **/**
-
-
-#### (RF7) Permettere ai ristoratori di visualizzare le statistiche degli ordini 
-**Visibilità:** UR<br/>
-**Descrizione:** Un ristoratore ha la possibilità di vedere le statistiche degli ordini ricevuti<br/>
-**Risultato:** L'utente visualizza le statistiche degli ordini ricevuti per mese/anno e l’ammontare delle vendite<br/>
-**Eccezioni:** **/**
-
-
-
-## Consigli CTO
-
-### Organizzazione
-
-Non iniziare a scrivere subito codice: è importante leggere e rileggere bene il documento per avere un’idea chiara del progetto.
-
-I RF sono in ordine di necessità e complessità: seguendo l’ordine si costruisce un’applicazione completa con funzionalità crescenti.
-È essenziale però avere bene in mente la strada da seguire per non fare scelte iniziali che andranno totalmente cambiate successivamente.
-
-È importante che la fase di progettazione iniziale sia affrontata da tutto il team.
-Durante questo step il team ragiona sull'implementazione delle feature (ad es. si analizzano i requisiti funzionali, si definisce la struttura del dato a DB, si disegnano i wireframe dei flussi applicativi etc.).
-
-In seguito si suddivide l'operatività in task ben definite che potrebbero essere assegnate ai diversi membri in modo da parallelizzare
-lo sviluppo e procedere spediti (ad es. sistemare Model e Migrations, studiare come utilizzare API esterne e nuove librerie, implementare la parte visuale, ecc.).
-
-Affinché il lavoro in team sia proficuo è però essenziale essere sempre aggiornati su tutti gli step, anche se non sviluppati in prima persona.
-A tale scopo è quindi necessario fissare diversi meeting giornalieri affinché ci si possa coordinare, eventualmente integrare le features completate nel branch master, o effettuare debugging.
-
-
-
-### Tecnologie da utilizzare
-
-Non c’è alcun limite nelle tecnologie utilizzabili, purchè rispettino i requisiti. Chiaramente la scelta più ovvia (e consigliata) è quella di usare Laravel e Vue.
-
-#### Ricerca
-
-Per soddisfare il fatto che non si deve avere un refresh della pagina della ricerca bisogna fare delle chiamate ajax utilizzando axios.
-Il metodo più utilizzato in questi casi è fare in modo che ogni cambiamento di input vada a modificare i campi utili alla ricerca nell’url (ad esempio: /ricerca?tipologia=cinese).
-Dopo ogni cambiamento viene fatta una chiamata ajax con i parametri presenti nella URL.
-
-#### Carrello (solo per DeliveBoo)
-
-Le informazioni sui piatti aggiunti al carrello devono essere persistenti lato client anche al refresh o al cambio pagina. Per ottenere questa persistenza, esistono diverse tecnologie native del browser che si possono sfruttare.
-
-#### Statistiche
-
-Potete utilizzare
-[<u>https://www.chartjs.org/</u>](https://www.chartjs.org/)
+Il backend richiede PHP 8.1–8.3, Composer 2, Node.js compatibile con Vite 5 e MySQL. La [guida di avvio](docs/SETUP.it.md) include installazione, configurazione, database, seeder e pagamenti sandbox. Dopo l’avvio si accede da `/register` o `/login`.
