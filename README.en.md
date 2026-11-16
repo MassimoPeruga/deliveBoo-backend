@@ -46,8 +46,6 @@ I handled task allocation, technical decisions and support for teammates, agreei
 - **APIs and Blade views:** the customer frontend communicates through JSON endpoints, while the restaurant dashboard uses views rendered by Laravel. Both interfaces share the same models and data.
 - **Braintree sandbox:** token generation and transaction submission run on the backend; the client supplies a payment method nonce. The sandbox supports practising the integration without real charges.
 
-The work puts relational modelling, external service integration and coordination between APIs and interfaces into practice.
-
 Where to start in the code:
 
 - [API controllers](app/Http/Controllers/Api): catalogue, order creation and checkout.
@@ -57,8 +55,4 @@ Where to start in the code:
 
 ## Running locally
 
-The backend requires PHP 8.1–8.3, Composer 2, a Node.js version compatible with Vite 5, and MySQL. The [setup guide](docs/SETUP.en.md) covers installation, configuration, database, seeders and sandbox payments. After starting the servers, open `/register` or `/login`; the customer frontend remains a separate application.
-
-## Scope and limitations
-
-The project preserves its 2024 learning implementation and dependencies. Payments use the sandbox exclusively, and the video recording documents the team’s result. The assignment describes the initial requirements; this presentation covers the features found in the backend without implying that every original requirement was completed.
+The backend requires PHP 8.1–8.3, Composer 2, a Node.js version compatible with Vite 5, and MySQL. The [setup guide](docs/SETUP.en.md) covers installation, configuration, database, seeders and sandbox payments. After starting the servers, open `/register` or `/login`.
